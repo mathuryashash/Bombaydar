@@ -85,7 +85,7 @@ export default function GuelizBranch() {
       <section className="location-hero" style={{ backgroundImage: `url('/images/butter_chicken.png')` }}>
         <div className="hero-overlay" />
         <div className="container location-hero-content animate-fade-in">
-          <span className="location-badge gold-text">Marrakech Flagship</span>
+          <span className="location-badge">Marrakech Flagship</span>
           <h1 className="font-serif location-title">{copy.title[lang]}</h1>
           <p className="location-subtitle">{copy.subtitle[lang]}</p>
         </div>
@@ -96,7 +96,7 @@ export default function GuelizBranch() {
         <div className="location-details-grid">
           {/* Card 1: Hours */}
           <div className="info-card glass-panel">
-            <h3 className="font-serif gold-text">{copy.hoursTitle[lang]}</h3>
+            <h3 className="font-serif">{copy.hoursTitle[lang]}</h3>
             <ul className="info-list">
               <li>
                 <span className="day">Tuesday - Sunday:</span>
@@ -111,7 +111,7 @@ export default function GuelizBranch() {
 
           {/* Card 2: Contact */}
           <div className="info-card glass-panel">
-            <h3 className="font-serif gold-text">{copy.contactTitle[lang]}</h3>
+            <h3 className="font-serif">{copy.contactTitle[lang]}</h3>
             <ul className="info-list flex-column">
               <li>
                 <strong>Address:</strong>
@@ -119,7 +119,7 @@ export default function GuelizBranch() {
               </li>
               <li>
                 <strong>Phone:</strong>
-                <a href="tel:+212613727362" className="gold-text">+212 613-727362</a>
+                <a href="tel:+212613727362" className="gold-accent">+212 613-727362</a>
               </li>
               <li>
                 <strong>Secondary Phone:</strong>
@@ -138,7 +138,7 @@ export default function GuelizBranch() {
         {/* Narrative & Highlights */}
         <div className="location-narrative-section">
           <div className="narrative-content">
-            <h2 className="font-serif gold-text">{lang === 'EN' ? 'The Spirit of Gueliz' : 'L\'Esprit de Gueliz'}</h2>
+            <h2 className="font-serif">{lang === 'EN' ? 'The Spirit of Gueliz' : 'L\'Esprit de Gueliz'}</h2>
             <p>{copy.tagline[lang]}</p>
           </div>
           
@@ -173,7 +173,7 @@ export default function GuelizBranch() {
       <section className="location-menu-section" id="menu">
         <div className="container">
           <div className="section-header-center">
-            <span className="section-label gold-text">{lang === 'EN' ? 'Dine With Us' : 'Dîner Chez Nous'}</span>
+            <span className="section-label">{lang === 'EN' ? 'Dine With Us' : 'Dîner Chez Nous'}</span>
             <h2 className="section-title font-serif">{lang === 'EN' ? 'The Gueliz Menu' : 'Le Menu de Gueliz'}</h2>
             <div className="section-divider-center" />
           </div>

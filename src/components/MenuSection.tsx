@@ -59,7 +59,6 @@ export default function MenuSection() {
       description: { EN: 'Crispy chicken wings pulled back into lollipop shapes, tossed in a tangy spicy sauce.', FR: 'Ailes de poulet croustillantes en forme de sucette, enrobées de sauce piquante et acidulée.' },
       price: 75,
       category: 'starters',
-      imageUrl: '/images/samosa_hd.png',
       isSpicy: true
     },
     {
@@ -90,7 +89,6 @@ export default function MenuSection() {
       description: { EN: 'Boneless chicken marinated in yogurt, red chilies, and garam masala, grilled on skewers.', FR: 'Poulet désossé mariné au yaourt, piments rouges et garam masala, grillé sur brochettes.' },
       price: 85,
       category: 'tandoor',
-      imageUrl: '/images/seekh_kebab_hd.png',
       isSpicy: true,
       isGF: true
     },
@@ -100,7 +98,6 @@ export default function MenuSection() {
       description: { EN: 'Assortment of chicken tikka, fish tikka, lamb seekh kebab, and tandoori prawns.', FR: 'Assortiment de poulet tikka, poisson tikka, brochette d\'agneau haché et crevettes tandoori.' },
       price: 155,
       category: 'tandoor',
-      imageUrl: '/images/seekh_kebab_hd.png',
       isSpicy: true,
       isGF: true
     },
@@ -324,48 +321,54 @@ export default function MenuSection() {
         </div>
       </div>
 
-      {/* Grid of items */}
-      <div className="menu-items-grid">
-        {filteredItems.length > 0 ? (
-          filteredItems.map((item) => (
-            <div key={item.id} className="menu-item-card glass-panel animate-fade-in-simple">
-              {item.imageUrl && (
-                <div className="menu-item-img-wrapper">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={item.imageUrl} alt={item.name[lang]} className="menu-item-img" />
-                </div>
-              )}
-              <div className="menu-item-header">
-                <div className="menu-item-title-wrapper">
-                  <h3 className="menu-item-name font-serif">{item.name[lang]}</h3>
-                  
-                  {/* Visual Badges */}
-                  <div className="item-badges">
-                    {item.isVeg && (
-                      <span className="badge-icon veg" title="Vegetarian">🟢</span>
-                    )}
-                    {item.isVegan && (
-                      <span className="badge-icon vegan" title="Vegan">🌱</span>
-                    )}
-                    {item.isSpicy && (
-                      <span className="badge-icon spicy" title="Spicy">🌶️</span>
-                    )}
-                    {item.isGF && (
-                      <span className="badge-icon gf" title="Gluten Free">🌾</span>
-                    )}
+      {filteredItems.length > 0 ? (
+        <>
+          {/* Chef's Specials — the only items that carry a photo */}
+          {filteredItems.some(item => item.imageUrl) && (
+            <div className="specials-strip">
+              <span className="specials-label gold-accent">
+                {lang === 'EN' ? "Chef's Specials" : 'Sélection du Chef'}
+              </span>
+              <div className="specials-grid">
+                {filteredItems.filter(item => item.imageUrl).map((item) => (
+                  <div key={item.id} className="special-card glass-panel">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={item.imageUrl} alt={item.name[lang]} className="special-thumb" />
+                    <div className="special-info">
+                      <span className="special-name font-serif">{item.name[lang]}</span>
+                      <span className="special-price gold-accent">{item.price} MAD</span>
+                    </div>
                   </div>
-                </div>
-                <span className="menu-item-price gold-text">{item.price} MAD</span>
+                ))}
               </div>
-              <p className="menu-item-desc">{item.description[lang]}</p>
             </div>
-          ))
-        ) : (
-          <div className="menu-no-results">
-            <p>{lang === 'EN' ? 'No items matches your search filters.' : 'Aucun plat ne correspond à votre recherche.'}</p>
+          )}
+
+          {/* Full category list, fine-dining style */}
+          <div className="menu-list">
+            {filteredItems.map((item) => (
+              <div key={item.id} className="menu-list-item animate-fade-in-simple">
+                <div className="menu-list-item-header">
+                  <h3 className="menu-list-name font-serif">{item.name[lang]}</h3>
+                  <span className="item-badges">
+                    {item.isVeg && <span className="badge-icon veg" title="Vegetarian">🟢</span>}
+                    {item.isVegan && <span className="badge-icon vegan" title="Vegan">🌱</span>}
+                    {item.isSpicy && <span className="badge-icon spicy" title="Spicy">🌶️</span>}
+                    {item.isGF && <span className="badge-icon gf" title="Gluten Free">🌾</span>}
+                  </span>
+                  <span className="menu-list-leader" aria-hidden="true" />
+                  <span className="menu-list-price">{item.price} MAD</span>
+                </div>
+                <p className="menu-list-desc">{item.description[lang]}</p>
+              </div>
+            ))}
           </div>
-        )}
-      </div>
+        </>
+      ) : (
+        <div className="menu-no-results">
+          <p>{lang === 'EN' ? 'No items matches your search filters.' : 'Aucun plat ne correspond à votre recherche.'}</p>
+        </div>
+      )}
     </section>
   );
 }

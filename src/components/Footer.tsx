@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Logo from '@/components/Logo';
 
 export default function Footer() {
   const [lang, setLang] = useState<'EN' | 'FR'>('EN');
@@ -45,15 +45,10 @@ export default function Footer() {
         {/* Brand Info */}
         <div className="footer-brand">
           <Link href="/" className="footer-logo">
-            <Image 
-              src="/images/logo.png" 
-              alt="Bombay Darbar Logo" 
-              width={54} 
-              height={54}
-            />
+            <Logo size={54} />
             <div className="logo-text-wrapper">
               <span className="logo-title font-serif gold-text">BOMBAY DARBAR</span>
-              <span className="logo-subtitle">MAROCCO</span>
+              <span className="logo-subtitle">MOROCCO</span>
             </div>
           </Link>
           <p className="footer-tagline">{content.tagline[lang]}</p>
@@ -69,7 +64,7 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div className="footer-column">
-          <h4 className="footer-title gold-text">{content.quickLinks[lang]}</h4>
+          <h4 className="footer-title">{content.quickLinks[lang]}</h4>
           <ul className="footer-links">
             <li><Link href="/">{lang === 'EN' ? 'Home' : 'Accueil'}</Link></li>
             <li><Link href="/about">{lang === 'EN' ? 'Brand Story' : 'Notre Histoire'}</Link></li>
@@ -81,7 +76,7 @@ export default function Footer() {
 
         {/* Locations Info */}
         <div className="footer-column">
-          <h4 className="footer-title gold-text">{content.locations[lang]}</h4>
+          <h4 className="footer-title">{content.locations[lang]}</h4>
           <ul className="footer-locations-list">
             <li>
               <strong>Gueliz, Marrakech</strong>
@@ -103,7 +98,7 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div className="footer-column">
-          <h4 className="footer-title gold-text">{content.contact[lang]}</h4>
+          <h4 className="footer-title">{content.contact[lang]}</h4>
           <ul className="footer-contact-details">
             <li>
               <span className="contact-label">Phone:</span>

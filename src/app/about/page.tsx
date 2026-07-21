@@ -65,7 +65,7 @@ export default function AboutStory() {
       <section className="about-hero" style={{ backgroundImage: `url('/images/owner_portrait.png')` }}>
         <div className="hero-overlay" />
         <div className="container about-hero-content animate-fade-in">
-          <span className="location-badge gold-text">{copy.label[lang]}</span>
+          <span className="location-badge">{copy.label[lang]}</span>
           <h1 className="font-serif about-title">{copy.title[lang]}</h1>
           <p className="about-subtitle">{copy.subtitle[lang]}</p>
         </div>
@@ -75,7 +75,7 @@ export default function AboutStory() {
       <section className="about-history-section container">
         <div className="about-grid">
           <div className="about-content-paragraphs">
-            <h2 className="font-serif gold-text">{lang === 'EN' ? 'From Udaipur to Marrakech' : 'De Udaipur à Marrakech'}</h2>
+            <h2 className="font-serif">{lang === 'EN' ? 'From Udaipur to Marrakech' : 'De Udaipur à Marrakech'}</h2>
             <div className="section-divider" />
             <p className="about-p">{copy.p1[lang]}</p>
             <p className="about-p">{copy.p2[lang]}</p>
@@ -112,7 +112,7 @@ export default function AboutStory() {
       <section className="about-philosophy-section">
         <div className="container">
           <div className="section-header-center">
-            <span className="section-label gold-text">{lang === 'EN' ? 'How We Cook' : 'Notre Façon de Cuisiner'}</span>
+            <span className="section-label">{lang === 'EN' ? 'How We Cook' : 'Notre Façon de Cuisiner'}</span>
             <h2 className="section-title font-serif">{copy.philosophyTitle[lang]}</h2>
             <div className="section-divider-center" />
           </div>
@@ -120,17 +120,17 @@ export default function AboutStory() {
           <div className="philosophy-grid">
             <div className="philosophy-card glass-panel">
               <div className="phil-icon">🔥</div>
-              <h3 className="font-serif gold-text">{copy.phil1Title[lang]}</h3>
+              <h3 className="font-serif">{copy.phil1Title[lang]}</h3>
               <p>{copy.phil1Desc[lang]}</p>
             </div>
             <div className="philosophy-card glass-panel">
               <div className="phil-icon">🏺</div>
-              <h3 className="font-serif gold-text">{copy.phil2Title[lang]}</h3>
+              <h3 className="font-serif">{copy.phil2Title[lang]}</h3>
               <p>{copy.phil2Desc[lang]}</p>
             </div>
             <div className="philosophy-card glass-panel">
               <div className="phil-icon">🍜</div>
-              <h3 className="font-serif gold-text">{copy.phil3Title[lang]}</h3>
+              <h3 className="font-serif">{copy.phil3Title[lang]}</h3>
               <p>{copy.phil3Desc[lang]}</p>
             </div>
           </div>

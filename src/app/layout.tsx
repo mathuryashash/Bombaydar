@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -26,12 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/logo.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body>
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Link href="#reserve" className="mobile-booking-bar">
+          Reserve a Table
+        </Link>
       </body>
     </html>
   );

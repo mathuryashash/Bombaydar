@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import Logo from '@/components/Logo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,16 +56,10 @@ export default function Navbar() {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <Link href="/" className="nav-logo" onClick={handleLinkClick}>
-          <Image 
-            src="/images/logo.png" 
-            alt="Bombay Darbar Logo" 
-            width={44} 
-            height={44}
-            priority
-          />
+          <Logo size={44} />
           <div className="logo-text-wrapper">
             <span className="logo-title font-serif gold-text">BOMBAY DARBAR</span>
-            <span className="logo-subtitle">MAROCCO</span>
+            <span className="logo-subtitle">MOROCCO</span>
           </div>
         </Link>
 

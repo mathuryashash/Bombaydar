@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import BookingWidget from '@/components/BookingWidget';
+import Logo from '@/components/Logo';
 
 export default function Home() {
   const [lang, setLang] = useState<'EN' | 'FR'>('EN');
@@ -12,7 +13,6 @@ export default function Home() {
   const heroImages = [
     '/images/chef_pose_welcome.png',
     '/images/rooftop_medina_view.png',
-    '/images/chef_pose_cooking.png',
     '/images/clay_pot_biryani.png'
   ];
 
@@ -93,6 +93,30 @@ export default function Home() {
       },
       author: "David L. (Tripadvisor)",
       branch: { EN: "Medina Rooftop", FR: "Médina Rooftop" }
+    },
+    {
+      text: {
+        EN: "The chicken biryani and sizzler-style chicken dishes are amazing! Authentic North Indian flavors with a great vibe.",
+        FR: "Le biryani au poulet et les plats au poulet façon sizzler sont incroyables ! Des saveurs authentiques de l'Inde du Nord avec une super ambiance."
+      },
+      author: "Sophie T. (Google Review)",
+      branch: { EN: "Marrakech Gueliz", FR: "Marrakech Gueliz" }
+    },
+    {
+      text: {
+        EN: "Beautifully cooked starters and naan breads. The decor is stylish and cozy. Excellent service.",
+        FR: "Des entrées et pains naan magnifiquement cuisinés. La décoration est élégante et chaleureuse. Excellent service."
+      },
+      author: "Mark R. (Tripadvisor)",
+      branch: { EN: "Casablanca Ghandi", FR: "Casablanca Ghandi" }
+    },
+    {
+      text: {
+        EN: "A hidden gem! The garlic naan and paneer were delicious. Authentic home-cooked taste. Definitely coming back.",
+        FR: "Un joyau caché ! Le naan à l'ail et le paneer étaient délicieux. Un authentique goût fait maison. J'y retournerai sans hésiter."
+      },
+      author: "Youssef B. (Google Review)",
+      branch: { EN: "Medina Rooftop", FR: "Médina Rooftop" }
     }
   ];
 
@@ -101,28 +125,28 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero-section">
         {heroImages.map((src, index) => (
-          <div 
-            key={src} 
+          <div
+            key={src}
             className={`hero-bg-slide ${index === heroIndex ? 'active' : ''}`}
             style={{ backgroundImage: `url(${src})` }}
           />
         ))}
         <div className="hero-overlay" />
-        
-        <div className="container hero-content animate-fade-in">
+
+        <div className="hero-content">
+          <Logo size={72} className="hero-logo" />
           <h1 className="hero-title font-serif">{copy.heroTitle[lang]}</h1>
           <p className="hero-subtitle">{copy.heroSubtitle[lang]}</p>
           <div className="hero-buttons">
-            <Link href="#reserve" className="btn-primary">{copy.bookTable[lang]}</Link>
+            <Link href="#booking-anchor" className="btn-primary">{copy.bookTable[lang]}</Link>
             <Link href="/about" className="btn-secondary">{copy.discoverMenu[lang]}</Link>
           </div>
         </div>
-        
-        {/* Carousel indicators */}
+
         <div className="hero-indicators">
           {heroImages.map((_, index) => (
-            <button 
-              key={index} 
+            <button
+              key={index}
               className={`indicator-dot ${index === heroIndex ? 'active' : ''}`}
               onClick={() => setHeroIndex(index)}
               aria-label={`Go to slide ${index + 1}`}
@@ -131,23 +155,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Branches grid — FIRST after hero */}
-      <section className="branches-section">
-        <div className="container">
-          <div className="section-header-center">
-            <span className="section-label gold-text">{copy.locationsLabel[lang]}</span>
-            <h2 className="section-title font-serif">{copy.locationsTitle[lang]}</h2>
-            <div className="section-divider-center" />
-          </div>
+      {/* Locations Grid Section (Moved up) */}
+      <section className="locations-section container">
+        <div className="section-header-center">
+          <span className="section-label">{copy.locationsLabel[lang]}</span>
+          <h2 className="section-title font-serif">{copy.locationsTitle[lang]}</h2>
+          <div className="section-divider-center" />
+        </div>
 
-          <div className="branches-grid">
+        <div className="locations-grid-wrapper">
+          <div className="locations-grid">
             {/* Gueliz */}
             <div className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image src="/images/butter_chicken_hd.png" alt="Marrakech Gueliz dining" width={400} height={250} className="branch-img" />
+                <Image src="/images/butter_chicken_hd.png" alt="Gueliz dining" width={400} height={250} className="branch-img" />
               </div>
               <div className="branch-card-content">
-                <h3 className="branch-name font-serif gold-text">Marrakech Gueliz</h3>
+                <h3 className="branch-name font-serif">Marrakech Gueliz</h3>
                 <p className="branch-desc">{copy.guelizDesc[lang]}</p>
                 <div className="branch-actions">
                   <Link href="/locations/gueliz" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
@@ -161,7 +185,7 @@ export default function Home() {
                 <Image src="/images/clay_pot_biryani_hd.png" alt="Medina Rooftop dining" width={400} height={250} className="branch-img" />
               </div>
               <div className="branch-card-content">
-                <h3 className="branch-name font-serif gold-text">Medina Rooftop</h3>
+                <h3 className="branch-name font-serif">Medina Rooftop</h3>
                 <p className="branch-desc">{copy.medinaDesc[lang]}</p>
                 <div className="branch-actions">
                   <Link href="/locations/medina" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
@@ -175,7 +199,7 @@ export default function Home() {
                 <Image src="/images/seekh_kebab_hd.png" alt="Casablanca dining" width={400} height={250} className="branch-img" />
               </div>
               <div className="branch-card-content">
-                <h3 className="branch-name font-serif gold-text">Casablanca Ghandi</h3>
+                <h3 className="branch-name font-serif">Casablanca Ghandi</h3>
                 <p className="branch-desc">{copy.casaDesc[lang]}</p>
                 <div className="branch-actions">
                   <Link href="/locations/casablanca" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
@@ -199,7 +223,7 @@ export default function Home() {
             />
           </div>
           <div className="story-content">
-            <span className="section-label gold-text">{copy.storyLabel[lang]}</span>
+            <span className="section-label">{copy.storyLabel[lang]}</span>
             <h2 className="section-title font-serif">{copy.storyTitle[lang]}</h2>
             <div className="section-divider" />
             <p className="story-paragraph">{copy.storyText1[lang]}</p>
@@ -213,24 +237,38 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <section className="reviews-section container">
-        <div className="section-header-center">
-          <span className="section-label gold-text">{copy.reviewsLabel[lang]}</span>
+      <section className="reviews-section">
+        <div className="section-header-center container">
+          <span className="section-label">{copy.reviewsLabel[lang]}</span>
           <h2 className="section-title font-serif">{copy.reviewsTitle[lang]}</h2>
           <div className="section-divider-center" />
         </div>
 
-        <div className="reviews-slider-grid">
-          {reviews.map((rev, i) => (
-            <div key={i} className="review-card glass-panel">
-              <span className="quote-mark">“</span>
-              <p className="review-text">{rev.text[lang]}</p>
-              <div className="review-meta">
-                <span className="review-author">{rev.author}</span>
-                <span className="review-branch gold-text">{rev.branch[lang]}</span>
+        <div className="reviews-marquee-container">
+          <div className="reviews-marquee-track">
+            {/* First set */}
+            {reviews.map((rev, i) => (
+              <div key={i} className="review-card glass-panel">
+                <span className="quote-mark">&ldquo;</span>
+                <p className="review-text">{rev.text[lang]}</p>
+                <div className="review-meta">
+                  <span className="review-author">{rev.author}</span>
+                  <span className="review-branch">{rev.branch[lang]}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+            {/* Second set for seamless looping */}
+            {reviews.map((rev, i) => (
+              <div key={`dup-${i}`} className="review-card glass-panel">
+                <span className="quote-mark">&ldquo;</span>
+                <p className="review-text">{rev.text[lang]}</p>
+                <div className="review-meta">
+                  <span className="review-author">{rev.author}</span>
+                  <span className="review-branch">{rev.branch[lang]}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
