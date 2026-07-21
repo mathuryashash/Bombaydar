@@ -166,6 +166,12 @@ p {
   transform: translateY(0);
 }
 
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -1031,6 +1037,27 @@ p {
 .form-group input:focus, .form-group select:focus {
   border-color: var(--border-color-strong);
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.04);
+}
+
+.honeypot-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  left: -9999px;
+}
+
+.form-error-notice {
+  font-size: 0.8rem;
+  color: #ff8a8a;
+  background: rgba(139, 30, 47, 0.1);
+  border: 1px solid var(--accent-crimson-light);
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 25px;
+  line-height: 1.4;
 }
 
 .cash-notice {

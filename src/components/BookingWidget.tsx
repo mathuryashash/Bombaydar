@@ -10,6 +10,11 @@ export default function BookingWidget() {
   const [time, setTime] = useState('20:00');
   const [bookingMethod, setBookingMethod] = useState<'eatnow' | 'whatsapp'>('whatsapp');
   const [isSuccess, setIsSuccess] = useState(false);
+  const [fullName, setFullName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const handleLangChange = (e: Event) => {
@@ -42,12 +47,43 @@ export default function BookingWidget() {
     window.open(whatsappUrl, '_blank');
   };
 
-  const handleEatNowBooking = (e: React.FormEvent) => {
+  const handleEatNowBooking = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSuccess(true);
-    setTimeout(() => {
-      setIsSuccess(false);
-    }, 5000);
+    setErrorMessage('');
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch('/api/booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName,
+          phone,
+          location,
+          guests,
+          date,
+          time,
+          company_website: honeypot,
+        }),
+      });
+      const data = await res.json();
+
+      if (!res.ok || !data.ok) {
+        setErrorMessage(
+          data.error || (lang === 'EN' ? 'Something went wrong. Please try again.' : 'Une erreur est survenue. Veuillez réessayer.')
+        );
+        return;
+      }
+
+      setIsSuccess(true);
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch {
+      setErrorMessage(
+        lang === 'EN' ? 'Network error. Please try again.' : 'Erreur réseau. Veuillez réessayer.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -193,13 +229,41 @@ export default function BookingWidget() {
                 <div className="form-grid info-fields">
                   <div className="form-group">
                     <label>{lang === 'EN' ? 'Full Name' : 'Nom Complet'}</label>
-                    <input type="text" required placeholder={lang === 'EN' ? 'John Doe' : 'Jean Dupont'} />
+                    <input
+                      type="text"
+                      required
+                      maxLength={100}
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder={lang === 'EN' ? 'John Doe' : 'Jean Dupont'}
+                    />
                   </div>
 
                   <div className="form-group">
                     <label>{lang === 'EN' ? 'Phone Number' : 'Numéro de Téléphone'}</label>
-                    <input type="tel" required placeholder="+212 600-000000" />
+                    <input
+                      type="tel"
+                      required
+                      pattern="^\+?[0-9\s-]{6,20}$"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="+212 600-000000"
+                    />
                   </div>
+                </div>
+
+                {/* Honeypot — hidden from real visitors, bots tend to fill every field */}
+                <div className="honeypot-field" aria-hidden="true">
+                  <label htmlFor="company_website">Company Website</label>
+                  <input
+                    type="text"
+                    id="company_website"
+                    name="company_website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
                 </div>
 
                 {location === 'gueliz' && (
@@ -208,8 +272,14 @@ export default function BookingWidget() {
                   </div>
                 )}
 
-                <button type="submit" className="btn-primary eatnow-submit-btn">
-                  <span>⚡ {lang === 'EN' ? 'Confirm Instant Booking' : 'Confirmer la réservation'}</span>
+                {errorMessage && (
+                  <div className="form-error-notice">{errorMessage}</div>
+                )}
+
+                <button type="submit" className="btn-primary eatnow-submit-btn" disabled={isSubmitting}>
+                  <span>⚡ {isSubmitting
+                    ? (lang === 'EN' ? 'Sending...' : 'Envoi...')
+                    : (lang === 'EN' ? 'Confirm Instant Booking' : 'Confirmer la réservation')}</span>
                 </button>
               </>
             )}
