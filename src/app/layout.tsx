@@ -5,15 +5,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Bombay Darbar | Authentic Indian Cuisine in Morocco",
-  description: "Experience authentic, home-style North Indian & Punjabi cuisine by Chef Surender Kumar Thakur. Visit us in Marrakech (Gueliz & Medina Rooftop) and Casablanca.",
-  keywords: "Indian restaurant Marrakech, Medina rooftop dining, Indian restaurant Casablanca, halal Indian food Morocco, Chef Surender Kumar, Bombay Marrakech, Bombay Medina, Bombay Ghandi",
+  title: "Bombay Restaurant | Authentic Indian Cuisine in Morocco",
+  description: "Experience authentic, home-style North Indian & Punjabi cuisine by Chef Surender Kumar Thakur. Visit us in Marrakech (Bombay Marrakech & Medina Rooftop) and Casablanca.",
+  keywords: "Indian restaurant Marrakech, Medina rooftop dining, Indian restaurant Casablanca, halal Indian food Morocco, Chef Surender Kumar, Bombay Marrakech, Bombay Medina, Bombay Casablanca",
   authors: [{ name: "Chef Surender Kumar Thakur" }],
   openGraph: {
-    title: "Bombay Darbar | Authentic Indian Cuisine in Morocco",
-    description: "Experience authentic home-style North Indian & Punjabi cuisine by Chef Surender Kumar Thakur. Visit us in Marrakech (Gueliz & Medina Rooftop) and Casablanca.",
+    title: "Bombay Restaurant | Authentic Indian Cuisine in Morocco",
+    description: "Experience authentic home-style North Indian & Punjabi cuisine by Chef Surender Kumar Thakur. Visit us in Marrakech (Bombay Marrakech & Medina Rooftop) and Casablanca.",
     url: "https://bombaydar.com",
-    siteName: "Bombay Darbar",
+    siteName: "Bombay Restaurant",
     locale: "en_US",
     type: "website",
   },

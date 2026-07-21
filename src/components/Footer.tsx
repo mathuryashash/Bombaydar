@@ -47,7 +47,7 @@ export default function Footer() {
           <Link href="/" className="footer-logo">
             <Logo size={54} />
             <div className="logo-text-wrapper">
-              <span className="logo-title font-serif gold-text">BOMBAY DARBAR</span>
+              <span className="logo-title font-serif gold-text">BOMBAY RESTAURANT</span>
               <span className="logo-subtitle">MOROCCO</span>
             </div>
           </Link>
@@ -56,7 +56,7 @@ export default function Footer() {
             <a href="https://instagram.com/bombay_marrakech" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <span className="social-icon">IG</span>
             </a>
-            <a href="https://facebook.com/bombaymarrakechgueliz" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://facebook.com/bombaymarrakech" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <span className="social-icon">FB</span>
             </a>
           </div>
@@ -68,9 +68,9 @@ export default function Footer() {
           <ul className="footer-links">
             <li><Link href="/">{lang === 'EN' ? 'Home' : 'Accueil'}</Link></li>
             <li><Link href="/about">{lang === 'EN' ? 'Brand Story' : 'Notre Histoire'}</Link></li>
-            <li><Link href="/locations/gueliz">{lang === 'EN' ? 'Marrakech Gueliz' : 'Marrakech Gueliz'}</Link></li>
+            <li><Link href="/locations/gueliz">{lang === 'EN' ? 'Bombay Marrakech' : 'Bombay Marrakech'}</Link></li>
             <li><Link href="/locations/medina">{lang === 'EN' ? 'Medina Rooftop' : 'Médina Rooftop'}</Link></li>
-            <li><Link href="/locations/casablanca">{lang === 'EN' ? 'Casablanca Outlet' : 'Restaurant Casablanca'}</Link></li>
+            <li><Link href="/locations/casablanca">{lang === 'EN' ? 'Bombay Casablanca' : 'Bombay Casablanca'}</Link></li>
           </ul>
         </div>
 
@@ -79,7 +79,7 @@ export default function Footer() {
           <h4 className="footer-title">{content.locations[lang]}</h4>
           <ul className="footer-locations-list">
             <li>
-              <strong>Gueliz, Marrakech</strong>
+              <strong>Bombay Marrakech</strong>
               <p>7, Rue Ibn Zaidoun</p>
               <span className="footer-hours">Tue - Sun: 12:00 - 23:00 | Mon: 18:00 - 23:00</span>
             </li>
@@ -89,8 +89,8 @@ export default function Footer() {
               <span className="footer-hours">Open Daily: 12:00 - 00:00</span>
             </li>
             <li>
-              <strong>Ghandi, Casablanca</strong>
-              <p>Boulevard Ghandi, Maârif</p>
+              <strong>Bombay Casablanca</strong>
+              <p>Maârif, Casablanca</p>
               <span className="footer-hours">Open Daily: 12:00 - 23:30</span>
             </li>
           </ul>
@@ -105,7 +105,7 @@ export default function Footer() {
               <a href="tel:+212613727362" className="contact-value">+212 613-727362</a>
             </li>
             <li>
-              <span className="contact-label">Sec. Phone (Gueliz):</span>
+              <span className="contact-label">Sec. Phone (Marrakech):</span>
               <a href="tel:+212600919304" className="contact-value">+212 600-919304</a>
             </li>
             <li>
@@ -121,7 +121,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="container footer-bottom-flex">
-          <p>&copy; {new Date().getFullYear()} Bombay Darbar Marocco. {content.rights[lang]}</p>
+          <p>&copy; {new Date().getFullYear()} Bombay Restaurant Morocco. {content.rights[lang]}</p>
         </div>
       </div>
     </footer>

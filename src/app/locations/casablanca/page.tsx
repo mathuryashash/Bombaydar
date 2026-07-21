@@ -45,15 +45,15 @@ export default function CasablancaBranch() {
 
   const copy = {
     title: { EN: "Bombay Casablanca", FR: "Bombay Casablanca" },
-    subtitle: { EN: "A refined Indian dining escape on Boulevard Ghandi.", FR: "Une évasion gastronomique indienne sur le Boulevard Ghandi." },
+    subtitle: { EN: "A refined Indian dining escape in Casablanca.", FR: "Une évasion gastronomique indienne à Casablanca." },
     tagline: { 
-      EN: "Located on the vibrant Boulevard Ghandi in the Maârif district, Bombay Casablanca brings Chef Surender's culinary expertise to the economic capital. Experience signature North Indian recipes in an upscale, contemporary dining lounge.", 
-      FR: "Situé sur le Boulevard Ghandi dans le quartier de Maârif, Bombay Casablanca apporte le savoir-faire culinaire du Chef Surender dans la capitale économique. Savourez nos recettes signatures du nord de l'Inde dans un salon moderne et raffiné." 
+      EN: "Located in the vibrant Maârif district, Bombay Casablanca brings Chef Surender's culinary expertise to the economic capital. Experience signature North Indian recipes in an upscale, contemporary dining lounge.", 
+      FR: "Situé dans le quartier de Maârif, Bombay Casablanca apporte le savoir-faire culinaire du Chef Surender dans la capitale économique. Savourez nos recettes signatures du nord de l'Inde dans un salon moderne et raffiné." 
     },
     statusAlertTitle: { EN: "Casablanca Location Details", FR: "Détails de Casablanca" },
     statusAlertText: { 
-      EN: "This branch is fully open for dine-in, takeaway, and group bookings. Cards are accepted at this location. Address: Boulevard Ghandi (near Maarif).", 
-      FR: "Ce restaurant est ouvert pour les repas sur place, à emporter et les réservations de groupe. Les cartes bancaires sont acceptées. Adresse : Boulevard Ghandi." 
+      EN: "This branch is fully open for dine-in, takeaway, and group bookings. Cards are accepted at this location. Address: Maârif, Casablanca.", 
+      FR: "Ce restaurant est ouvert pour les repas sur place, à emporter et les réservations de groupe. Les cartes bancaires sont acceptées. Adresse : Maârif, Casablanca." 
     },
     hoursTitle: { EN: "Opening Hours", FR: "Horaires d'Ouverture" },
     contactTitle: { EN: "Contact & Address", FR: "Contact & Adresse" },
@@ -78,7 +78,7 @@ export default function CasablancaBranch() {
       <section className="location-hero" style={{ backgroundImage: `url('/images/casablanca_interior.png')` }}>
         <div className="hero-overlay" />
         <div className="container location-hero-content animate-fade-in">
-          <span className="location-badge">Casablanca Ghandi</span>
+          <span className="location-badge">Bombay Casablanca</span>
           <h1 className="font-serif location-title">{copy.title[lang]}</h1>
           <p className="location-subtitle">{copy.subtitle[lang]}</p>
         </div>

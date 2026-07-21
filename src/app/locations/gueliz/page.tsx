@@ -19,7 +19,7 @@ export default function GuelizBranch() {
   const seoSchema = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    "name": "Bombay Marrakech (Gueliz)",
+    "name": "Bombay Marrakech",
     "image": "https://bombaydar.com/images/butter_chicken.png",
     "@id": "https://bombaydar.com/locations/gueliz",
     "url": "https://bombaydar.com/locations/gueliz",
@@ -51,16 +51,16 @@ export default function GuelizBranch() {
   };
 
   const copy = {
-    title: { EN: "Bombay Marrakech — Gueliz", FR: "Bombay Marrakech — Gueliz" },
+    title: { EN: "Bombay Marrakech", FR: "Bombay Marrakech" },
     subtitle: { EN: "Our original flagship restaurant in modern Marrakech.", FR: "Notre restaurant historique dans le Marrakech moderne." },
     tagline: { 
-      EN: "Steeped in rich Indian hospitality, Gueliz offers the perfect setting for intimate dinners and authentic Punjabi flavors in a warm, plush interior.", 
-      FR: "Empreint de la chaleureuse hospitalité indienne, Gueliz offre le cadre idéal pour des dîners intimes et des saveurs authentiques du Pendjab dans un intérieur cossu." 
+      EN: "Steeped in rich Indian hospitality, Bombay Marrakech offers the perfect setting for intimate dinners and authentic Punjabi flavors in a warm, plush interior.", 
+      FR: "Empreint de la chaleureuse hospitalité indienne, Bombay Marrakech offre le cadre idéal pour des dîners intimes et des saveurs authentiques du Pendjab dans un intérieur cossu." 
     },
     cashAlertTitle: { EN: "Cash Payments Only", FR: "Paiements en Espèces Uniquement" },
     cashAlertText: { 
-      EN: "Please note that our Gueliz branch only accepts cash payments (MAD, EUR, USD). Credit cards are not supported at this location.", 
-      FR: "Veuillez noter que notre établissement de Gueliz accepte uniquement les paiements en espèces. Les cartes bancaires ne sont pas acceptées." 
+      EN: "Please note that our Marrakech branch only accepts cash payments (MAD, EUR, USD). Credit cards are not supported at this location.", 
+      FR: "Veuillez noter que notre établissement de Marrakech accepte uniquement les paiements en espèces. Les cartes bancaires ne sont pas acceptées." 
     },
     hoursTitle: { EN: "Opening Hours", FR: "Horaires d'Ouverture" },
     contactTitle: { EN: "Contact & Address", FR: "Contact & Adresse" },
@@ -138,7 +138,7 @@ export default function GuelizBranch() {
         {/* Narrative & Highlights */}
         <div className="location-narrative-section">
           <div className="narrative-content">
-            <h2 className="font-serif">{lang === 'EN' ? 'The Spirit of Gueliz' : 'L\'Esprit de Gueliz'}</h2>
+            <h2 className="font-serif">{lang === 'EN' ? 'The Spirit of Marrakech' : 'L\'Esprit de Marrakech'}</h2>
             <p>{copy.tagline[lang]}</p>
           </div>
           
@@ -174,7 +174,7 @@ export default function GuelizBranch() {
         <div className="container">
           <div className="section-header-center">
             <span className="section-label">{lang === 'EN' ? 'Dine With Us' : 'Dîner Chez Nous'}</span>
-            <h2 className="section-title font-serif">{lang === 'EN' ? 'The Gueliz Menu' : 'Le Menu de Gueliz'}</h2>
+            <h2 className="section-title font-serif">{lang === 'EN' ? 'The Marrakech Menu' : 'Le Menu de Marrakech'}</h2>
             <div className="section-divider-center" />
           </div>
           <MenuSection />

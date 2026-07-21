@@ -6,7 +6,7 @@ export default function Logo({ size = 44, className = '' }: { size?: number; cla
       viewBox="0 0 100 100"
       className={className}
       role="img"
-      aria-label="Bombay Darbar"
+      aria-label="Bombay Restaurant"
     >
       <defs>
         <linearGradient id="logoGold" x1="0%" y1="0%" x2="100%" y2="100%">

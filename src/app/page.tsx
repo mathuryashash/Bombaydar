@@ -51,24 +51,24 @@ export default function Home() {
       FR: "Le fondateur et chef Surender Kumar Thakur a débuté son parcours en 1998 au sein du prestigieux groupe Oberoi au Trident Udaipur et à l'Oberoi Udaivilas. Après un passage marquant à Bombay Dreams à Hong Kong, il arrive au Maroc en 2004, introduisant pour la première fois dans le Royaume les techniques traditionnelles du tandoor en terre cuite et une authentique cuisine familiale indienne."
     },
     storyText2: {
-      EN: "For over two decades, Chef Surender has operated continuously in Marrakech, expanding from our original Gueliz venue to a stunning Medina rooftop overlook, and now to Boulevard Ghandi, Casablanca. We do not compromise on spices, ingredients, or methods. Our signature chicken biryani is still slow-cooked and served in individually sealed clay pots, just as it was in Punjab generations ago.",
-      FR: "Depuis plus de deux décennies, le Chef Surender exerce continuellement à Marrakech, s'étendant de notre établissement historique de Gueliz à un magnifique toit-terrasse surplombant la Médina, et aujourd'hui au Boulevard Ghandi à Casablanca. Nous ne faisons aucun compromis sur les épices, les ingrédients ou les méthodes. Notre biryani signature au poulet est toujours mijoté et servi dans des pots en terre cuite scellés, comme au Pendjab il y a des générations."
+      EN: "For over two decades, Chef Surender has operated continuously in Marrakech, expanding from our original Marrakech venue to a stunning Medina rooftop overlook, and now to Casablanca. We do not compromise on spices, ingredients, or methods. Our signature chicken biryani is still slow-cooked and served in individually sealed clay pots, just as it was in Punjab generations ago.",
+      FR: "Depuis plus de deux décennies, le Chef Surender exerce continuellement à Marrakech, s'étendant de notre établissement historique de Marrakech à un magnifique toit-terrasse surplombant la Médina, et aujourd'hui à Casablanca. Nous ne faisons aucun compromis sur les épices, les ingrédients ou les méthodes. Notre biryani signature au poulet est toujours mijoté et servi dans des pots en terre cuite scellés, comme au Pendjab il y a des générations."
     },
 
     // Locations Selection
     locationsLabel: { EN: "Explore Our Branches", FR: "Explorez Nos Restaurants" },
     locationsTitle: { EN: "Three Unique Settings, One Soul", FR: "Trois Cadres Uniques, Une Seule Âme" },
     guelizDesc: {
-      EN: "Our original flagship restaurant in the modern district of Gueliz. Richly decorated rooms and contemporary lighting creating an intimate lounge atmosphere.",
-      FR: "Notre restaurant historique dans le quartier moderne de Gueliz. Des salons richement décorés et un éclairage contemporain créant une atmosphère de lounge intime."
+      EN: "Our original flagship restaurant in Marrakech. Richly decorated rooms and contemporary lighting creating an intimate lounge atmosphere.",
+      FR: "Notre restaurant historique dans Marrakech. Des salons richement décorés et un éclairage contemporain créant une atmosphère de lounge intime."
     },
     medinaDesc: {
       EN: "Dine under the Marrakech stars. Located near Jemaa el-Fnaa, offering a vibrant rooftop terrace with panoramic views of the historic Medina skyline.",
       FR: "Dînez sous les étoiles de Marrakech. Situé près de Jemaa el-Fnaa, offrant une terrasse animée sur le toit avec vue panoramique sur la Médina historique."
     },
     casaDesc: {
-      EN: "Bringing Chef Surender's culinary heritage to Casablanca. Located on Boulevard Ghandi, Maârif, featuring an elegant, modern dining room for urban food lovers.",
-      FR: "Apportant l'héritage culinaire du Chef Surender à Casablanca. Situé sur le Boulevard Ghandi, Maârif, offrant une salle élégante pour les passionnés de gastronomie."
+      EN: "Bringing Chef Surender's culinary heritage to Casablanca. Located in Maârif, featuring an elegant, modern dining room for urban food lovers.",
+      FR: "Apportant l'héritage culinaire du Chef Surender à Casablanca. Situé à Maârif, offrant une salle élégante pour les passionnés de gastronomie."
     },
     viewBranch: { EN: "View Restaurant Details", FR: "Voir les Détails" },
 
@@ -84,7 +84,7 @@ export default function Home() {
         FR: "La meilleure cuisine indienne que j'ai goûtée en dehors de l'Inde. Le biryani au poulet en pot d'argile était incroyablement parfumé et savoureux, et le naan au fromage était chaud et frais. Une hospitalité exceptionnelle du Chef Surender !"
       },
       author: "Amina K. (Google Review)",
-      branch: { EN: "Marrakech Gueliz", FR: "Marrakech Gueliz" }
+      branch: { EN: "Bombay Marrakech", FR: "Bombay Marrakech" }
     },
     {
       text: {
@@ -100,7 +100,7 @@ export default function Home() {
         FR: "Le biryani au poulet et les plats au poulet façon sizzler sont incroyables ! Des saveurs authentiques de l'Inde du Nord avec une super ambiance."
       },
       author: "Sophie T. (Google Review)",
-      branch: { EN: "Marrakech Gueliz", FR: "Marrakech Gueliz" }
+      branch: { EN: "Bombay Marrakech", FR: "Bombay Marrakech" }
     },
     {
       text: {
@@ -108,7 +108,7 @@ export default function Home() {
         FR: "Des entrées et pains naan magnifiquement cuisinés. La décoration est élégante et chaleureuse. Excellent service."
       },
       author: "Mark R. (Tripadvisor)",
-      branch: { EN: "Casablanca Ghandi", FR: "Casablanca Ghandi" }
+      branch: { EN: "Bombay Casablanca", FR: "Bombay Casablanca" }
     },
     {
       text: {
@@ -168,10 +168,10 @@ export default function Home() {
             {/* Gueliz */}
             <div className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image src="/images/butter_chicken_hd.png" alt="Gueliz dining" width={400} height={250} className="branch-img" />
+                <Image src="/images/butter_chicken_hd.png" alt="Bombay Marrakech dining" width={400} height={250} className="branch-img" />
               </div>
               <div className="branch-card-content">
-                <h3 className="branch-name font-serif">Marrakech Gueliz</h3>
+                <h3 className="branch-name font-serif">Bombay Marrakech</h3>
                 <p className="branch-desc">{copy.guelizDesc[lang]}</p>
                 <div className="branch-actions">
                   <Link href="/locations/gueliz" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
@@ -199,7 +199,7 @@ export default function Home() {
                 <Image src="/images/seekh_kebab_hd.png" alt="Casablanca dining" width={400} height={250} className="branch-img" />
               </div>
               <div className="branch-card-content">
-                <h3 className="branch-name font-serif">Casablanca Ghandi</h3>
+                <h3 className="branch-name font-serif">Bombay Casablanca</h3>
                 <p className="branch-desc">{copy.casaDesc[lang]}</p>
                 <div className="branch-actions">
                   <Link href="/locations/casablanca" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>

@@ -43,7 +43,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: { EN: 'Home', FR: 'Accueil' } },
     { href: '/about', label: { EN: 'Brand Story', FR: 'Notre Histoire' } },
-    { href: '/locations/gueliz', label: { EN: 'Marrakech Gueliz', FR: 'Marrakech Gueliz' } },
+    { href: '/locations/gueliz', label: { EN: 'Bombay Marrakech', FR: 'Bombay Marrakech' } },
     { href: '/locations/medina', label: { EN: 'Medina Rooftop', FR: 'Médina Rooftop' } },
     { href: '/locations/casablanca', label: { EN: 'Casablanca', FR: 'Casablanca' } },
   ];
@@ -58,7 +58,7 @@ export default function Navbar() {
         <Link href="/" className="nav-logo" onClick={handleLinkClick}>
           <Logo size={44} />
           <div className="logo-text-wrapper">
-            <span className="logo-title font-serif gold-text">BOMBAY DARBAR</span>
+            <span className="logo-title font-serif gold-text">BOMBAY RESTAURANT</span>
             <span className="logo-subtitle">MOROCCO</span>
           </div>
         </Link>

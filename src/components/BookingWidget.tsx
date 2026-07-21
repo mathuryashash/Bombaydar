@@ -29,14 +29,14 @@ export default function BookingWidget() {
   }, []);
 
   const locationLabels: Record<string, { EN: string; FR: string }> = {
-    gueliz: { EN: 'Marrakech Gueliz (Original)', FR: 'Marrakech Gueliz (Original)' },
+    gueliz: { EN: 'Bombay Marrakech', FR: 'Bombay Marrakech' },
     medina: { EN: 'Bombay Medina Rooftop', FR: 'Bombay Médina Rooftop' },
-    casablanca: { EN: 'Ghandi, Casablanca', FR: 'Ghandi, Casablanca' }
+    casablanca: { EN: 'Bombay Casablanca', FR: 'Bombay Casablanca' }
   };
 
   const handleWhatsAppBooking = () => {
     const formattedLocation = locationLabels[location][lang];
-    const text = `Hello Bombay Darbar, I would like to book a table for ${guests} guests at ${formattedLocation} on ${date} at ${time}. Please confirm my booking. Thank you!`;
+    const text = `Hello Bombay Restaurant, I would like to book a table for ${guests} guests at ${formattedLocation} on ${date} at ${time}. Please confirm my booking. Thank you!`;
     const encodedText = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/212613727362?text=${encodedText}`;
     window.open(whatsappUrl, '_blank');
@@ -128,7 +128,7 @@ export default function BookingWidget() {
 
             {location === 'gueliz' && (
               <div className="cash-notice">
-                ⚠️ {lang === 'EN' ? 'Note: Our Gueliz branch operates on cash-only payments.' : 'Note : Notre restaurant de Gueliz accepte uniquement les espèces.'}
+                ⚠️ {lang === 'EN' ? 'Note: Our Marrakech branch operates on cash-only payments.' : 'Note : Notre restaurant de Marrakech accepte uniquement les espèces.'}
               </div>
             )}
 
@@ -204,7 +204,7 @@ export default function BookingWidget() {
 
                 {location === 'gueliz' && (
                   <div className="cash-notice">
-                    ⚠️ {lang === 'EN' ? 'Note: Our Gueliz branch operates on cash-only payments.' : 'Note : Notre restaurant de Gueliz accepte uniquement les espèces.'}
+                    ⚠️ {lang === 'EN' ? 'Note: Our Marrakech branch operates on cash-only payments.' : 'Note : Notre restaurant de Marrakech accepte uniquement les espèces.'}
                   </div>
                 )}
 
