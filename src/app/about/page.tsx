@@ -62,7 +62,7 @@ export default function AboutStory() {
   return (
     <div className="about-page-wrapper">
       {/* Hero Banner */}
-      <section className="about-hero" style={{ backgroundImage: `url('/images/owner_portrait.png')` }}>
+      <section className="about-hero" style={{ backgroundImage: `url('/images/chef_upscaled.png')` }}>
         <div className="hero-overlay" />
         <div className="container about-hero-content animate-fade-in">
           <span className="location-badge">{copy.label[lang]}</span>
@@ -96,7 +96,7 @@ export default function AboutStory() {
             </div>
             <div className="about-img-frame glass-panel">
               <Image 
-                src="/images/owner_portrait.png" 
+                src="/images/chef_upscaled.png" 
                 alt="Chef Surender in the kitchen" 
                 width={500} 
                 height={350} 
