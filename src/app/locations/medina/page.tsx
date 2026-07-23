@@ -47,9 +47,9 @@ export default function MedinaBranch() {
   const copy = {
     title: { EN: "Bombay Medina Rooftop", FR: "Bombay Médina Rooftop" },
     subtitle: { EN: "Dine under the stars in the historic heart of Marrakech.", FR: "Dînez sous les étoiles au cœur historique de Marrakech." },
-    tagline: { 
-      EN: "Perched high above Derb Dabachi, steps away from the iconic Jemaa el-Fnaa square, Bombay Medina combines Chef Surender's culinary mastery with spectacular panoramic views of the Atlas mountains and the historic city skyline.", 
-      FR: "Perché au-dessus de Derb Dabachi, à deux pas de la place Jemaa el-Fnaa, Bombay Médina associe la maîtrise culinaire du Chef Surender à des vues panoramiques spectaculaires sur l'Atlas et la skyline historique de la ville." 
+    tagline: {
+      EN: "Suspended above the bustling souks near Jemaa el-Fnaa, our Rooftop offers breathtaking sunset views of the Koutoubia Mosque and Atlas Mountains. Combining authentic Moroccan riad architecture with royal Mughlai clay-pot cooking, dining under the starlit Marrakech sky is an unforgettable experience.",
+      FR: "Suspendu au-dessus des souks animés près de Jemaa el-Fnaa, notre Rooftop offre une vue panoramique spectaculaire sur la Koutoubia et l'Atlas. Alliant l'architecture d'un riad marocain à la cuisine royale en pot d'argile, dîner sous les étoiles est une expérience inoubliable."
     },
     bookingAlertTitle: { EN: "Rooftop Table Advisory", FR: "Conseil de Réservation" },
     bookingAlertText: { 
@@ -170,7 +170,7 @@ export default function MedinaBranch() {
             <h2 className="section-title font-serif">{lang === 'EN' ? 'The Medina Menu' : 'Le Menu de la Médina'}</h2>
             <div className="section-divider-center" />
           </div>
-          <MenuSection />
+          <MenuSection defaultBranch="marrakech" />
         </div>
       </section>
 

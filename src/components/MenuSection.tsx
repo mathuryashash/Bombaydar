@@ -970,40 +970,45 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       </div>
 
       {/* Dish Items Grid */}
-      <div className="menu-items-grid grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="menu-items-grid grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredItems.map((item) => (
-          <div key={item.id} className="menu-card glass-panel p-4 rounded-xl flex gap-4 transition-all hover:border-gold">
+          <div key={item.id} className="menu-card glass-panel p-5 rounded-2xl flex flex-col sm:flex-row gap-5 transition-all duration-300 hover:border-gold hover:shadow-2xl group">
             {item.imageUrl ? (
-              <div className="dish-thumb-wrapper relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden border border-gold-subtle">
+              <div className="dish-thumb-wrapper relative w-full sm:w-36 h-36 flex-shrink-0 rounded-xl overflow-hidden border border-gold-subtle bg-black/40">
                 <Image
                   src={item.imageUrl}
                   alt={item.name[lang]}
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                  sizes="(max-width: 640px) 100vw, 144px"
                 />
               </div>
             ) : (
-              <div className="dish-thumb-placeholder w-24 h-24 flex-shrink-0 rounded-lg bg-gold-subtle flex-center text-2xl">
+              <div className="dish-thumb-placeholder w-full sm:w-36 h-36 flex-shrink-0 rounded-xl bg-gold-subtle/20 border border-gold-subtle flex-center text-4xl">
                 🍲
               </div>
             )}
-            <div className="dish-info flex-1">
-              <div className="dish-header flex-between mb-1">
-                <h3 className="dish-title font-serif text-lg font-bold flex-center gap-2">
-                  {item.name[lang]}
-                  {item.isVeg && <span title="Vegetarian">🌱</span>}
-                  {item.isSpicy && <span title="Spicy">🌶️</span>}
-                </h3>
-                <span className="dish-price gold-accent font-serif font-bold text-base whitespace-nowrap">
-                  {getDisplayPrice(item)}
-                </span>
+            <div className="dish-info flex-1 flex flex-col justify-between">
+              <div>
+                <div className="dish-header flex-between items-start mb-2 gap-2">
+                  <h3 className="dish-title font-serif text-xl font-bold flex items-center flex-wrap gap-2 text-white group-hover:text-gold transition-colors">
+                    {item.name[lang]}
+                    {item.isVeg && <span title="Vegetarian" className="text-sm">🌱</span>}
+                    {item.isSpicy && <span title="Spicy" className="text-sm">🌶️</span>}
+                  </h3>
+                  <span className="dish-price gold-accent font-serif font-bold text-lg whitespace-nowrap bg-gold-subtle/20 px-3 py-1 rounded-full border border-gold-subtle">
+                    {getDisplayPrice(item)}
+                  </span>
+                </div>
+                <p className="dish-description text-sm text-muted mb-3 leading-relaxed">
+                  {item.description[lang]}
+                </p>
               </div>
-              <p className="dish-description text-sm text-muted mb-2 leading-relaxed">
-                {item.description[lang]}
-              </p>
-              <div className="dish-tags flex gap-2 text-xs">
-                {item.isVegan && <span className="tag tag-green">Vegan</span>}
-                {item.isGF && <span className="tag tag-gold">Gluten-Free</span>}
+              <div className="dish-tags flex flex-wrap gap-2 text-xs pt-2 border-t border-white/10">
+                {item.isVeg && <span className="tag tag-green">🌱 Vegetarian</span>}
+                {item.isVegan && <span className="tag tag-green">🌿 Vegan</span>}
+                {item.isSpicy && <span className="tag tag-red">🌶️ Mildly Spicy</span>}
+                {item.isGF && <span className="tag tag-gold">🌾 Gluten-Free</span>}
                 {item.locationExclusive === 'marrakech' && (
                   <span className="tag tag-purple">🕌 Marrakech & Medina Exclusive</span>
                 )}

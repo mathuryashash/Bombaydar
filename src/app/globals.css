@@ -1409,30 +1409,7 @@ p {
   }
 }
 
-/* Reviews Section */
-.reviews-section {
-  padding: 80px 0;
-  margin-bottom: 80px;
-}
-
-.reviews-slider-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-@media (max-width: 767px) {
-  .reviews-slider-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-.review-card {
-  padding: 40px;
-  border-radius: 8px;
-  position: relative;
-}
+/* Reviews Section (overridden by Marquee below) */
 
 .quote-mark {
   position: absolute;
@@ -1884,7 +1861,10 @@ p {
   }
 }
 
-/* Reviews Section & Infinite Marquee Carousel */
+
+/* ==========================================================================
+   Reviews Marquee Carousel & Hero Parallax Motion
+   ========================================================================== */
 .reviews-section {
   padding: 80px 0;
   overflow: hidden;
@@ -1893,22 +1873,25 @@ p {
 
 .reviews-marquee-container {
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden !important;
   position: relative;
-  padding: 20px 0;
-  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  padding: 24px 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .reviews-marquee-track {
-  display: flex;
-  width: max-content;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
   gap: 24px;
-  animation: marquee-scroll 35s linear infinite;
+  animation: marquee-scroll 35s linear infinite !important;
+  will-change: transform;
 }
 
 .reviews-marquee-track:hover {
-  animation-play-state: paused;
+  animation-play-state: paused !important;
 }
 
 @keyframes marquee-scroll {
@@ -1921,13 +1904,23 @@ p {
 }
 
 .review-card {
-  flex: 0 0 380px;
-  width: 380px;
+  flex: 0 0 380px !important;
+  width: 380px !important;
+  min-width: 380px !important;
+  max-width: 380px !important;
   padding: 28px;
-  border-radius: 12px;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
+  margin: 0;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-primary);
 }
 
 .quote-mark {
@@ -1968,19 +1961,55 @@ p {
   letter-spacing: 0.05em;
 }
 
+/* Hero Ambient Parallax Motion */
+.hero-bg-slide {
+  transition: opacity 1.2s ease-in-out, transform 12s ease-out;
+  transform: scale(1.02);
+}
+
+.hero-bg-slide.active {
+  transform: scale(1.08);
+}
+
+.chef-portrait-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.chef-portrait-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+}
+
+/* Delivery CTA Button */
+.nav-delivery-btn {
+  background: transparent;
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-primary);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-delivery-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+  color: var(--gold-light);
+}
+
 @media (max-width: 768px) {
   .reviews-marquee-track {
-    animation-duration: 25s;
+    animation-duration: 25s !important;
     gap: 16px;
   }
   .review-card {
-    flex: 0 0 290px;
-    width: 290px;
+    flex: 0 0 300px !important;
+    width: 300px !important;
+    min-width: 300px !important;
     padding: 20px;
   }
 }
-
-
-
-
-

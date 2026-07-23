@@ -21,7 +21,6 @@ export default function Navbar() {
     };
     window.addEventListener('scroll', handleScroll);
     
-    // Listen for language changes from other components
     const handleLangChange = (e: Event) => {
       const customEvent = e as CustomEvent<'EN' | 'FR'>;
       setLang(customEvent.detail);
@@ -94,6 +93,17 @@ export default function Navbar() {
           </ul>
 
           <div className="nav-actions">
+            <a 
+              href="https://wa.me/212613727362?text=Hello%20Bombay%20Restaurant!%20I%20would%20like%20to%20order%20food%20for%20delivery/takeaway." 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-delivery-btn"
+              title="Order Delivery / Takeaway via WhatsApp"
+            >
+              <span>🛵</span>
+              <span>{lang === 'EN' ? 'Delivery' : 'Livraison'}</span>
+            </a>
+
             <button 
               onClick={toggleLang} 
               className="lang-toggle-btn"

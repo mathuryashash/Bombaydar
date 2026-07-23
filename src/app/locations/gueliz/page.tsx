@@ -53,9 +53,9 @@ export default function GuelizBranch() {
   const copy = {
     title: { EN: "Bombay Marrakech", FR: "Bombay Marrakech" },
     subtitle: { EN: "Our original flagship restaurant in modern Marrakech.", FR: "Notre restaurant historique dans le Marrakech moderne." },
-    tagline: { 
-      EN: "Steeped in rich Indian hospitality, Bombay Marrakech offers the perfect setting for intimate dinners and authentic Punjabi flavors in a warm, plush interior.", 
-      FR: "Empreint de la chaleureuse hospitalité indienne, Bombay Marrakech offre le cadre idéal pour des dîners intimes et des saveurs authentiques du Pendjab dans un intérieur cossu." 
+    tagline: {
+      EN: "Nestled in Marrakech's chic Ville Nouvelle, Bombay Gueliz pays homage to the 1920s Art Deco dining saloons of Bombay's Fort district. Here, dark teakwood paneling, brass lanterns, and plush velvet seating create an intimate sanctuary for refined North Indian culinary craftsmanship.",
+      FR: "Niché dans le quartier chic de la Ville Nouvelle à Marrakech, Bombay Guéliz rend hommage aux salons Art Déco des années 1920 du quartier du Fort de Bombay. Des boiseries sombres, lanternes en laiton et sièges en velours créent un sanctuaire intime."
     },
     cashAlertTitle: { EN: "Cash Payments Only", FR: "Paiements en Espèces Uniquement" },
     cashAlertText: { 
@@ -177,7 +177,7 @@ export default function GuelizBranch() {
             <h2 className="section-title font-serif">{lang === 'EN' ? 'The Marrakech Menu' : 'Le Menu de Marrakech'}</h2>
             <div className="section-divider-center" />
           </div>
-          <MenuSection />
+          <MenuSection defaultBranch="marrakech" />
         </div>
       </section>
 

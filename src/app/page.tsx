@@ -217,13 +217,13 @@ export default function Home() {
       {/* Brand Heritage Section */}
       <section className="brand-story-section container">
         <div className="story-grid">
-          <div className="story-image-wrapper glass-panel">
+          <div className="story-image-wrapper glass-panel chef-portrait-card overflow-hidden rounded-2xl border border-gold shadow-2xl">
             <Image 
-              src="/images/web/chef_surender_portrait.jpg" 
+              src="/images/web/chef_surender_solo_portrait.jpg" 
               alt="Chef Surender Kumar Thakur" 
               width={500} 
-              height={600}
-              className="story-img"
+              height={700}
+              className="story-img object-cover w-full h-full transform hover:scale-105 transition-transform duration-700"
             />
           </div>
           <div className="story-content">

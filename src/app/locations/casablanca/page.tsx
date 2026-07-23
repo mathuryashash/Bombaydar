@@ -46,9 +46,9 @@ export default function CasablancaBranch() {
   const copy = {
     title: { EN: "Bombay Casablanca", FR: "Bombay Casablanca" },
     subtitle: { EN: "A refined Indian dining escape in Casablanca.", FR: "Une évasion gastronomique indienne à Casablanca." },
-    tagline: { 
-      EN: "Located in the vibrant Maârif district, Bombay Casablanca brings Chef Surender's culinary expertise to the economic capital. Experience signature North Indian recipes in an upscale, contemporary dining lounge.", 
-      FR: "Situé dans le quartier de Maârif, Bombay Casablanca apporte le savoir-faire culinaire du Chef Surender dans la capitale économique. Savourez nos recettes signatures du nord de l'Inde dans un salon moderne et raffiné." 
+    tagline: {
+      EN: "Located along Boulevard Ghandi in Maârif, Bombay Casablanca bridges Atlantic coastal elegance with contemporary Indian gastronomy. Designed as a modern lounge with gold accents and open tandoor grills, it brings fresh ocean seafood curries, sizzlers, and handcrafted mocktails to Morocco's capital of style.",
+      FR: "Situé le long du Boulevard Ghandi à Maârif, Bombay Casablanca associe l'élégance côtière de l'Atlantique à la gastronomie indienne contemporaine. Conçu comme un salon moderne avec grils tandoor ouverts, il propose des currys de fruits de mer et des boissons artisanales."
     },
     statusAlertTitle: { EN: "Casablanca Location Details", FR: "Détails de Casablanca" },
     statusAlertText: { 
@@ -166,7 +166,7 @@ export default function CasablancaBranch() {
             <h2 className="section-title font-serif">{lang === 'EN' ? 'The Casablanca Menu' : 'Le Menu de Casablanca'}</h2>
             <div className="section-divider-center" />
           </div>
-          <MenuSection />
+          <MenuSection defaultBranch="casablanca" />
         </div>
       </section>
 
