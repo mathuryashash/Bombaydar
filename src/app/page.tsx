@@ -11,9 +11,13 @@ export default function Home() {
   const [heroIndex, setHeroIndex] = useState(0);
 
   const heroImages = [
-    '/images/chef_pose_welcome.png',
-    '/images/rooftop_medina_view.png',
-    '/images/clay_pot_biryani.png'
+    '/images/web/hero_royal_lounge.jpg',
+    '/images/web/hero_medina_rooftop.jpg',
+    '/images/web/food_clay_pot_biryani.jpg',
+    '/images/web/chef_tandoor_cooking.jpg',
+    '/images/web/hero_casablanca_interior.jpg',
+    '/images/web/food_butter_chicken_thali.jpg',
+    '/images/web/ambiance_luxury_table.jpg'
   ];
 
   useEffect(() => {
@@ -215,7 +219,7 @@ export default function Home() {
         <div className="story-grid">
           <div className="story-image-wrapper glass-panel">
             <Image 
-              src="/images/chef_upscaled.png" 
+              src="/images/web/chef_surender_portrait.jpg" 
               alt="Chef Surender Kumar Thakur" 
               width={500} 
               height={600}
