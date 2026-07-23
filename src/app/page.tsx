@@ -168,11 +168,11 @@ export default function Home() {
         </div>
 
         <div className="locations-grid-wrapper">
-          <div className="locations-grid">
+          <div className="branches-grid">
             {/* Gueliz */}
             <div className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image src="/images/butter_chicken_hd.png" alt="Bombay Marrakech dining" width={400} height={250} className="branch-img" />
+                <Image src="/images/web/hero_royal_lounge.jpg" alt="Bombay Marrakech dining" width={400} height={250} className="branch-img" />
               </div>
               <div className="branch-card-content">
                 <h3 className="branch-name font-serif">Bombay Marrakech</h3>
@@ -186,7 +186,7 @@ export default function Home() {
             {/* Medina */}
             <div className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image src="/images/clay_pot_biryani_hd.png" alt="Medina Rooftop dining" width={400} height={250} className="branch-img" />
+                <Image src="/images/web/hero_medina_rooftop.jpg" alt="Medina Rooftop dining" width={400} height={250} className="branch-img" />
               </div>
               <div className="branch-card-content">
                 <h3 className="branch-name font-serif">Medina Rooftop</h3>
@@ -200,7 +200,7 @@ export default function Home() {
             {/* Casablanca */}
             <div className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image src="/images/seekh_kebab_hd.png" alt="Casablanca dining" width={400} height={250} className="branch-img" />
+                <Image src="/images/web/hero_casablanca_interior.jpg" alt="Casablanca dining" width={400} height={250} className="branch-img" />
               </div>
               <div className="branch-card-content">
                 <h3 className="branch-name font-serif">Bombay Casablanca</h3>

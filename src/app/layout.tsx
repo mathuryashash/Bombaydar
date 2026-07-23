@@ -33,9 +33,6 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <Link href="#reserve" className="mobile-booking-bar">
-          Reserve a Table
-        </Link>
       </body>
     </html>
   );

@@ -954,7 +954,14 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
                   sizes="(max-width: 640px) 100vw, 144px"
                 />
               </div>
-            ) : null}
+            ) : (
+              <div className="hidden sm:flex w-36 h-36 flex-shrink-0 rounded-xl border border-white/5 bg-white/[0.02] flex-col items-center justify-center text-center p-3">
+                <div className="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center mb-1 text-gold/60 font-serif text-xs">
+                  B
+                </div>
+                <span className="text-[9px] uppercase tracking-widest text-muted/60 font-mono">Bombay Recipe</span>
+              </div>
+            )}
             <div className="flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-start justify-between gap-3 mb-2">

@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
+  /* Gold Palette Variables */
+  --gold-primary: #d4af37;
+  --gold-secondary: #e5a93b;
+  --gold-subtle: rgba(212, 175, 55, 0.2);
+  --gold-light: #ffd984;
+  --gold-gradient: linear-gradient(135deg, #ffd984 0%, #af7c1c 100%);
+  --sand: #c2bba8;
+
   /* Colors */
   --bg-primary: #08090b;
   --bg-secondary: #101216;
@@ -1835,30 +1843,10 @@ p {
 }
 
 /* Sticky Mobile Booking Bar */
-.mobile-booking-bar {
-  display: none;
-}
+
 
 @media (max-width: 767px) {
-  .mobile-booking-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-    z-index: 999;
-    padding: 14px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #000;
-    background: var(--gold-gradient);
-    border-radius: 6px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  }
+  
 }
 
 
@@ -2061,4 +2049,18 @@ p {
     color: var(--gold-primary);
     border: 1px solid var(--gold-primary);
   }
+}
+
+/* Utility classes mapping to theme variables */
+.text-gold { color: var(--gold-primary) !important; }
+.bg-gold { background-color: var(--gold-primary) !important; }
+.border-gold { border-color: var(--gold-primary) !important; }
+.text-sand { color: var(--sand) !important; }
+.bg-sand { background-color: var(--sand) !important; }
+.bg-gold-gradient { background: var(--gold-gradient) !important; }
+.border-gold-subtle { border-color: var(--gold-subtle) !important; }
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
 }
