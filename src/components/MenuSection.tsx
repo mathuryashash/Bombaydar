@@ -46,7 +46,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
 
   const categories = [
     { id: "starters", label: { EN: "Starters & Salads", FR: "Entrées & Salades" } },
-    { id: "tandoor", label: { EN: "Tandoor & Grills", FR: "Grillades Tandoor" } },
+    { id: "tandoor", label: { EN: "Tandoor Grills", FR: "Grillades Tandoor" } },
     { id: "fusion", label: { EN: "Indo-Chinese Fusion", FR: "Fusion Indo-Chinoise" } },
     { id: "thalis", label: { EN: "Thalis & Combos", FR: "Thalis & Combos" } },
     { id: "poultry", label: { EN: "Chicken Curries", FR: "Currys de Poulet" } },
@@ -166,6 +166,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Spiced minced chicken skewers flame-grilled in our clay tandoor oven.", FR: "Brochettes de poulet haché épicé grillées au feu du tandoor." },
       price: { marrakech: 120, casablanca: 90 },
       category: "tandoor",
+      imageUrl: "/images/web/food_tandoori_kebabs.jpg",
       isGF: true
     },
     {
@@ -494,6 +495,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Whole black lentils slow-cooked overnight with kidney beans, butter, cream, and fenugreek.", FR: "Lentilles noires mijotées toute la nuit avec haricots rouges, beurre et crème." },
       price: { marrakech: 99, casablanca: 90 },
       category: "vegetarian",
+      imageUrl: "/images/web/food_dal_makhani_curry.jpg",
       isVeg: true,
       isGF: true
     },
@@ -753,7 +755,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Warm milk-solid dumplings soaked in cardamom rose syrup, served with pistachio slices.", FR: "Boules de lait concentré dorées imbibées d'un sirop chaud à la rose et pistaches." },
       price: { marrakech: 50, casablanca: 35 },
       category: "drinks",
-      imageUrl: "/images/web/food_gulab_jamun_dessert.jpg",
+      imageUrl: "/images/web/food_gulab_jamun.jpg",
       isVeg: true
     },
     {
@@ -841,14 +843,10 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
   ];
 
   const filteredItems = menuItems.filter(item => {
-    // Filter by tab category
     if (activeTab !== item.category) return false;
-
-    // Filter by branch availability
     if (selectedBranch === 'marrakech' && item.locationExclusive === 'casablanca') return false;
     if (selectedBranch === 'casablanca' && item.locationExclusive === 'marrakech') return false;
 
-    // Search query filter
     if (searchQuery.trim() !== '') {
       const q = searchQuery.toLowerCase();
       const matchName = item.name.EN.toLowerCase().includes(q) || item.name.FR.toLowerCase().includes(q);
@@ -856,7 +854,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       if (!matchName && !matchDesc) return false;
     }
 
-    // Dietary filters
     if (filterVeg && !item.isVeg) return false;
     if (filterSpicy && !item.isSpicy) return false;
 
@@ -874,93 +871,92 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
   };
 
   return (
-    <div className="menu-container">
-      {/* Visual Menu Scans Modal Trigger & Location Branch Switcher */}
-      <div className="menu-top-toolbar flex-center flex-column gap-3 mb-4">
-        {/* Branch Selection Buttons */}
-        <div className="branch-selector-pills flex-center gap-2 flex-wrap">
-          <span className="text-muted text-sm font-semibold mr-2">
-            {lang === 'EN' ? 'Branch Prices:' : 'Tarifs par Succursale:'}
+    <div className="menu-container max-w-6xl mx-auto px-4">
+      {/* Top Controls Toolbar */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-black/40 p-4 rounded-2xl border border-gold/20 backdrop-blur-md">
+        {/* Branch Selector */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="text-xs uppercase tracking-widest text-muted mr-2 font-semibold">
+            {lang === 'EN' ? 'BRANCH PRICING:' : 'TARIFS PAR SUCCURSALE:'}
           </span>
           <button
-            className={`btn-branch-pill ${selectedBranch === 'all' ? 'active' : ''}`}
+            className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all ${selectedBranch === 'all' ? 'bg-gold-gradient text-black shadow-lg shadow-gold/20' : 'bg-white/5 text-muted hover:text-white border border-white/10'}`}
             onClick={() => setSelectedBranch('all')}
           >
-            🌟 {lang === 'EN' ? 'All Locations' : 'Toutes les Succursales'}
+            {lang === 'EN' ? 'All Locations' : 'Toutes les Succursales'}
           </button>
           <button
-            className={`btn-branch-pill ${selectedBranch === 'marrakech' ? 'active' : ''}`}
+            className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all ${selectedBranch === 'marrakech' ? 'bg-gold-gradient text-black shadow-lg shadow-gold/20' : 'bg-white/5 text-muted hover:text-white border border-white/10'}`}
             onClick={() => setSelectedBranch('marrakech')}
           >
-            🕌 Marrakech (Gueliz & Medina)
+            Marrakech (Gueliz & Medina)
           </button>
           <button
-            className={`btn-branch-pill ${selectedBranch === 'casablanca' ? 'active' : ''}`}
+            className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all ${selectedBranch === 'casablanca' ? 'bg-gold-gradient text-black shadow-lg shadow-gold/20' : 'bg-white/5 text-muted hover:text-white border border-white/10'}`}
             onClick={() => setSelectedBranch('casablanca')}
           >
-            🌊 Casablanca (Ghandi)
+            Casablanca (Ghandi)
           </button>
         </div>
 
-        {/* View Official Scanned Menu Cards Button */}
-        <div className="menu-scans-trigger-wrapper">
-          <button
-            className="btn-gold-secondary flex-center gap-2"
-            onClick={() => {
-              setScanBranch(selectedBranch === 'casablanca' ? 'casablanca' : 'medina');
-              setCurrentScanPage(1);
-              setShowMenuScanModal(true);
-            }}
-          >
-            <span>📜</span>
-            <span>{lang === 'EN' ? 'View Official Scanned Menu Pages' : 'Voir les Pages Officielles du Menu Scanné'}</span>
-          </button>
-        </div>
+        {/* View Scanned Menu Modal Button */}
+        <button
+          className="px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold border border-gold/60 text-gold hover:bg-gold/10 transition-all flex items-center gap-2"
+          onClick={() => {
+            setScanBranch(selectedBranch === 'casablanca' ? 'casablanca' : 'medina');
+            setCurrentScanPage(1);
+            setShowMenuScanModal(true);
+          }}
+        >
+          <span>VIEW & DOWNLOAD OFFICIAL 2023 MENU (PDF)</span>
+        </button>
       </div>
 
       {/* Search & Dietary Filters */}
-      <div className="menu-controls glass-panel p-3 mb-4 rounded-xl">
-        <div className="search-bar-wrapper mb-3">
-          <input
-            type="text"
-            placeholder={lang === 'EN' ? '🔍 Search dishes, ingredients...' : '🔍 Rechercher un plat, ingrédient...'}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="menu-search-input w-full"
-          />
-        </div>
-        <div className="dietary-toggles flex-between flex-wrap gap-2">
-          <div className="toggles flex-center gap-3">
-            <label className="checkbox-label flex-center gap-1 cursor-pointer">
+      <div className="bg-black/50 p-5 rounded-2xl border border-white/10 mb-8 backdrop-blur-md">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="relative w-full sm:w-80">
+            <input
+              type="text"
+              placeholder={lang === 'EN' ? 'Search dishes or ingredients...' : 'Rechercher un plat...'}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-white/5 border border-white/15 rounded-full px-5 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-gold transition-all"
+            />
+          </div>
+          <div className="flex items-center gap-4 flex-wrap">
+            <label className="flex items-center gap-2 text-xs uppercase tracking-wider text-muted cursor-pointer hover:text-white transition-colors">
               <input
                 type="checkbox"
                 checked={filterVeg}
                 onChange={(e) => setFilterVeg(e.target.checked)}
+                className="accent-gold w-4 h-4 rounded cursor-pointer"
               />
-              <span>🌱 {lang === 'EN' ? 'Vegetarian Only' : 'Végétarien Uniquement'}</span>
+              <span>Vegetarian Only</span>
             </label>
-            <label className="checkbox-label flex-center gap-1 cursor-pointer">
+            <label className="flex items-center gap-2 text-xs uppercase tracking-wider text-muted cursor-pointer hover:text-white transition-colors">
               <input
                 type="checkbox"
                 checked={filterSpicy}
                 onChange={(e) => setFilterSpicy(e.target.checked)}
+                className="accent-gold w-4 h-4 rounded cursor-pointer"
               />
-              <span>🌶️ {lang === 'EN' ? 'Spicy Only' : 'Épicé Uniquement'}</span>
+              <span>Spicy Only</span>
             </label>
+            <span className="text-xs uppercase tracking-widest text-gold font-bold ml-auto">
+              {filteredItems.length} {lang === 'EN' ? 'Dishes' : 'Plats'}
+            </span>
           </div>
-          <span className="results-count text-sm text-muted">
-            {filteredItems.length} {lang === 'EN' ? 'Dishes Found' : 'Plats Trouvés'}
-          </span>
         </div>
       </div>
 
       {/* Category Tabs */}
-      <div className="menu-tabs-wrapper overflow-x-auto mb-5 pb-2">
-        <div className="menu-tabs flex gap-2">
+      <div className="overflow-x-auto mb-8 pb-2 border-b border-white/10 no-scrollbar">
+        <div className="flex gap-2 min-w-max">
           {categories.map((cat) => (
             <button
               key={cat.id}
-              className={`menu-tab-btn ${activeTab === cat.id ? 'active' : ''}`}
+              className={`px-5 py-3 rounded-t-xl text-xs uppercase tracking-widest font-bold transition-all border-b-2 ${activeTab === cat.id ? 'border-gold text-gold bg-white/5' : 'border-transparent text-muted hover:text-white'}`}
               onClick={() => setActiveTab(cat.id)}
             >
               {cat.label[lang]}
@@ -970,50 +966,44 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       </div>
 
       {/* Dish Items Grid */}
-      <div className="menu-items-grid grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredItems.map((item) => (
-          <div key={item.id} className="menu-card glass-panel p-5 rounded-2xl flex flex-col sm:flex-row gap-5 transition-all duration-300 hover:border-gold hover:shadow-2xl group">
+          <div key={item.id} className="bg-black/60 p-6 rounded-2xl border border-white/10 flex flex-col sm:flex-row gap-5 transition-all duration-300 hover:border-gold/60 hover:bg-black/80 hover:shadow-2xl group">
             {item.imageUrl ? (
-              <div className="dish-thumb-wrapper relative w-full sm:w-36 h-36 flex-shrink-0 rounded-xl overflow-hidden border border-gold-subtle bg-black/40">
+              <div className="relative w-full sm:w-36 h-36 flex-shrink-0 rounded-xl overflow-hidden border border-white/10 bg-black/40">
                 <Image
                   src={item.imageUrl}
                   alt={item.name[lang]}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 640px) 100vw, 144px"
                 />
               </div>
-            ) : (
-              <div className="dish-thumb-placeholder w-full sm:w-36 h-36 flex-shrink-0 rounded-xl bg-gold-subtle/20 border border-gold-subtle flex-center text-4xl">
-                🍲
-              </div>
-            )}
-            <div className="dish-info flex-1 flex flex-col justify-between">
+            ) : null}
+            <div className="flex-1 flex flex-col justify-between">
               <div>
-                <div className="dish-header flex-between items-start mb-2 gap-2">
-                  <h3 className="dish-title font-serif text-xl font-bold flex items-center flex-wrap gap-2 text-white group-hover:text-gold transition-colors">
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <h3 className="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors">
                     {item.name[lang]}
-                    {item.isVeg && <span title="Vegetarian" className="text-sm">🌱</span>}
-                    {item.isSpicy && <span title="Spicy" className="text-sm">🌶️</span>}
                   </h3>
-                  <span className="dish-price gold-accent font-serif font-bold text-lg whitespace-nowrap bg-gold-subtle/20 px-3 py-1 rounded-full border border-gold-subtle">
+                  <span className="font-serif font-bold text-lg text-gold whitespace-nowrap bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
                     {getDisplayPrice(item)}
                   </span>
                 </div>
-                <p className="dish-description text-sm text-muted mb-3 leading-relaxed">
+                <p className="text-sm text-muted mb-4 leading-relaxed font-sans">
                   {item.description[lang]}
                 </p>
               </div>
-              <div className="dish-tags flex flex-wrap gap-2 text-xs pt-2 border-t border-white/10">
-                {item.isVeg && <span className="tag tag-green">🌱 Vegetarian</span>}
-                {item.isVegan && <span className="tag tag-green">🌿 Vegan</span>}
-                {item.isSpicy && <span className="tag tag-red">🌶️ Mildly Spicy</span>}
-                {item.isGF && <span className="tag tag-gold">🌾 Gluten-Free</span>}
+              <div className="flex flex-wrap gap-2 pt-3 border-t border-white/10">
+                {item.isVeg && <span className="px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold bg-green-950/60 text-green-400 border border-green-800/40">Vegetarian</span>}
+                {item.isVegan && <span className="px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold bg-emerald-950/60 text-emerald-300 border border-emerald-800/40">Vegan</span>}
+                {item.isSpicy && <span className="px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold bg-red-950/60 text-red-400 border border-red-800/40">Spicy</span>}
+                {item.isGF && <span className="px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold bg-amber-950/60 text-amber-300 border border-amber-800/40">Gluten-Free</span>}
                 {item.locationExclusive === 'marrakech' && (
-                  <span className="tag tag-purple">🕌 Marrakech & Medina Exclusive</span>
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold bg-purple-950/60 text-purple-300 border border-purple-800/40">Marrakech Exclusive</span>
                 )}
                 {item.locationExclusive === 'casablanca' && (
-                  <span className="tag tag-blue">🌊 Casablanca Exclusive</span>
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold bg-blue-950/60 text-blue-300 border border-blue-800/40">Casablanca Exclusive</span>
                 )}
               </div>
             </div>
@@ -1023,47 +1013,47 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
 
       {/* Official Scanned Menu Modal */}
       {showMenuScanModal && (
-        <div className="modal-overlay flex-center p-4 fixed inset-0 z-50 bg-black/80 backdrop-blur-md">
-          <div className="modal-content glass-panel p-5 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col">
-            <div className="modal-header flex-between mb-3 border-b border-gold-subtle pb-3">
-              <div className="flex-center gap-3">
-                <h3 className="font-serif text-xl font-bold text-gold">
-                  📜 {lang === 'EN' ? 'Official Scanned Menu' : 'Pages Officielles du Menu'}
-                </h3>
-                <div className="flex gap-2 flex-wrap">
-                  <a
-                    href="/Menu Restaurant Bombay 2023.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-sm btn-gold flex-center gap-1 text-xs"
-                    title="Download Official 2023 PDF Menu"
-                  >
-                    <span>📥</span> {lang === 'EN' ? 'Download PDF Menu' : 'Télécharger le Menu PDF'}
-                  </a>
-                  <button
-                    className={`btn-sm ${scanBranch === 'medina' ? 'btn-gold' : 'btn-outline'}`}
-                    onClick={() => { setScanBranch('medina'); setCurrentScanPage(1); }}
-                  >
-                    Marrakech (10 Pages)
-                  </button>
-                  <button
-                    className={`btn-sm ${scanBranch === 'casablanca' ? 'btn-gold' : 'btn-outline'}`}
-                    onClick={() => { setScanBranch('casablanca'); setCurrentScanPage(1); }}
-                  >
-                    Casablanca (12 Pages)
-                  </button>
-                </div>
+        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-black p-6 rounded-3xl max-w-4xl w-full max-h-[92vh] flex flex-col border border-gold/40 shadow-2xl">
+            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+              <h3 className="font-serif text-xl font-bold text-gold uppercase tracking-wider">
+                Official Scanned Menu Pages (2023)
+              </h3>
+              <div className="flex items-center gap-3">
+                <a
+                  href="/Menu Restaurant Bombay 2023.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gold-gradient text-black hover:opacity-90 transition-all"
+                >
+                  Download PDF
+                </a>
+                <button
+                  onClick={() => setShowMenuScanModal(false)}
+                  className="text-white hover:text-gold text-2xl px-2"
+                >
+                  ✕
+                </button>
               </div>
+            </div>
+
+            <div className="flex items-center justify-center gap-2 mb-4">
               <button
-                onClick={() => setShowMenuScanModal(false)}
-                className="text-2xl hover:text-gold cursor-pointer"
+                className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider font-bold ${scanBranch === 'medina' ? 'bg-gold/20 text-gold border border-gold/50' : 'bg-white/5 text-muted'}`}
+                onClick={() => { setScanBranch('medina'); setCurrentScanPage(1); }}
               >
-                ✕
+                Marrakech (10 Pages)
+              </button>
+              <button
+                className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider font-bold ${scanBranch === 'casablanca' ? 'bg-gold/20 text-gold border border-gold/50' : 'bg-white/5 text-muted'}`}
+                onClick={() => { setScanBranch('casablanca'); setCurrentScanPage(1); }}
+              >
+                Casablanca (12 Pages)
               </button>
             </div>
 
-            <div className="modal-body flex-1 overflow-y-auto flex-center p-2">
-              <div className="scan-image-wrapper relative w-full max-w-2xl aspect-[3/4] rounded-lg overflow-hidden shadow-2xl border border-gold">
+            <div className="flex-1 overflow-y-auto flex items-center justify-center p-2 bg-neutral-950 rounded-2xl border border-white/5">
+              <div className="relative w-full max-w-2xl aspect-[3/4] rounded-xl overflow-hidden shadow-2xl border border-white/10">
                 <Image
                   src={
                     scanBranch === 'medina'
@@ -1077,23 +1067,23 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
               </div>
             </div>
 
-            <div className="modal-footer flex-between border-t border-gold-subtle pt-3 mt-2">
+            <div className="flex items-center justify-between pt-4 mt-2 border-t border-white/10">
               <button
-                className="btn-outline flex-center gap-1"
+                className="px-4 py-2 rounded-full text-xs uppercase tracking-wider font-bold border border-white/20 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10"
                 disabled={currentScanPage === 1}
                 onClick={() => setCurrentScanPage(p => Math.max(1, p - 1))}
               >
-                ← {lang === 'EN' ? 'Previous Page' : 'Page Précédente'}
+                Previous Page
               </button>
-              <span className="text-sm font-serif gold-accent font-semibold">
+              <span className="text-xs uppercase tracking-widest font-serif text-gold font-bold">
                 Page {currentScanPage} / {scanBranch === 'medina' ? 10 : 12}
               </span>
               <button
-                className="btn-outline flex-center gap-1"
+                className="px-4 py-2 rounded-full text-xs uppercase tracking-wider font-bold border border-white/20 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10"
                 disabled={currentScanPage === (scanBranch === 'medina' ? 10 : 12)}
                 onClick={() => setCurrentScanPage(p => Math.min(scanBranch === 'medina' ? 10 : 12, p + 1))}
               >
-                {lang === 'EN' ? 'Next Page' : 'Page Suivante'} →
+                Next Page
               </button>
             </div>
           </div>
