@@ -217,13 +217,14 @@ export default function Home() {
       {/* Brand Heritage Section */}
       <section className="brand-story-section container">
         <div className="story-grid">
-          <div className="story-image-wrapper glass-panel chef-portrait-card overflow-hidden rounded-2xl border border-gold shadow-2xl">
+          <div className="story-image-wrapper glass-panel chef-portrait-card overflow-hidden rounded-2xl border border-gold shadow-2xl relative min-h-[520px] w-full bg-black/60">
             <Image 
               src="/images/web/chef_surender_solo_portrait.jpg" 
               alt="Chef Surender Kumar Thakur" 
-              width={500} 
-              height={700}
-              className="story-img object-cover w-full h-full transform hover:scale-105 transition-transform duration-700"
+              fill
+              className="story-img object-cover object-top w-full h-full transform hover:scale-105 transition-transform duration-700"
+              sizes="(max-width: 768px) 100vw, 500px"
+              priority
             />
           </div>
           <div className="story-content">

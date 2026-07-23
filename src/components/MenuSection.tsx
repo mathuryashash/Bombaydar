@@ -76,7 +76,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Flaky golden pastry wrapped around savory minced chicken and aromatic herbs.", FR: "Pâte dorée croustillante enrobant du poulet haché savoureux et herbes aromatiques." },
       price: { marrakech: 55, casablanca: 37 },
       category: "starters",
-      imageUrl: "/images/web/food_samosa_platter.jpg"
     },
     {
       id: "veg-pakora",
@@ -84,7 +83,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Assorted seasonal vegetables dipped in spiced chickpea batter and deep-fried until golden.", FR: "Beignets de légumes variés trempés dans une pâte de pois chiches épicée." },
       price: { marrakech: 55, casablanca: 35 },
       category: "starters",
-      imageUrl: "/images/web/food_samosa_platter.jpg",
       isVeg: true,
       isVegan: true,
       isGF: true
@@ -137,7 +135,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Tender chicken pieces marinated in yogurt, red chilies, garlic, ginger and clay-oven roasted.", FR: "Morceaux de poulet tendres marinés au yaourt, piment et ail, rôtis au four tandoor." },
       price: { marrakech: 120, casablanca: 95 },
       category: "tandoor",
-      imageUrl: "/images/web/food_tandoori_chicken_platter.jpg",
       isSpicy: true,
       isGF: true
     },
@@ -147,7 +144,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Juicy minced lamb skewer blended with coriander, cumin, mint, and tandoor roasted.", FR: "Brochettes d'agneau haché parfumées aux herbes fraîches et rôties au tandoor." },
       price: { marrakech: 130, casablanca: 100 },
       category: "tandoor",
-      imageUrl: "/images/web/food_tandoori_kebabs.jpg",
       isSpicy: true,
       isGF: true
     },
@@ -157,7 +153,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Boneless chicken marinated in cashew paste, fresh cream, cardamom, and subtle spices.", FR: "Poulet désossé mariné à la crème de noix de cajou, cardamome et épices douces." },
       price: { marrakech: 120, casablanca: 95 },
       category: "tandoor",
-      imageUrl: "/images/web/food_tandoori_kebabs.jpg",
       isGF: true
     },
     {
@@ -166,7 +161,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Spiced minced chicken skewers flame-grilled in our clay tandoor oven.", FR: "Brochettes de poulet haché épicé grillées au feu du tandoor." },
       price: { marrakech: 120, casablanca: 90 },
       category: "tandoor",
-      imageUrl: "/images/web/food_tandoori_kebabs.jpg",
       isGF: true
     },
     {
@@ -200,7 +194,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Royal combination of Chicken Tikka, Lamb Seekh, Malai Kabab, and Tandoori Prawns.", FR: "Assortiment royal de Poulet Tikka, Brochette d'Agneau, Malai Kabab et Gambas." },
       price: { marrakech: 250, casablanca: 180 },
       category: "tandoor",
-      imageUrl: "/images/web/food_tandoori_chicken_platter.jpg",
       isGF: true
     },
 
@@ -211,7 +204,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Crispy chicken tossed with bell peppers, garlic, spring onions, and spicy soy-chilli sauce.", FR: "Morceaux de poulet sautés aux poivrons, ail, ciboule et sauce pimentée au soja." },
       price: { marrakech: 110, casablanca: 85 },
       category: "fusion",
-      imageUrl: "/images/web/food_butter_chicken_thali.jpg",
       isSpicy: true
     },
     {
@@ -262,7 +254,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Complete feast featuring Butter Chicken, Lamb Curry, Dal, Basmati Rice, Butter Naan, Gulab Jamun & Raita.", FR: "Festin complet comprenant Poulet au Beurre, Curry d'Agneau, Lentilles, Riz Basmati, Naan et Dessert." },
       price: { marrakech: 150, casablanca: 120 },
       category: "thalis",
-      imageUrl: "/images/web/food_butter_chicken_thali.jpg",
       locationExclusive: "marrakech"
     },
     {
@@ -271,7 +262,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Assortment of Paneer Butter Masala, Dal Makhani, Mixed Veg, Basmati Rice, Garlic Naan, Dessert & Salad.", FR: "Plateau traditionnel comprenant Paneer Masala, Dal Makhani, Légumes, Riz, Naan à l'ail et Dessert." },
       price: { marrakech: 150, casablanca: 110 },
       category: "thalis",
-      imageUrl: "/images/web/food_butter_chicken_thali.jpg",
       isVeg: true
     },
     {
@@ -280,7 +270,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Butter Chicken + Cheese Naan + Basmati Rice + Chilled Coca Cola.", FR: "Poulet au Beurre + Naan au Fromage + Riz Basmati + Coca-Cola frais." },
       price: { marrakech: 150, casablanca: 100 },
       category: "thalis",
-      imageUrl: "/images/web/food_butter_chicken_thali.jpg"
     },
     {
       id: "chicken-tikka-combo",
@@ -304,7 +293,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Clay-oven roasted chicken tikka simmered in rich creamy tomato butter cashew gravy.", FR: "Poulet rôtis au tandoor mijoté dans une sauce onctueuse aux tomates, beurre et cajou." },
       price: { marrakech: 110, casablanca: 95 },
       category: "poultry",
-      imageUrl: "/images/web/food_butter_chicken_thali.jpg",
       isGF: true
     },
     {
@@ -313,7 +301,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Grilled chicken chunks cooked in spiced onion tomato masala gravy with green peppers.", FR: "Morceaux de poulet grillé cuits dans une sauce oignon-tomate épicée avec poivrons." },
       price: { marrakech: 110, casablanca: 95 },
       category: "poultry",
-      imageUrl: "/images/web/food_butter_chicken_thali.jpg",
       isSpicy: true,
       isGF: true
     },
@@ -394,7 +381,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Slow-roasted tender lamb chunks cooked down in caramelized onion tomato reduction until thick.", FR: "Morceaux d'agneau mijotés longuement dans une réduction d'oignons caramélisés et tomates." },
       price: { marrakech: 120, casablanca: 100 },
       category: "lamb",
-      imageUrl: "/images/web/food_tandoori_kebabs.jpg",
       isSpicy: true,
       isGF: true
     },
@@ -404,7 +390,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Iconic Kashmiri lamb curry with red Ratanjot bark, fennel seeds, ginger, and aromatic spices.", FR: "Curry d'agneau emblématique du Cachemire mijoté au fenouil, gingembre et épices." },
       price: { marrakech: 120, casablanca: 100 },
       category: "lamb",
-      imageUrl: "/images/web/food_tandoori_kebabs.jpg",
       isSpicy: true,
       isGF: true
     },
@@ -495,7 +480,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Whole black lentils slow-cooked overnight with kidney beans, butter, cream, and fenugreek.", FR: "Lentilles noires mijotées toute la nuit avec haricots rouges, beurre et crème." },
       price: { marrakech: 99, casablanca: 90 },
       category: "vegetarian",
-      imageUrl: "/images/web/food_dal_makhani_curry.jpg",
       isVeg: true,
       isGF: true
     },
@@ -602,7 +586,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Fragrant basmati rice layered with spiced marinated chicken, saffron, fried onions & mint in clay handi.", FR: "Riz basmati parfumé mijoté à l'étouffée avec poulet épicé, safran et oignons frits." },
       price: { marrakech: 130, casablanca: 110 },
       category: "biryanis",
-      imageUrl: "/images/web/food_clay_pot_biryani.jpg",
       isGF: true
     },
     {
@@ -611,7 +594,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Tender lamb marinated in yogurt & spices cooked dum-style under sealed dough with saffron rice.", FR: "Agneau tendre mariné aux épices cuit à l'étouffée sous pâte scellée avec riz au safran." },
       price: { marrakech: 150, casablanca: 120 },
       category: "biryanis",
-      imageUrl: "/images/web/food_clay_pot_biryani.jpg",
       isGF: true
     },
     {
@@ -620,7 +602,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Juicy ocean prawns spiced with star anise, cardamom, saffron, and baked with basmati rice.", FR: "Crevettes géantes parfumées à la badiane, cardamome et safran avec riz basmati." },
       price: { marrakech: 165, casablanca: 130 },
       category: "biryanis",
-      imageUrl: "/images/web/food_clay_pot_biryani.jpg",
       isGF: true
     },
     {
@@ -629,7 +610,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Assorted vegetables, paneer, aromatic basmati rice, rose water, mint, and toasted nuts.", FR: "Légumes variés, paneer, riz basmati parfumé, eau de rose, menthe et noix." },
       price: { marrakech: 120, casablanca: 100 },
       category: "biryanis",
-      imageUrl: "/images/web/food_clay_pot_biryani.jpg",
       isVeg: true,
       isGF: true
     },
@@ -676,7 +656,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Tandoor baked leavened flatbread brushed with garlic butter and fresh cilantro.", FR: "Pain cuit au tandoor badigeonné de beurre à l'ail et coriandre fraîche." },
       price: { marrakech: 20, casablanca: 15 },
       category: "breads",
-      imageUrl: "/images/web/food_garlic_naan_basket.jpg",
       isVeg: true
     },
     {
@@ -685,7 +664,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Tandoor naan bread stuffed with creamy melted mozzarella and cheddar cheese.", FR: "Pain naan généreusement farci de fromage fondu et cuit au tandoor." },
       price: { marrakech: 25, casablanca: 20 },
       category: "breads",
-      imageUrl: "/images/web/food_garlic_naan_basket.jpg",
       isVeg: true
     },
     {
@@ -694,7 +672,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Ultimate stuffed cheese naan topped with roasted garlic butter and cilantro.", FR: "Pain naan farci de fromage et nappé de beurre à l'ail." },
       price: { marrakech: 25, casablanca: 20 },
       category: "breads",
-      imageUrl: "/images/web/food_garlic_naan_basket.jpg",
       isVeg: true
     },
     {
@@ -755,7 +732,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Warm milk-solid dumplings soaked in cardamom rose syrup, served with pistachio slices.", FR: "Boules de lait concentré dorées imbibées d'un sirop chaud à la rose et pistaches." },
       price: { marrakech: 50, casablanca: 35 },
       category: "drinks",
-      imageUrl: "/images/web/food_gulab_jamun.jpg",
       isVeg: true
     },
     {
@@ -799,7 +775,6 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       description: { EN: "Refreshing chilled sweet yogurt smoothie blended with ripe mango pulp and cardamom.", FR: "Boisson onctueuse au yaourt brassé et à la mangue douce." },
       price: { marrakech: 50, casablanca: 35 },
       category: "drinks",
-      imageUrl: "/images/web/food_mango_lassi.jpg",
       isVeg: true,
       isGF: true
     },
