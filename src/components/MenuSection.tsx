@@ -1030,12 +1030,21 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
                 <h3 className="font-serif text-xl font-bold text-gold">
                   📜 {lang === 'EN' ? 'Official Scanned Menu' : 'Pages Officielles du Menu'}
                 </h3>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
+                  <a
+                    href="/Menu Restaurant Bombay 2023.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-sm btn-gold flex-center gap-1 text-xs"
+                    title="Download Official 2023 PDF Menu"
+                  >
+                    <span>📥</span> {lang === 'EN' ? 'Download PDF Menu' : 'Télécharger le Menu PDF'}
+                  </a>
                   <button
                     className={`btn-sm ${scanBranch === 'medina' ? 'btn-gold' : 'btn-outline'}`}
                     onClick={() => { setScanBranch('medina'); setCurrentScanPage(1); }}
                   >
-                    Marrakech & Medina (10 Pages)
+                    Marrakech (10 Pages)
                   </button>
                   <button
                     className={`btn-sm ${scanBranch === 'casablanca' ? 'btn-gold' : 'btn-outline'}`}

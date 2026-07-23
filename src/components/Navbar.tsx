@@ -109,7 +109,7 @@ export default function Navbar() {
               className="lang-toggle-btn"
               title="Switch Language"
             >
-              {lang === 'EN' ? 'FR' : 'EN'}
+              🌐 {lang === 'EN' ? 'FR' : 'EN'}
             </button>
             
             <Link 
@@ -121,6 +121,21 @@ export default function Navbar() {
             </Link>
           </div>
         </div>
+      </div>
+    
+      {/* Mobile Floating Sticky CTA Bar */}
+      <div className="mobile-sticky-bar">
+        <Link href="#reserve" className="mobile-sticky-btn mobile-btn-book" onClick={handleLinkClick}>
+          <span>📅</span> {lang === 'EN' ? 'Book Table' : 'Réserver'}
+        </Link>
+        <a 
+          href="https://wa.me/212613727362?text=Hello%20Bombay%20Restaurant!%20I%20would%20like%20to%20order%20food%20for%20delivery/takeaway."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mobile-sticky-btn mobile-btn-delivery"
+        >
+          <span>🛵</span> {lang === 'EN' ? 'Delivery' : 'Livraison'}
+        </a>
       </div>
     </nav>
   );

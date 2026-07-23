@@ -2013,3 +2013,52 @@ p {
     padding: 20px;
   }
 }
+
+/* Mobile Sticky Book & Delivery Bar */
+.mobile-sticky-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: rgba(8, 9, 11, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--gold-subtle);
+    padding: 10px 16px;
+    gap: 12px;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+  }
+
+  .mobile-sticky-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-btn-book {
+    background: var(--gold-gradient);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  }
+
+  .mobile-btn-delivery {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--gold-primary);
+    border: 1px solid var(--gold-primary);
+  }
+}
