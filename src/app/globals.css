@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
+/* Tailwind utilities only — this file already has its own reset/base styles below,
+   so we skip tailwindcss/preflight.css to avoid it fighting the hand-written base rules. */
+@import 'tailwindcss/theme.css';
+@import 'tailwindcss/utilities.css';
+
 :root {
   /* Gold Palette Variables */
   --gold-primary: #d4af37;
@@ -44,6 +49,13 @@
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Registers "gold"/"sand" as Tailwind theme colors so utility classes like
+   bg-gold, border-gold/40, text-gold work with this site's existing palette. */
+@theme {
+  --color-gold: var(--gold-primary);
+  --color-sand: var(--sand);
 }
 
 /* Reset and Base Styles */
@@ -276,6 +288,7 @@ p {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .logo-text-wrapper {
@@ -287,12 +300,14 @@ p {
   font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 
 .logo-subtitle {
   font-size: 0.55rem;
   letter-spacing: 0.25em;
   color: var(--text-secondary);
+  white-space: nowrap;
 }
 
 .mobile-menu-btn {
@@ -327,18 +342,19 @@ p {
 .nav-links-wrapper {
   display: flex;
   align-items: center;
-  gap: 35px;
+  gap: 22px;
 }
 
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 16px;
 }
 
 .nav-link {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
+  white-space: nowrap;
   letter-spacing: 0.08em;
   color: var(--text-secondary);
   position: relative;
@@ -368,7 +384,7 @@ p {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .lang-toggle-btn {
@@ -1417,46 +1433,8 @@ p {
   }
 }
 
-/* Reviews Section (overridden by Marquee below) */
-
-.quote-mark {
-  position: absolute;
-  top: 15px;
-  left: 25px;
-  font-size: 4rem;
-  font-family: var(--font-serif);
-  color: rgba(229, 169, 59, 0.1);
-  line-height: 1;
-}
-
-.review-text {
-  font-size: 1rem;
-  line-height: 1.7;
-  font-style: italic;
-  margin-bottom: 25px;
-  position: relative;
-  z-index: 2;
-}
-
-.review-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid var(--border-color);
-  padding-top: 15px;
-}
-
-.review-author {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.review-branch {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+/* Reviews Section: see .review-card etc. near the marquee styles below —
+   that block is the one actually in effect and defines the real layout. */
 
 /* Booking Section */
 .booking-section {
@@ -1973,9 +1951,10 @@ p {
   background: transparent;
   border: 1px solid var(--gold-primary);
   color: var(--gold-primary);
-  padding: 8px 14px;
+  padding: 7px 12px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
+  white-space: nowrap;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -2052,11 +2031,8 @@ p {
 }
 
 /* Utility classes mapping to theme variables */
-.text-gold { color: var(--gold-primary) !important; }
-.bg-gold { background-color: var(--gold-primary) !important; }
-.border-gold { border-color: var(--gold-primary) !important; }
-.text-sand { color: var(--sand) !important; }
-.bg-sand { background-color: var(--sand) !important; }
+/* text-gold/bg-gold/border-gold/text-sand/bg-sand now come from Tailwind (see @theme above),
+   which also covers the opacity variants (bg-gold/20 etc.) these hand-rolled rules never did. */
 .bg-gold-gradient { background: var(--gold-gradient) !important; }
 .border-gold-subtle { border-color: var(--gold-subtle) !important; }
 .locations-grid {
