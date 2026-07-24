@@ -80,6 +80,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "veg-pakora",
+      imageUrl: "/images/menu_pdf/veg-pakora.jpg",
       name: { EN: "Vegetable Pakora", FR: "Pakora aux Légumes" },
       description: { EN: "Assorted seasonal vegetables dipped in spiced chickpea batter and deep-fried until golden.", FR: "Beignets de légumes variés trempés dans une pâte de pois chiches épicée." },
       price: { marrakech: 55, casablanca: 35 },
@@ -115,6 +116,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "salad-poulet",
+      imageUrl: "/images/menu_pdf/salad-poulet.jpg",
       name: { EN: "Salad de Poulet (Chicken Salad)", FR: "Salade de Poulet" },
       description: { EN: "Fresh garden greens topped with grilled chicken tikka, cucumber, tomatoes, and house dressing.", FR: "Salade fraîche garnie de poulet tikka grillé, concombres et sauce maison." },
       price: { marrakech: 55, casablanca: 35 },
@@ -123,6 +125,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "garden-fresh-salad",
+      imageUrl: "/images/menu_pdf/garden-fresh-salad.jpg",
       name: { EN: "Garden Fresh Salad", FR: "Salade Fraîche du Jardin" },
       description: { EN: "Crisp lettuce, cucumber, tomatoes, bell peppers, carrots with lemon mint dressing.", FR: "Laitue croustillante, concombre, tomates et carottes avec vinaigrette citron-menthe." },
       price: { marrakech: 40, casablanca: 25 },
@@ -364,6 +367,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "chicken-vindaloo",
+      imageUrl: "/images/menu_pdf/chicken-vindaloo.jpg",
       name: { EN: "Spicy Chicken Vindaloo", FR: "Poulet Vindaloo Épicé" },
       description: { EN: "Fiery Goan Portuguese style chicken cooked with coconut vinegar, red chilies, and potatoes.", FR: "Spécialité Goanaise très épicée au piment rouge, vinaigre et pommes de terre." },
       price: { marrakech: 110, casablanca: 90 },
