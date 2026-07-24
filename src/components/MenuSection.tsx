@@ -429,6 +429,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "mutton-korma",
+      imageUrl: "/images/menu_pdf/mutton-korma.jpg",
       name: { EN: "Shahi Mutton Korma", FR: "Korma d'Agneau d'Or" },
       description: { EN: "Rich Mughlai lamb curry braised in yogurt, almonds, cashews, saffron, and aromatic rose essence.", FR: "Agneau fondant dans une sauce crèmeuse aux noix de cajou, amandes et safran." },
       price: { marrakech: 120, casablanca: 100 },
