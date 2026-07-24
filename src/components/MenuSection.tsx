@@ -618,6 +618,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "paneer-lababdar",
+      imageUrl: "/images/menu_pdf/paneer-lababdar.jpg",
       name: { EN: "Paneer Lababdar", FR: "Paneer Lababdar" },
       description: { EN: "Grated and cubed cottage cheese cooked in creamy onion-tomato & cashew gravy.", FR: "Fromage paneer râpé et en cubes dans une onctueuse sauce tomate-oignon et cajou." },
       price: { marrakech: 99, casablanca: 90 },
@@ -627,6 +628,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "kashmiri-dum-aloo",
+      imageUrl: "/images/menu_pdf/kashmiri-dum-aloo.jpg",
       name: { EN: "Kashmiri Dum Aloo", FR: "Dum Aloo du Cachemire" },
       description: { EN: "Baby potatoes fried and simmered in aromatic yogurt fennel sauce with Kashmiri chili.", FR: "Petites pommes de terre mijotées au yaourt, fenouil et piment du Cachemire." },
       price: { marrakech: 95, casablanca: 85 },
@@ -753,6 +755,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "butter-naan",
+      imageUrl: "/images/menu_pdf/butter-naan.jpg",
       name: { EN: "Classic Butter Naan", FR: "Naan au Beurre Classique" },
       description: { EN: "Soft fluffy leavened bread cooked in clay oven and topped with melted ghee.", FR: "Pain moelleux traditionnel du tandoor nappé de beurre fondant." },
       price: { marrakech: 18, casablanca: 15 },
