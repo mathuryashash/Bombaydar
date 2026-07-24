@@ -96,7 +96,7 @@ export default function AboutStory() {
             </div>
             <div className="about-img-frame glass-panel">
               <Image
-                src="/images/owner_portrait.png"
+                src="/images/chef_upscaled.png"
                 alt="Chef Surender in the kitchen"
                 width={500} 
                 height={350} 

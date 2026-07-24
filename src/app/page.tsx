@@ -219,7 +219,7 @@ export default function Home() {
         <div className="story-grid">
           <div className="story-image-wrapper glass-panel chef-portrait-card overflow-hidden rounded-2xl border border-gold shadow-2xl relative min-h-[520px] w-full bg-black/60">
             <Image
-              src="/images/owner_portrait.png"
+              src="/images/chef_upscaled.png"
               alt="Chef Surender Kumar Thakur"
               fill
               className="story-img object-cover object-top w-full h-full transform hover:scale-105 transition-transform duration-700"
