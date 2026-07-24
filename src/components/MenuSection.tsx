@@ -176,6 +176,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "paneer-tikka",
+      imageUrl: "/images/menu_pdf/paneer-tikka.jpg",
       name: { EN: "Paneer Tikka Tandoori (4 Pcs)", FR: "Paneer Tikka Tandoori (4 Pcs)" },
       description: { EN: "Chunks of cottage cheese marinated in spiced yogurt with onions & bell peppers, clay-oven grilled.", FR: "Dés de fromage frais marinés au yaourt épicé, poivrons et oignons, grillés au tandoor." },
       price: { marrakech: 110, casablanca: 90 },
@@ -270,6 +271,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     // 4. THALIS & COMBOS
     {
       id: "non-veg-thali",
+      imageUrl: "/images/menu_pdf/thali.jpg",
       name: { EN: "Royal Non-Vegetable Thali", FR: "Thali Royal Non-Végétarien" },
       description: { EN: "Complete feast featuring Butter Chicken, Lamb Curry, Dal, Basmati Rice, Butter Naan, Gulab Jamun & Raita.", FR: "Festin complet comprenant Poulet au Beurre, Curry d'Agneau, Lentilles, Riz Basmati, Naan et Dessert." },
       price: { marrakech: 150, casablanca: 120 },
@@ -278,6 +280,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "veg-thali",
+      imageUrl: "/images/menu_pdf/thali.jpg",
       name: { EN: "Royal Vegetarian Thali", FR: "Thali Royal Végétarien" },
       description: { EN: "Assortment of Paneer Butter Masala, Dal Makhani, Mixed Veg, Basmati Rice, Garlic Naan, Dessert & Salad.", FR: "Plateau traditionnel comprenant Paneer Masala, Dal Makhani, Légumes, Riz, Naan à l'ail et Dessert." },
       price: { marrakech: 150, casablanca: 110 },
@@ -350,6 +353,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "chicken-curry-classic",
+      imageUrl: "/images/menu_pdf/chicken-curry-classic.jpg",
       name: { EN: "Home-style Chicken Curry", FR: "Curry de Poulet Traditionnel" },
       description: { EN: "Tender chicken simmered in traditional North Indian aromatic onion-ginger-garlic gravy.", FR: "Poulet tendre mijoté dans une sauce traditionnelle du Nord aux oignons et gingembre." },
       price: { marrakech: 110, casablanca: 90 },
@@ -467,6 +471,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "rara-mutton",
+      imageUrl: "/images/menu_pdf/rara-mutton.jpg",
       name: { EN: "Rara Mutton Signature", FR: "Mouton Rara Spécial" },
       description: { EN: "Mouthwatering blend of lamb chunks cooked together with spiced minced mutton keema.", FR: "Délicieux mélange de morceaux d'agneau et de viande hachée mijotée aux épices." },
       price: { marrakech: 120, casablanca: 100 },
