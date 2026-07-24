@@ -289,6 +289,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     // 5. POULTRY (CHICKEN CURRIES)
     {
       id: "butter-chicken",
+      imageUrl: "/images/dishes/menu_butter_chicken.jpg",
       name: { EN: "Famous Bombay Butter Chicken", FR: "Poulet au Beurre (Butter Chicken)" },
       description: { EN: "Clay-oven roasted chicken tikka simmered in rich creamy tomato butter cashew gravy.", FR: "Poulet rôtis au tandoor mijoté dans une sauce onctueuse aux tomates, beurre et cajou." },
       price: { marrakech: 110, casablanca: 95 },
@@ -297,6 +298,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "chicken-tikka-masala",
+      imageUrl: "/images/dishes/menu_chicken_tikka_masala.jpg",
       name: { EN: "Chicken Tikka Masala", FR: "Poulet Tikka Masala" },
       description: { EN: "Grilled chicken chunks cooked in spiced onion tomato masala gravy with green peppers.", FR: "Morceaux de poulet grillé cuits dans une sauce oignon-tomate épicée avec poivrons." },
       price: { marrakech: 110, casablanca: 95 },
@@ -306,6 +308,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "chicken-korma",
+      imageUrl: "/images/dishes/menu_chicken_korma.jpg",
       name: { EN: "Mughlai Chicken Korma", FR: "Poulet Korma Mughlai" },
       description: { EN: "Royal Mughlai style chicken braised in rich velvety cashew, almond, cream & saffron sauce.", FR: "Poulet façon royale mijoté dans une sauce veloutée aux noix de cajou, amandes et safran." },
       price: { marrakech: 110, casablanca: 95 },
@@ -357,6 +360,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "chicken-kadhai",
+      imageUrl: "/images/dishes/menu_chicken_kadhai.jpg",
       name: { EN: "Chicken Kadai / Karahi", FR: "Poulet Kadai" },
       description: { EN: "North Indian specialty chicken cooked in iron wok with coriander seeds, tomatoes & peppers.", FR: "Poulet cuit au wok en fonte avec graines de coriandre, tomates et poivrons." },
       price: { marrakech: 110, casablanca: 90 },
@@ -366,6 +370,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "rara-chicken",
+      imageUrl: "/images/dishes/menu_rara_chicken.jpg",
       name: { EN: "Rara Chicken Double Delight", FR: "Poulet Rara du Chef" },
       description: { EN: "Unique combination of chicken pieces simmered together with spiced minced chicken gravy.", FR: "Mélange savoureux de morceaux de poulet mijotés dans une sauce au poulet haché." },
       price: { marrakech: 110, casablanca: 90 },
@@ -440,6 +445,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     // 7. FISH & PRAWNS (SEAFOOD)
     {
       id: "goan-prawn-curry",
+      imageUrl: "/images/dishes/menu_goan_prawn_curry.jpg",
       name: { EN: "Goan Prawn Curry", FR: "Curry de Crevettes de Goa" },
       description: { EN: "Succulent prawns simmered in coconut milk, turmeric, green chilies, and tamarind.", FR: "Crevettes succulentes mijotées au lait de coco, curcuma, piments verts et tamarin." },
       price: { marrakech: 160, casablanca: 110 },
@@ -449,6 +455,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "prawn-masala",
+      imageUrl: "/images/dishes/menu_prawn_masala.jpg",
       name: { EN: "Prawn Masala Special", FR: "Crevettes Masala" },
       description: { EN: "Jumbo prawns tossed in thick onion tomato masala gravy enriched with garlicky herbs.", FR: "Gambas sautées dans une sauce épaisse aux oignons, tomates et ail." },
       price: { marrakech: 160, casablanca: 110 },
@@ -458,6 +465,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "prawn-korma",
+      imageUrl: "/images/dishes/menu_prawn_korma.jpg",
       name: { EN: "Mughlai Prawn Korma", FR: "Korma de Crevettes" },
       description: { EN: "Prawns braised in mild velvety cream cashew and almond Mughlai gravy.", FR: "Crevettes braisées dans une douce sauce veloutée aux noix de cajou et crème." },
       price: { marrakech: 160, casablanca: 110 },
@@ -476,6 +484,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     // 8. VEGETARIAN CURRIES
     {
       id: "dall-makhni",
+      imageUrl: "/images/dishes/menu_dal_makhni.jpg",
       name: { EN: "Royal Dal Makhani", FR: "Dal Makhani Royal" },
       description: { EN: "Whole black lentils slow-cooked overnight with kidney beans, butter, cream, and fenugreek.", FR: "Lentilles noires mijotées toute la nuit avec haricots rouges, beurre et crème." },
       price: { marrakech: 99, casablanca: 90 },
@@ -485,6 +494,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "dall-tadka",
+      imageUrl: "/images/dishes/menu_dal_tadka.jpg",
       name: { EN: "Yellow Dal Tadka", FR: "Dal Tadka Jaune" },
       description: { EN: "Yellow lentils tempered with cumin seeds, garlic, mustard seeds, ghee, and fresh coriander.", FR: "Lentilles jaunes préparées avec un tempérage au cumin, ail et beurre clarifié ghee." },
       price: { marrakech: 95, casablanca: 85 },
@@ -495,6 +505,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "paneer-makhan-wala",
+      imageUrl: "/images/dishes/menu_paneer_butter_masala.jpg",
       name: { EN: "Paneer Butter Masala", FR: "Paneer au Beurre (Makhan Wala)" },
       description: { EN: "Cottage cheese cubes simmered in velvety tomato butter cashew gravy with dried kasuri methi.", FR: "Dés de fromage paneer dans une sauce veloutée aux tomates, beurre et fenugrec." },
       price: { marrakech: 99, casablanca: 90 },
@@ -504,6 +515,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "saag-paneer",
+      imageUrl: "/images/dishes/menu_saag_paneer.jpg",
       name: { EN: "Saag Paneer (Spinach Cottage Cheese)", FR: "Saag Paneer (Épinards & Fromage)" },
       description: { EN: "Cottage cheese cubes cooked in rich spinach puree laced with garlic, butter, and cream.", FR: "Fromage paneer dans une purée d'épinards parfumée à l'ail, au beurre et à la crème." },
       price: { marrakech: 99, casablanca: 90 },
@@ -513,6 +525,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "chana-amritsari",
+      imageUrl: "/images/dishes/menu_chana_amritsari.jpg",
       name: { EN: "Chana Amritsari", FR: "Chana Amritsari (Pois Chiches)" },
       description: { EN: "Authentic North Indian chickpea curry cooked with pomegranate powder and roasted tea spices.", FR: "Curry de pois chiches du Pendjab préparé aux épices rôties et grenade." },
       price: { marrakech: 95, casablanca: 85 },
@@ -553,6 +566,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "kadai-paneer",
+      imageUrl: "/images/dishes/menu_kadai_paneer.jpg",
       name: { EN: "Kadai Paneer Wok", FR: "Kadai Paneer au Wok" },
       description: { EN: "Paneer cheese sautéed in wok with bell peppers, tomatoes, garlic, and fresh karahi masala.", FR: "Fromage paneer sauté avec poivrons, tomates, ail et épices karahi moulu." },
       price: { marrakech: 99, casablanca: 90 },
@@ -615,6 +629,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "veg-pulao",
+      imageUrl: "/images/dishes/menu_veg_pulao.jpg",
       name: { EN: "Aromatic Vegetable Pulao", FR: "Pulao aux Légumes" },
       description: { EN: "Fluffy basmati rice cooked with green peas, carrots, beans, whole spices, and ghee.", FR: "Riz basmati léger cuit avec petits pois, carottes, haricots et épices entières." },
       price: { marrakech: 50, casablanca: 40 },
@@ -631,6 +646,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "jeera-rice",
+      imageUrl: "/images/dishes/menu_jeera_rice.jpg",
       name: { EN: "Jeera Cumin Basmati Rice", FR: "Riz Basmati au Cumin" },
       description: { EN: "Fragrant long-grain basmati rice tempered with roasted cumin seeds and butter ghee.", FR: "Riz basmati à grains longs parfumé aux graines de cumin rissolées." },
       price: { marrakech: 40, casablanca: 40 },
@@ -728,6 +744,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     // 11. DESSERTS & DRINKS / LASSIS
     {
       id: "gulab-jamun",
+      imageUrl: "/images/dishes/menu_gulab_jamun.jpg",
       name: { EN: "Hot Gulab Jamun (2 Pcs)", FR: "Gulab Jamun Chaud (2 Pcs)" },
       description: { EN: "Warm milk-solid dumplings soaked in cardamom rose syrup, served with pistachio slices.", FR: "Boules de lait concentré dorées imbibées d'un sirop chaud à la rose et pistaches." },
       price: { marrakech: 50, casablanca: 35 },
@@ -736,6 +753,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "mango-kulfi",
+      imageUrl: "/images/dishes/menu_mango_kulfi.jpg",
       name: { EN: "Royal Mango Kulfi", FR: "Kulfi Glacé à la Mangue" },
       description: { EN: "Traditional slow-boiled milk ice cream infused with Alphonso mango pulp.", FR: "Glace indienne artisanale au lait réduit et à la pulpe de mangue Alphonso." },
       price: { marrakech: 50, casablanca: 40 },
@@ -745,6 +763,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "shahi-tukda",
+      imageUrl: "/images/dishes/menu_shahi_tukda.jpg",
       name: { EN: "Mughlai Shahi Tukda", FR: "Shahi Tukda (Pain Perdu Royal)" },
       description: { EN: "Royal fried bread pudding soaked in saffron rabri condensed milk with almonds.", FR: "Pain royal doré imbibé de lait condensé au safran, amandes et cardamome." },
       price: { marrakech: 50, casablanca: 40 },
@@ -753,6 +772,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
     },
     {
       id: "saffron-pistachio-kulfi",
+      imageUrl: "/images/dishes/menu_saffron_kulfi.jpg",
       name: { EN: "Saffron Pistachio Kulfi", FR: "Kulfi Safran & Pistache" },
       description: { EN: "Traditional frozen cream dessert flavored with Spanish saffron strands and pistachios.", FR: "Glace indienne au safran pur et pistaches grillées." },
       price: { marrakech: 50, casablanca: 40 },

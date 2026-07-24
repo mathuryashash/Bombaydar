@@ -85,9 +85,9 @@ export default function AboutStory() {
           
           <div className="about-image-column">
             <div className="about-img-frame glass-panel">
-              <Image 
-                src="/images/web/food_clay_pot_biryani.jpg" 
-                alt="Clay-Pot Biryani presentation" 
+              <Image
+                src="/images/clay_pot_biryani_hd.png"
+                alt="Clay-Pot Biryani presentation"
                 width={500} 
                 height={350} 
                 className="about-side-img" 
@@ -95,9 +95,9 @@ export default function AboutStory() {
               <span className="img-caption">{lang === 'EN' ? 'Our signature clay-pot slow-cooked Biryani.' : 'Notre biryani signature en pot d\'argile.'}</span>
             </div>
             <div className="about-img-frame glass-panel">
-              <Image 
-                src="/images/web/chef_surender_solo_portrait.jpg" 
-                alt="Chef Surender in the kitchen" 
+              <Image
+                src="/images/owner_portrait.png"
+                alt="Chef Surender in the kitchen"
                 width={500} 
                 height={350} 
                 className="about-side-img" 

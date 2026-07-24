@@ -43,4 +43,4 @@ next-env.d.ts
 # scratch and raw images (repo-root only — public/images/ must stay tracked, it's served)
 /scratch/
 /images/
-Menu Restaurant Bombay 2023.pdf
+/Menu Restaurant Bombay 2023.pdf
