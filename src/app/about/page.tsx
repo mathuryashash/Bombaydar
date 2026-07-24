@@ -88,9 +88,10 @@ export default function AboutStory() {
               <Image
                 src="/images/clay_pot_biryani_hd.png"
                 alt="Clay-Pot Biryani presentation"
-                width={500} 
-                height={350} 
-                className="about-side-img" 
+                width={500}
+                height={350}
+                className="about-side-img"
+                style={{ objectPosition: 'center 78%' }}
               />
               <span className="img-caption">{lang === 'EN' ? 'Our signature clay-pot slow-cooked Biryani.' : 'Notre biryani signature en pot d\'argile.'}</span>
             </div>
