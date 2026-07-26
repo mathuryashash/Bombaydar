@@ -97,11 +97,12 @@ export default function AboutStory() {
             </div>
             <div className="about-img-frame glass-panel">
               <Image
-                src="/images/chef_upscaled.png"
-                alt="Chef Surender in the kitchen"
-                width={500} 
-                height={350} 
-                className="about-side-img" 
+                src="/images/web/chef_surender_solo_portrait.jpg"
+                alt="Chef Surender Kumar Thakur outside Bombay Marrakech"
+                width={720}
+                height={1071}
+                className="about-side-img"
+                style={{ height: 'auto', objectFit: 'contain' }}
               />
               <span className="img-caption">{lang === 'EN' ? 'Chef Surender Kumar Thakur, Owner & Founder.' : 'Le Chef Surender Kumar Thakur, Propriétaire.'}</span>
             </div>
