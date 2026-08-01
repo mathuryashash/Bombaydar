@@ -78,7 +78,16 @@ export default function Home() {
 
     // Reviews
     reviewsLabel: { EN: "Guest Stories", FR: "Avis de Nos Clients" },
-    reviewsTitle: { EN: "Shared Experiences", FR: "Expériences Partagées" }
+    reviewsTitle: { EN: "Shared Experiences", FR: "Expériences Partagées" },
+
+    // Catering
+    cateringLabel: { EN: "Tailored Celebrations", FR: "Célébrations Sur Mesure" },
+    cateringTitle: { EN: "Catering & Private Events", FR: "Service Traiteur & Réceptions" },
+    cateringText: {
+      EN: "We do catering business for weddings, large or small functions. Whether it's an intimate family gathering or a grand wedding celebration, we bring Chef Surender's signature North Indian & Punjabi flavors directly to your venue, complete with traditional presentation and immaculate service.",
+      FR: "Nous proposons un service traiteur pour les mariages, ainsi que pour les grandes et petites réceptions. Qu'il s'agisse d'une réunion de famille intime ou d'une grande célébration, nous apportons les saveurs emblématiques du nord de l'Inde et du Pendjab directement sur le lieu de votre événement."
+    },
+    cateringBtn: { EN: "Inquire via WhatsApp", FR: "Demander un Devis" }
   };
 
   const reviews = [
@@ -236,6 +245,40 @@ export default function Home() {
             <div className="story-chef-sign">
               <span className="chef-name gold-text">Chef Surender Kumar Thakur</span>
               <span className="chef-title">{lang === 'EN' ? 'Owner & Head Chef' : 'Propriétaire & Chef Cuisinier'}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Catering & Private Events Section */}
+      <section className="catering-section container">
+        <div className="catering-grid glass-panel rounded-2xl overflow-hidden border border-gold/20 relative">
+          <div 
+            className="catering-bg absolute inset-0 bg-cover bg-center opacity-20" 
+            style={{ backgroundImage: `url('/images/web/ambiance_luxury_table.jpg')` }} 
+          />
+          <div className="catering-overlay absolute inset-0 z-0" />
+          
+          <div className="catering-content relative z-10 p-8 md:p-16 max-w-2xl flex flex-col gap-5">
+            <span className="section-label gold-text text-gold font-bold uppercase tracking-widest text-xs">
+              {copy.cateringLabel[lang]}
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl text-white font-bold leading-tight">
+              {copy.cateringTitle[lang]}
+            </h2>
+            <div className="section-divider" />
+            <p className="story-paragraph text-sand leading-relaxed">
+              {copy.cateringText[lang]}
+            </p>
+            <div className="mt-4">
+              <a 
+                href="https://wa.me/212613727362?text=Hello%20Bombay%20Restaurant!%20I%20would%20like%20to%20inquire%20about%20catering%20services%20for%20my%20event."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                {copy.cateringBtn[lang]}
+              </a>
             </div>
           </div>
         </div>

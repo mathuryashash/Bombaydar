@@ -56,7 +56,14 @@ export default function AboutStory() {
     phil3Desc: { 
       EN: "Celebrating the historic culinary exchange in Kolkata, our menu features signature Indo-Chinese dishes like crispy Chilli Chicken and Tangy Lollipop Chicken.", 
       FR: "Célébrant l'échange culinaire de Calcutta, notre menu propose des classiques indo-chinois comme le poulet croustillant au piment et le poulet lollipop acidulé." 
-    }
+    },
+    
+    cateringTitle: { EN: "Catering & Private Functions", FR: "Service Traiteur & Réceptions" },
+    cateringText: {
+      EN: "We do catering business for weddings, large or small functions. From formal corporate events to grand wedding banquets, our culinary team delivers a bespoke experience that will delight your guests. We tailor every menu to fit your needs, bringing the authentic taste of India to your venue.",
+      FR: "Nous proposons un service traiteur pour les mariages, ainsi que pour les grandes et petites réceptions. Des événements d'entreprise aux grands banquets de mariage, notre équipe culinaire offre une expérience sur mesure qui ravira vos invités."
+    },
+    cateringCTA: { EN: "Inquire About Catering", FR: "Nous Contacter pour un Traiteur" }
   };
 
   return (
@@ -112,30 +119,30 @@ export default function AboutStory() {
 
       {/* Philosophy Section */}
       <section className="about-philosophy-section">
-        <div className="container">
-          <div className="section-header-center">
-            <span className="section-label">{lang === 'EN' ? 'How We Cook' : 'Notre Façon de Cuisiner'}</span>
-            <h2 className="section-title font-serif">{copy.philosophyTitle[lang]}</h2>
-            <div className="section-divider-center" />
-          </div>
+...
+      </section>
 
-          <div className="philosophy-grid">
-            <div className="philosophy-card glass-panel">
-              <div className="phil-icon">🔥</div>
-              <h3 className="font-serif">{copy.phil1Title[lang]}</h3>
-              <p>{copy.phil1Desc[lang]}</p>
-            </div>
-            <div className="philosophy-card glass-panel">
-              <div className="phil-icon">🏺</div>
-              <h3 className="font-serif">{copy.phil2Title[lang]}</h3>
-              <p>{copy.phil2Desc[lang]}</p>
-            </div>
-            <div className="philosophy-card glass-panel">
-              <div className="phil-icon">🍜</div>
-              <h3 className="font-serif">{copy.phil3Title[lang]}</h3>
-              <p>{copy.phil3Desc[lang]}</p>
-            </div>
-          </div>
+      {/* Catering Section on About Page */}
+      <section className="py-16 bg-black/40 border-b border-white/5">
+        <div className="container max-w-4xl text-center">
+          <span className="text-xs uppercase tracking-widest text-gold font-bold block mb-2">
+            {lang === 'EN' ? 'Private Dining & Events' : 'Dîners Privés & Événements'}
+          </span>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">
+            {copy.cateringTitle[lang]}
+          </h2>
+          <div className="w-16 h-0.5 bg-gold mx-auto mb-6" />
+          <p className="text-sand text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8 font-light">
+            {copy.cateringText[lang]}
+          </p>
+          <a 
+            href="https://wa.me/212613727362?text=Hello%20Bombay%20Restaurant!%20I%20would%20like%20to%20inquire%20about%20catering%20services%20for%20my%20event."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            {copy.cateringCTA[lang]}
+          </a>
         </div>
       </section>
 

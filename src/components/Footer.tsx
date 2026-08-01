@@ -18,8 +18,8 @@ export default function Footer() {
 
   const content = {
     tagline: {
-      EN: "Authentic, home-style North Indian & Punjabi cuisine. Preserving culinary heritage across Morocco since 2004.",
-      FR: "Une cuisine authentique du nord de l'Inde et du Pendjab. Préservation de notre patrimoine culinaire au Maroc depuis 2004."
+      EN: "Authentic, home-style North Indian & Punjabi cuisine. Catering for weddings, large or small functions across Morocco since 2004.",
+      FR: "Cuisine authentique du nord de l'Inde. Service traiteur pour mariages, petites et grandes réceptions au Maroc depuis 2004."
     },
     quickLinks: {
       EN: "Quick Links",
