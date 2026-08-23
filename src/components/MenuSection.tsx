@@ -1023,11 +1023,11 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
       </div>
 
       {/* Dish Items Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="menu-items-grid">
         {filteredItems.map((item) => (
-          <div key={item.id} className="bg-black/60 p-6 rounded-2xl border border-white/10 flex flex-col sm:flex-row gap-5 transition-all duration-300 hover:border-gold/60 hover:bg-black/80 hover:shadow-2xl group">
+          <article key={item.id} className="menu-item-card bg-black/60 p-6 rounded-2xl border border-white/10 transition-all duration-300 hover:border-gold/60 hover:bg-black/80 hover:shadow-2xl group">
             {item.imageUrl ? (
-              <div className="relative w-full sm:w-36 h-36 flex-shrink-0 rounded-xl overflow-hidden border border-white/10 bg-black/40">
+              <div className="menu-item-image relative rounded-xl overflow-hidden border border-white/10 bg-black/40">
                 <Image
                   src={item.imageUrl}
                   alt={item.name[lang]}
@@ -1037,14 +1037,14 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
                 />
               </div>
             ) : (
-              <div className="hidden sm:flex w-36 h-36 flex-shrink-0 rounded-xl border border-white/5 bg-white/[0.02] flex-col items-center justify-center text-center p-3">
+              <div className="menu-item-image hidden sm:flex flex-shrink-0 rounded-xl border border-white/5 bg-white/[0.02] flex-col items-center justify-center text-center p-3">
                 <div className="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center mb-1 text-gold/60 font-serif text-xs">
                   B
                 </div>
                 <span className="text-[9px] uppercase tracking-widest text-muted/60 font-mono">Bombay Recipe</span>
               </div>
             )}
-            <div className="flex-1 flex flex-col justify-between">
+            <div className="menu-item-content flex flex-col gap-5">
               <div>
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <h3 className="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors">
@@ -1071,7 +1071,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
                 )}
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
 
