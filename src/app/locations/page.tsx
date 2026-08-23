@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Our Locations - Bombay Restaurant Morocco",
     description: "Three unique settings, one soul. Discover our restaurants in Marrakech Gueliz, Medina Rooftop, and Casablanca Maârif.",
-    url: "https://bombaydar.com/locations",
+    url: "https://bomdaymaroc.com/locations",
     siteName: "Bombay Restaurant",
     locale: "en_US",
     type: "website",
@@ -24,12 +24,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://bombaydar.com/locations",
-    languages: {
-      en: "https://bombaydar.com/en/locations",
-      fr: "https://bombaydar.com/fr/locations",
-      "x-default": "https://bombaydar.com/locations",
-    },
+    canonical: "https://bomdaymaroc.com/locations",
   },
 };
 

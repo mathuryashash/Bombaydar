@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,6 +7,7 @@ import { organizationSchema } from "@/lib/schema";
 import ScrollAnimationInitializer from "@/components/ScrollAnimationInitializer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bomdaymaroc.com"),
   title: {
     default: "Bombay Restaurant: Authentic North Indian & Punjabi Cuisine in Marrakech & Casablanca",
     template: "%s | Bombay Restaurant Morocco",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bombay Restaurant: Authentic North Indian & Punjabi Cuisine in Morocco",
     description: "Experience Chef Surender Kumar Thakur's 20-year legacy. Clay-pot biryani, tandoor grills & rooftop dining in Marrakech & Casablanca.",
-    url: "https://bombaydar.com",
+    url: "https://bomdaymaroc.com",
     siteName: "Bombay Restaurant",
     locale: "en_US",
     type: "website",
@@ -65,12 +65,7 @@ export const metadata: Metadata = {
     creator: "@bombay_marrakech",
   },
   alternates: {
-    canonical: "https://bombaydar.com",
-    languages: {
-      en: "https://bombaydar.com/en",
-      fr: "https://bombaydar.com/fr",
-      "x-default": "https://bombaydar.com",
-    },
+    canonical: "https://bomdaymaroc.com",
   },
 };
 
@@ -85,11 +80,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <Script
-          id="organization-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          strategy="lazyOnload"
         />
       </head>
       <body>

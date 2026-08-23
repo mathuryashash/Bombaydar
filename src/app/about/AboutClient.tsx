@@ -65,7 +65,60 @@ export default function AboutClient() {
       EN: "We do catering business for weddings, large or small functions. From formal corporate events to grand wedding banquets, our culinary team delivers a bespoke experience that will delight your guests. We tailor every menu to fit your needs, bringing the authentic taste of India to your venue.",
       FR: "Nous proposons un service traiteur pour les mariages, ainsi que pour les grandes et petites réceptions. Des événements d'entreprise aux grands banquets de mariage, notre équipe culinaire offre une expérience sur mesure qui ravira vos invités."
     },
-    cateringCTA: { EN: "Inquire About Catering", FR: "Nous Contacter pour un Traiteur" }
+    cateringCTA: { EN: "Inquire About Catering", FR: "Nous Contacter pour un Traiteur" },
+
+    faqTitle: { EN: "Frequently Asked Questions", FR: "Questions Fréquentes" },
+    faqs: [
+      {
+        q: { EN: "Is Bombay Restaurant halal?", FR: "Le restaurant est-il halal ?" },
+        a: {
+          EN: "Yes, all meat served at Bombay Restaurant is halal certified. We source our ingredients from trusted halal suppliers.",
+          FR: "Oui, toute la viande servie chez Bombay Restaurant est certifiée halal. Nous nous approvisionnons auprès de fournisseurs halal de confiance."
+        }
+      },
+      {
+        q: { EN: "Do you have vegetarian and vegan options?", FR: "Proposez-vous des options végétariennes et véganes ?" },
+        a: {
+          EN: "Yes, our menu features extensive vegetarian options including paneer dishes, dal, vegetable curries, and vegan options like vegetable samosa, pakora, and salads. Look for the vegetarian (leaf) and vegan (seedling) icons on our menu.",
+          FR: "Oui, notre menu propose de nombreuses options végétariennes (paneer, dal, currys de légumes) et véganes (samosa, pakora, salades). Repérez les icônes végétarien et végane sur notre menu."
+        }
+      },
+      {
+        q: { EN: "Is parking available at the restaurants?", FR: "Le stationnement est-il disponible ?" },
+        a: {
+          EN: "Bombay Marrakech Gueliz has street parking nearby. Medina Rooftop is in the pedestrian Medina area - we recommend taxi or walking from nearby parking. Bombay Casablanca Maârif has parking available in the area.",
+          FR: "Bombay Marrakech Gueliz dispose de stationnement dans la rue à proximité. Medina Rooftop est dans la zone piétonne de la Médina - taxi ou marche recommandés. Bombay Casablanca Maârif dispose de stationnement à proximité."
+        }
+      },
+      {
+        q: { EN: "What is the dress code?", FR: "Quel est le code vestimentaire ?" },
+        a: {
+          EN: "Smart casual. We welcome guests in comfortable but presentable attire. No beachwear or sportswear at our fine dining locations.",
+          FR: "Tenue décontractée chic. Nous accueillons nos clients dans une tenue confortable mais présentable. Pas de tenue de plage ou de sport dans nos établissements."
+        }
+      },
+      {
+        q: { EN: "Do you accept reservations?", FR: "Acceptez-vous les réservations ?" },
+        a: {
+          EN: "Yes, we highly recommend reservations especially for dinner and weekends. Book online via our website or call +212 613-727362.",
+          FR: "Oui, nous recommandons vivement de réserver, surtout pour le dîner et les week-ends. Réservez en ligne ou appelez le +212 613-727362."
+        }
+      },
+      {
+        q: { EN: "Do you offer catering for weddings and events?", FR: "Proposez-vous un service traiteur pour mariages et événements ?" },
+        a: {
+          EN: "Yes, we provide catering services for weddings, corporate events, and private functions across Morocco. Contact us via WhatsApp at +212 613-727362 for a custom quote.",
+          FR: "Oui, nous proposons un service traiteur pour mariages, événements d'entreprise et réceptions privées partout au Maroc. Contactez-nous sur WhatsApp au +212 613-727362 pour un devis."
+        }
+      },
+      {
+        q: { EN: "What payment methods do you accept?", FR: "Quels moyens de paiement acceptez-vous ?" },
+        a: {
+          EN: "Marrakech locations (Gueliz & Medina): Cash only (MAD, EUR, USD). Casablanca location: Cash and card payments accepted.",
+          FR: "Marrakech (Gueliz et Medina) : espèces uniquement (MAD, EUR, USD). Casablanca : espèces et carte acceptées."
+        }
+      }
+    ]
   };
 
   return (
@@ -171,6 +224,30 @@ export default function AboutClient() {
           >
             {copy.cateringCTA[lang]}
           </a>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 border-b border-white/5 section-reveal" aria-labelledby="faq-title">
+        <div className="container max-w-3xl reveal-on-scroll up">
+          <div className="section-header-center mb-10">
+            <span className="section-label">{copy.faqTitle[lang]}</span>
+            <h2 id="faq-title" className="section-title font-serif">{copy.faqTitle[lang]}</h2>
+            <div className="section-divider-center" />
+          </div>
+          <div className="flex flex-col gap-3">
+            {copy.faqs.map((faq, i) => (
+              <details key={i} className="glass-panel rounded-xl px-5 py-4 group">
+                <summary className="font-serif text-lg text-white cursor-pointer list-none flex items-center justify-between gap-4">
+                  {faq.q[lang]}
+                  <span className="text-gold text-xl flex-shrink-0 transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="text-sand text-sm md:text-base leading-relaxed mt-3 font-light">
+                  {faq.a[lang]}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

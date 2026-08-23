@@ -1,20 +1,16 @@
 export const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Restaurant',
+  '@type': 'Organization',
   name: 'Bombay Restaurant',
   description: 'Authentic North Indian & Punjabi cuisine by Chef Surender Kumar Thakur since 2004. Three locations across Marrakech and Casablanca, Morocco.',
-  url: 'https://bombaydar.com',
+  url: 'https://bomdaymaroc.com',
+  image: 'https://bomdaymaroc.com/images/web/hero_royal_lounge.jpg',
   telephone: '+212613727362',
   email: 'Indian.maroc@gmail.com',
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'MA',
   },
-  hasMenu: 'https://bombaydar.com/menu',
-  servesCuisine: ['North Indian', 'Punjabi', 'Indo-Chinese', 'Mughlai'],
-  priceRange: '$$$',
-  paymentAccepted: 'Cash, Credit Card',
-  currenciesAccepted: 'MAD, EUR, USD',
   location: [
     {
       '@type': 'Place',
@@ -63,7 +59,8 @@ export const guelizSchema = {
   name: 'Bombay Marrakech Gueliz',
   branchCode: 'gueliz',
   description: 'Original flagship restaurant in Marrakech Ville Nouvelle. Art Deco lounge atmosphere with clay-pot biryani and tandoor grills.',
-  url: 'https://bombaydar.com/locations/gueliz',
+  url: 'https://bomdaymaroc.com/locations/gueliz',
+  image: 'https://bomdaymaroc.com/images/web/hero_royal_lounge.jpg',
   telephone: '+212613727362',
   address: {
     '@type': 'PostalAddress',
@@ -92,7 +89,7 @@ export const guelizSchema = {
       closes: '23:00',
     },
   ],
-  hasMenu: 'https://bombaydar.com/locations/gueliz#menu',
+  hasMenu: 'https://bomdaymaroc.com/locations/gueliz#menu',
   servesCuisine: ['North Indian', 'Punjabi', 'Indo-Chinese'],
   priceRange: '$$$',
   paymentAccepted: 'Cash',
@@ -105,7 +102,8 @@ export const medinaSchema = {
   name: 'Medina Rooftop',
   branchCode: 'medina',
   description: 'Rooftop dining under the Marrakech stars near Jemaa el-Fnaa. Panoramic views of Koutoubia Mosque and Atlas Mountains with authentic Mughlai cuisine.',
-  url: 'https://bombaydar.com/locations/medina',
+  url: 'https://bomdaymaroc.com/locations/medina',
+  image: 'https://bomdaymaroc.com/images/web/hero_medina_rooftop.jpg',
   telephone: '+212613727362',
   address: {
     '@type': 'PostalAddress',
@@ -127,7 +125,7 @@ export const medinaSchema = {
       closes: '23:30',
     },
   ],
-  hasMenu: 'https://bombaydar.com/locations/medina#menu',
+  hasMenu: 'https://bomdaymaroc.com/locations/medina#menu',
   servesCuisine: ['North Indian', 'Mughlai', 'Indo-Chinese'],
   priceRange: '$$$',
   paymentAccepted: 'Cash',
@@ -140,7 +138,8 @@ export const casablancaSchema = {
   name: 'Bombay Casablanca',
   branchCode: 'casablanca',
   description: 'Modern Indian dining in Casablanca Maârif. Atlantic coastal elegance with seafood curries, tandoor grills, and handcrafted mocktails. Card payments accepted.',
-  url: 'https://bombaydar.com/locations/casablanca',
+  url: 'https://bomdaymaroc.com/locations/casablanca',
+  image: 'https://bomdaymaroc.com/images/web/hero_casablanca_interior.jpg',
   telephone: '+212613727362',
   address: {
     '@type': 'PostalAddress',
@@ -162,7 +161,7 @@ export const casablancaSchema = {
       closes: '23:30',
     },
   ],
-  hasMenu: 'https://bombaydar.com/locations/casablanca#menu',
+  hasMenu: 'https://bomdaymaroc.com/locations/casablanca#menu',
   servesCuisine: ['North Indian', 'Punjabi', 'Seafood', 'Indo-Chinese'],
   priceRange: '$$$',
   paymentAccepted: 'Cash, Credit Card',
@@ -174,7 +173,7 @@ export const aboutSchema = {
   '@type': 'AboutPage',
   name: 'Chef Surender Kumar Thakur: 20+ Years of Authentic Indian Cuisine in Morocco',
   description: 'From Oberoi Udaivilas to Marrakech. Chef Surender Kumar Thakur\'s culinary journey, clay-pot traditions & catering for weddings across Morocco.',
-  url: 'https://bombaydar.com/about',
+  url: 'https://bomdaymaroc.com/about',
   mainEntity: {
     '@type': 'Person',
     name: 'Chef Surender Kumar Thakur',
@@ -257,7 +256,7 @@ export function generateMenuSchema(branch: 'marrakech' | 'casablanca') {
     '@type': 'Menu',
     name: `${branch === 'marrakech' ? 'Marrakech' : 'Casablanca'} Menu`,
     description: `Complete menu for Bombay Restaurant ${branch === 'marrakech' ? 'Marrakech (Gueliz & Medina)' : 'Casablanca'} location.`,
-    url: `https://bombaydar.com/locations/${branch}`,
+    url: `https://bomdaymaroc.com/locations/${branch}`,
     hasMenuSection: [
       {
         '@type': 'MenuSection',

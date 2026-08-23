@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://bombaydar.com',
+  siteUrl: 'https://bomdaymaroc.com',
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   exclude: ['/server-sitemap.xml'],
@@ -9,7 +9,7 @@ module.exports = {
       { userAgent: '*', allow: '/' },
       { userAgent: '*', disallow: ['/api/', '/_next/', '/static/', '/private/'] },
     ],
-    additionalSitemaps: ['https://bombaydar.com/sitemap.xml'],
+    additionalSitemaps: ['https://bomdaymaroc.com/sitemap.xml'],
   },
   transform: async (config, path) => {
     const priorityMap = {
