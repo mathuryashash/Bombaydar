@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import BookingWidget from '@/components/BookingWidget';
 import Logo from '@/components/Logo';
+import SchemaScript from '@/components/SchemaScript';
+import { organizationSchema, faqSchema } from '@/lib/schema';
 
 export default function Home() {
   const [lang, setLang] = useState<'EN' | 'FR'>('EN');
@@ -136,66 +138,91 @@ export default function Home() {
   return (
     <div className="homepage-wrapper">
       {/* Hero Section */}
-      <section className="hero-section">
-        {heroImages.map((src, index) => (
-          <div
-            key={src}
-            className={`hero-bg-slide ${index === heroIndex ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${src})` }}
-          />
-        ))}
+      <section className="hero-section" aria-label="Hero carousel showcasing Bombay Restaurant locations and signature dishes">
+        {heroImages.map((src, index) => {
+          const altTexts = [
+            "Bombay Marrakech Gueliz - Elegant Art Deco lounge with warm ambient lighting",
+            "Medina Rooftop Marrakech - Stunning rooftop terrace overlooking historic Koutoubia Mosque at golden hour",
+            "Signature Clay-Pot Chicken Biryani - Slow-cooked in traditional sealed clay handi with saffron rice",
+            "Chef Surender Kumar Thakur - Master chef at traditional tandoor clay oven preparing authentic naan",
+            "Bombay Casablanca Maârif - Contemporary dining space with open tandoor grill and modern gold accents",
+            "Butter Chicken Thali - Complete meal with creamy tomato butter chicken, cheese naan, and basmati rice",
+            "Luxury Table Setting - Fine dining ambiance with gold cutlery, candlelight, and premium tableware"
+          ];
+          return (
+            <div
+              key={src}
+              className={`hero-bg-slide ${index === heroIndex ? 'active' : ''}`}
+              style={{ backgroundImage: `url(${src})` }}
+              role="img"
+              aria-label={altTexts[index]}
+            />
+          );
+        })}
         <div className="hero-overlay" />
 
-        <div className="hero-content">
+        <div className="hero-content reveal-on-scroll">
           <Logo size={72} className="hero-logo" />
-          <h1 className="hero-title font-serif">{copy.heroTitle[lang]}</h1>
-          <p className="hero-subtitle">{copy.heroSubtitle[lang]}</p>
-          <div className="hero-buttons">
-            <Link href="#booking-anchor" className="btn-primary">{copy.bookTable[lang]}</Link>
+          <h1 className="hero-title font-serif reveal-on-scroll left delay-1">{copy.heroTitle[lang]}</h1>
+          <p className="hero-subtitle reveal-on-scroll right delay-2">{copy.heroSubtitle[lang]}</p>
+          <div className="hero-buttons reveal-on-scroll up delay-3">
+            <Link href="#booking-anchor" className="btn-primary pulse-glow">{copy.bookTable[lang]}</Link>
             <Link href="/about" className="btn-secondary">{copy.discoverMenu[lang]}</Link>
           </div>
         </div>
 
-        <div className="hero-indicators">
+        <div className="hero-indicators" aria-label="Carousel navigation">
           {heroImages.map((_, index) => (
             <button
               key={index}
               className={`indicator-dot ${index === heroIndex ? 'active' : ''}`}
               onClick={() => setHeroIndex(index)}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`View slide ${index + 1} of ${heroImages.length}`}
             />
           ))}
         </div>
       </section>
 
-      {/* Locations Grid Section (Moved up) */}
-      <section className="locations-section container">
-        <div className="section-header-center">
+{/* Locations Grid Section (Moved up) */}
+      <section className="locations-section container section-reveal" aria-labelledby="locations-title">
+        <div className="section-header-center reveal-on-scroll up">
           <span className="section-label">{copy.locationsLabel[lang]}</span>
-          <h2 className="section-title font-serif">{copy.locationsTitle[lang]}</h2>
+          <h2 id="locations-title" className="section-title font-serif">{copy.locationsTitle[lang]}</h2>
           <div className="section-divider-center" />
         </div>
 
         <div className="locations-grid-wrapper">
-          <div className="branches-grid">
+          <div className="branches-grid stagger-reveal">
             {/* Gueliz */}
-            <div className="branch-card glass-panel">
+            <article className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image src="/images/web/hero_royal_lounge.jpg" alt="Bombay Marrakech dining" width={400} height={250} className="branch-img" />
+                <Image 
+                  src="/images/web/hero_royal_lounge.jpg" 
+                  alt="Bombay Marrakech Gueliz - Art Deco lounge interior with dark teakwood paneling, brass lanterns, and plush velvet seating" 
+                  width={400} 
+                  height={250} 
+                  className="branch-img" 
+                />
               </div>
               <div className="branch-card-content">
-                <h3 className="branch-name font-serif">Bombay Marrakech</h3>
+                <h3 className="branch-name font-serif">Bombay Marrakech Gueliz</h3>
                 <p className="branch-desc">{copy.guelizDesc[lang]}</p>
                 <div className="branch-actions">
                   <Link href="/locations/gueliz" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
                 </div>
               </div>
-            </div>
+            </article>
 
             {/* Medina */}
-            <div className="branch-card glass-panel">
+            <article className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image src="/images/web/hero_medina_rooftop.jpg" alt="Medina Rooftop dining" width={400} height={250} className="branch-img" />
+                <Image 
+                  src="/images/web/hero_medina_rooftop.jpg" 
+                  alt="Medina Rooftop Marrakech - Rooftop terrace with panoramic views of Koutoubia Mosque and Atlas Mountains at sunset" 
+                  width={400} 
+                  height={250} 
+                  className="branch-img" 
+                />
               </div>
               <div className="branch-card-content">
                 <h3 className="branch-name font-serif">Medina Rooftop</h3>
@@ -204,12 +231,18 @@ export default function Home() {
                   <Link href="/locations/medina" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
                 </div>
               </div>
-            </div>
+            </article>
 
             {/* Casablanca */}
-            <div className="branch-card glass-panel">
+            <article className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image src="/images/web/hero_casablanca_interior.jpg" alt="Casablanca dining" width={400} height={250} className="branch-img" />
+                <Image 
+                  src="/images/web/hero_casablanca_interior.jpg" 
+                  alt="Bombay Casablanca Maârif - Modern dining room with open tandoor grill and gold accents" 
+                  width={400} 
+                  height={250} 
+                  className="branch-img" 
+                />
               </div>
               <div className="branch-card-content">
                 <h3 className="branch-name font-serif">Bombay Casablanca</h3>
@@ -218,27 +251,28 @@ export default function Home() {
                   <Link href="/locations/casablanca" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
                 </div>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
       {/* Brand Heritage Section */}
-      <section className="brand-story-section container">
+      <section className="brand-story-section container section-reveal" aria-labelledby="story-title">
         <div className="story-grid">
-          <div className="story-image-wrapper glass-panel chef-portrait-card overflow-hidden rounded-2xl border border-gold shadow-2xl relative min-h-[520px] w-full bg-black/60">
+          <figure className="story-image-wrapper glass-panel chef-portrait-card overflow-hidden rounded-2xl border border-gold shadow-2xl relative min-h-[520px] w-full bg-black/60 reveal-on-scroll left">
             <Image
               src="/images/chef_upscaled.png"
-              alt="Chef Surender Kumar Thakur"
+              alt="Chef Surender Kumar Thakur - Owner and Head Chef of Bombay Restaurant, standing proudly in the kitchen with 20+ years of culinary expertise"
               fill
               className="story-img object-cover object-top w-full h-full transform hover:scale-105 transition-transform duration-700"
               sizes="(max-width: 768px) 100vw, 500px"
               priority
             />
-          </div>
-          <div className="story-content">
+            <figcaption className="sr-only">Chef Surender Kumar Thakur, Owner & Head Chef of Bombay Restaurant Morocco</figcaption>
+          </figure>
+          <div className="story-content reveal-on-scroll right">
             <span className="section-label">{copy.storyLabel[lang]}</span>
-            <h2 className="section-title font-serif">{copy.storyTitle[lang]}</h2>
+            <h2 id="story-title" className="section-title font-serif">{copy.storyTitle[lang]}</h2>
             <div className="section-divider" />
             <p className="story-paragraph">{copy.storyText1[lang]}</p>
             <p className="story-paragraph">{copy.storyText2[lang]}</p>
@@ -251,31 +285,33 @@ export default function Home() {
       </section>
 
       {/* Catering & Private Events Section */}
-      <section className="catering-section container">
-        <div className="catering-grid glass-panel rounded-2xl overflow-hidden border border-gold/20 relative">
+      <section className="catering-section container section-reveal" aria-labelledby="catering-title">
+        <div className="catering-grid glass-panel rounded-2xl overflow-hidden border border-gold/20 relative parallax-element" data-parallax-speed="0.2">
           <div 
             className="catering-bg absolute inset-0 bg-cover bg-center opacity-20" 
             style={{ backgroundImage: `url('/images/web/ambiance_luxury_table.jpg')` }} 
+            role="img"
+            aria-label="Elegant catering setup with luxury table setting, gold cutlery, and premium Indian cuisine presentation"
           />
           <div className="catering-overlay absolute inset-0 z-0" />
           
-          <div className="catering-content relative z-10 p-8 md:p-16 max-w-2xl flex flex-col gap-5">
+          <div className="catering-content relative z-10 p-8 md:p-16 max-w-2xl flex flex-col gap-5 reveal-on-scroll up">
             <span className="section-label gold-text text-gold font-bold uppercase tracking-widest text-xs">
               {copy.cateringLabel[lang]}
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl text-white font-bold leading-tight">
+            <h2 id="catering-title" className="font-serif text-3xl md:text-5xl text-white font-bold leading-tight">
               {copy.cateringTitle[lang]}
             </h2>
             <div className="section-divider" />
             <p className="story-paragraph text-sand leading-relaxed">
               {copy.cateringText[lang]}
             </p>
-            <div className="mt-4">
+            <div className="mt-4 reveal-on-scroll up delay-1">
               <a 
                 href="https://wa.me/212613727362?text=Hello%20Bombay%20Restaurant!%20I%20would%20like%20to%20inquire%20about%20catering%20services%20for%20my%20event."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary"
+                className="btn-primary pulse-glow"
               >
                 {copy.cateringBtn[lang]}
               </a>
@@ -285,8 +321,8 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <section className="reviews-section">
-        <div className="section-header-center container">
+      <section className="reviews-section section-reveal">
+        <div className="section-header-center container reveal-on-scroll up">
           <span className="section-label">{copy.reviewsLabel[lang]}</span>
           <h2 className="section-title font-serif">{copy.reviewsTitle[lang]}</h2>
           <div className="section-divider-center" />
@@ -321,11 +357,13 @@ export default function Home() {
       </section>
 
       {/* Booking Form Anchor Section */}
-      <section className="booking-section" id="booking-anchor">
-        <div className="container">
+      <section className="booking-section section-reveal" id="booking-anchor" aria-labelledby="booking-title">
+        <div className="container reveal-on-scroll up">
           <BookingWidget />
         </div>
       </section>
+      <SchemaScript schema={organizationSchema} />
+      <SchemaScript schema={faqSchema} />
     </div>
   );
 }

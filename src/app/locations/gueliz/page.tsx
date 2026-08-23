@@ -1,148 +1,43 @@
-'use client';
+import type { Metadata } from "next";
+import { guelizSchema, faqSchema, generateMenuSchema } from "@/lib/schema";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import MenuSection from '@/components/MenuSection';
-import BookingWidget from '@/components/BookingWidget';
-
-export default function GuelizBranch() {
-  const [lang, setLang] = useState<'EN' | 'FR'>('EN');
-  const [slideIndex, setSlideIndex] = useState(0);
-
-  const heroSlides = [
-    '/images/web/hero_royal_lounge.jpg',
-    '/images/web/ambiance_candlelit_room.jpg',
-    '/images/web/food_tandoori_chicken_platter.jpg',
-    '/images/web/chef_tandoor_cooking.jpg'
-  ];
-
-  useEffect(() => {
-    const handleLangChange = (e: Event) => {
-      const customEvent = e as CustomEvent<'EN' | 'FR'>;
-      setLang(customEvent.detail);
-    };
-    window.addEventListener('langChange', handleLangChange);
-    
-    const interval = setInterval(() => {
-      setSlideIndex((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
-
-    return () => {
-      window.removeEventListener('langChange', handleLangChange);
-      clearInterval(interval);
-    };
-  }, [heroSlides.length]);
-
-  const copy = {
-    title: { EN: "Bombay Marrakech", FR: "Bombay Marrakech" },
-    subtitle: { EN: "Our original flagship restaurant in modern Marrakech.", FR: "Notre restaurant historique dans le Marrakech moderne." },
-    tagline: {
-      EN: "Nestled in Marrakech's chic Ville Nouvelle, Bombay Gueliz pays homage to the 1920s Art Deco dining saloons of Bombay's Fort district. Here, dark teakwood paneling, brass lanterns, and plush velvet seating create an intimate sanctuary for refined North Indian culinary craftsmanship.",
-      FR: "Niché dans le quartier chic de la Ville Nouvelle à Marrakech, Bombay Guéliz rend hommage aux salons Art Déco des années 1920 du quartier du Fort de Bombay. Des boiseries sombres, lanternes en laiton et sièges en velours créent un sanctuaire intime."
+export const metadata: Metadata = {
+  title: "Bombay Marrakech Gueliz: Flagship Indian Restaurant in Ville Nouvelle",
+  description: "Original Bombay location since 2004. Art Deco lounge, clay-pot biryani, tandoor grills. Open Tue-Sun 12-23h. Book a table at Marrakech's premier Indian restaurant.",
+  openGraph: {
+    title: "Bombay Marrakech Gueliz: Flagship Indian Restaurant in Ville Nouvelle",
+    description: "Original Bombay location since 2004. Art Deco lounge, clay-pot biryani, tandoor grills. Open Tue-Sun 12-23h.",
+    url: "https://bombaydar.com/locations/gueliz",
+    siteName: "Bombay Restaurant",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/images/web/hero_royal_lounge.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bombay Marrakech Gueliz - Art Deco lounge interior with elegant seating",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bombay Marrakech Gueliz: Flagship Indian Restaurant",
+    description: "Art Deco lounge, clay-pot biryani, tandoor grills since 2004.",
+    images: ["/images/web/hero_royal_lounge.jpg"],
+  },
+  alternates: {
+    canonical: "https://bombaydar.com/locations/gueliz",
+    languages: {
+      en: "https://bombaydar.com/en/locations/gueliz",
+      fr: "https://bombaydar.com/fr/locations/gueliz",
+      "x-default": "https://bombaydar.com/locations/gueliz",
     },
-    hoursTitle: { EN: "Opening Hours", FR: "Horaires d'Ouverture" },
-    contactTitle: { EN: "Contact & Address", FR: "Contact & Adresse" },
-  };
+  },
+};
 
-  return (
-    <div className="location-page-wrapper">
-      {/* Header Banner Carousel */}
-      <section className="relative h-[65vh] min-h-[480px] w-full overflow-hidden flex items-center justify-center">
-        {heroSlides.map((slide, idx) => (
-          <div
-            key={slide}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === slideIndex ? 'opacity-100 z-10 scale-105' : 'opacity-0 z-0 scale-100'} transition-transform duration-[7000ms]`}
-          >
-            <Image
-              src={slide}
-              alt="Bombay Marrakech Flagship"
-              fill
-              className="object-cover"
-              priority={idx === 0}
-            />
-          </div>
-        ))}
-        <div className="absolute inset-0 bg-black/60 z-20" />
-        <div className="relative z-30 container mx-auto px-4 text-center text-white">
-          <span className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-gold/20 text-gold border border-gold/40 mb-4 inline-block">
-            Marrakech Flagship
-          </span>
-          <h1 className="font-serif text-4xl md:text-6xl font-bold text-white mb-3">
-            {copy.title[lang]}
-          </h1>
-          <p className="text-lg md:text-xl text-sand max-w-2xl mx-auto font-sans font-light">
-            {copy.subtitle[lang]}
-          </p>
-        </div>
-      </section>
+import GuelizClient from "./GuelizClient";
 
-      {/* Details section */}
-      <section className="location-info-section container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="bg-black/40 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
-            <h3 className="font-serif text-xl font-bold text-gold mb-3">{copy.hoursTitle[lang]}</h3>
-            <ul className="text-sm text-sand space-y-2">
-              <li className="flex justify-between border-b border-white/10 pb-2">
-                <span>Tuesday - Sunday:</span>
-                <span className="font-bold text-white">12:00 - 23:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Monday:</span>
-                <span className="font-bold text-white">18:00 - 23:00</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-black/40 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
-            <h3 className="font-serif text-xl font-bold text-gold mb-3">{copy.contactTitle[lang]}</h3>
-            <ul className="text-sm text-sand space-y-2">
-              <li>
-                <strong className="text-white block">Address:</strong>
-                <span>7, Rue Ibn Zaidoun, Gueliz, Marrakech 40000</span>
-              </li>
-              <li className="pt-2">
-                <strong className="text-white block">Phone:</strong>
-                <a href="tel:+212613727362" className="text-gold font-bold hover:underline">+212 613-727362</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-black/40 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
-            <h3 className="font-serif text-xl font-bold text-gold mb-3">Payment Info</h3>
-            <p className="text-sm text-sand leading-relaxed">
-              Marrakech Gueliz branch accepts Cash payments (MAD, EUR, USD).
-            </p>
-          </div>
-        </div>
-
-        {/* Narrative */}
-        <div className="bg-black/50 p-8 md:p-12 rounded-3xl border border-gold/20 mb-16 backdrop-blur-md max-w-4xl mx-auto text-center">
-          <h2 className="font-serif text-3xl font-bold text-gold mb-4">The Art Deco Lounge of Gueliz</h2>
-          <div className="w-16 h-0.5 bg-gold mx-auto mb-6" />
-          <p className="text-base text-sand leading-relaxed font-sans font-light">
-            {copy.tagline[lang]}
-          </p>
-        </div>
-      </section>
-
-      {/* Menu Section */}
-      <section className="py-12 bg-black/30" id="menu">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <span className="text-xs uppercase tracking-widest text-gold font-bold block mb-2">Dine With Us</span>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white">The Marrakech Menu</h2>
-            <div className="w-16 h-0.5 bg-gold mx-auto mt-4" />
-          </div>
-          <MenuSection defaultBranch="marrakech" />
-        </div>
-      </section>
-
-      {/* Booking Form */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <BookingWidget />
-        </div>
-      </section>
-    </div>
-  );
+export default function GuelizPage() {
+  return <GuelizClient />;
 }

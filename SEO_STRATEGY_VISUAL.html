@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Strategy — Bombay Restaurant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold-primary: #d4af37;
+      --gold-secondary: #e5a93b;
+      --gold-subtle: rgba(212, 175, 55, 0.2);
+      --gold-light: #ffd984;
+      --gold-gradient: linear-gradient(135deg, #ffd984 0%, #af7c1c 100%);
+      --sand: #c2bba8;
+      --bg-primary: #08090b;
+      --bg-secondary: #101216;
+      --bg-tertiary: #171a21;
+      --bg-card: rgba(16, 18, 22, 0.85);
+      --text-primary: #f5f6f8;
+      --text-secondary: #a39d90;
+      --text-muted: #6b6558;
+      --accent-gold: #e5a93b;
+      --accent-gold-rgb: 229, 169, 59;
+      --accent-emerald: #104235;
+      --accent-crimson: #8b1e2f;
+      --border-color: rgba(229, 169, 59, 0.12);
+      --border-color-strong: rgba(229, 169, 59, 0.25);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background-color: var(--bg-primary); color: var(--text-primary); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+    body { min-height: 100vh; line-height: 1.6; background: var(--bg-primary); padding: 40px 20px; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul, ol { list-style: none; }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-serif); font-weight: 500; letter-spacing: 0.02em; line-height: 1.2; }
+    p { color: var(--text-secondary); font-size: 0.975rem; font-weight: 300; letter-spacing: 0.01em; }
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; }
+    .glass-panel { background: var(--bg-card); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-color); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4); border-radius: 12px; }
+    .gold-text { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gold-accent { color: var(--accent-gold); }
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 2rem; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #000; background: var(--gold-gradient); border-radius: 4px; cursor: pointer; box-shadow: 0 4px 15px rgba(229, 169, 59, 0.25); transition: all var(--transition-fast); }
+    .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; color: var(--accent-gold); display: block; margin-bottom: 8px; }
+    .section-title { font-size: 2.5rem; line-height: 1.15; color: var(--text-primary); margin-bottom: 16px; }
+    .section-divider { width: 60px; height: 1px; background: var(--border-color-strong); margin-bottom: 24px; }
+
+    /* Header */
+    .header { text-align: center; margin-bottom: 60px; padding: 60px 40px; }
+    .header .logo { display: inline-flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+    .header .logo-title { font-size: 1.5rem; font-weight: 600; letter-spacing: 0.08em; }
+    .header .logo-subtitle { font-size: 0.65rem; letter-spacing: 0.25em; color: var(--text-secondary); }
+
+    /* Priority Badges */
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .badge-p0 { background: rgba(139, 30, 47, 0.2); border: 1px solid var(--accent-crimson-light); color: #ff8a8a; }
+    .badge-p1 { background: rgba(229, 169, 59, 0.15); border: 1px solid var(--accent-gold); color: var(--gold-light); }
+    .badge-p2 { background: rgba(16, 66, 53, 0.2); border: 1px solid var(--accent-emerald-light); color: #6ee7b7; }
+
+    /* Grid Layouts */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .grid-7 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    @media (max-width: 900px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } .grid-7 { grid-template-columns: 1fr; } }
+
+    /* Cards */
+    .card { padding: 28px; transition: all 0.3s ease; }
+    .card:hover { border-color: var(--gold-primary); transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+    .card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    .card p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px; }
+    .card .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag { font-size: 0.7rem; padding: 3px 10px; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Fix Cards */
+    .fix-card { position: relative; padding: 32px; }
+    .fix-number { position: absolute; top: 24px; right: 24px; font-size: 4rem; font-weight: 700; color: var(--gold-primary); opacity: 0.15; font-family: var(--font-serif); line-height: 1; }
+    .fix-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .fix-card .issue { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px; }
+    .fix-card .fix { color: var(--accent-gold); font-size: 0.9rem; font-weight: 500; }
+
+    /* Table Styles */
+    .table-wrapper { overflow-x: auto; margin: 24px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border-color); }
+    th { font-family: var(--font-sans); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-gold); background: var(--bg-tertiary); }
+    td { color: var(--text-secondary); font-weight: 300; }
+    tr:hover td { color: var(--text-primary); background: rgba(229, 169, 59, 0.03); }
+    .title-current { color: var(--text-muted); font-style: italic; font-size: 0.8rem; }
+    .title-new { color: var(--text-primary); font-weight: 500; }
+    .title-diff { color: var(--accent-emerald-light); font-size: 0.75rem; }
+
+    /* Budget Bars */
+    .budget-bar { height: 8px; background: var(--bg-tertiary); border-radius: 4px; overflow: hidden; margin: 8px 0 16px; }
+    .budget-fill { height: 100%; background: var(--gold-gradient); border-radius: 4px; transition: width 1s ease-out; }
+    .budget-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px; }
+
+    /* Branch Flow */
+    .branch-flow { display: flex; flex-direction: column; gap: 16px; padding: 24px; }
+    .branch-row { display: flex; align-items: center; gap: 16px; }
+    .branch-main { flex: 1; padding: 20px; background: var(--bg-tertiary); border: 1px solid var(--border-color-strong); border-radius: 8px; text-align: center; font-weight: 600; color: var(--accent-gold); }
+    .branch-connector { width: 2px; height: 40px; background: var(--gold-gradient); margin: 0 auto; }
+    .branch-features { flex: 2; display: flex; flex-wrap: wrap; gap: 10px; }
+    .feature-pill { padding: 10px 16px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.8rem; color: var(--text-secondary); }
+
+    /* KPI Cards */
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .kpi-card { padding: 28px; text-align: center; }
+    .kpi-value { font-size: 3rem; font-weight: 700; color: var(--accent-gold); font-family: var(--font-serif); line-height: 1; margin-bottom: 8px; }
+    .kpi-label { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+    .kpi-target { font-size: 0.75rem; color: var(--accent-emerald-light); font-weight: 600; }
+
+    /* Decision Cards */
+    .decision-card { padding: 24px; border-left: 3px solid var(--accent-gold); }
+    .decision-card h4 { font-size: 1rem; margin-bottom: 8px; color: var(--text-primary); }
+    .decision-card p { font-size: 0.85rem; margin-bottom: 12px; }
+    .decision-card .decision-tag { font-size: 0.65rem; padding: 2px 8px; background: var(--gold-subtle); color: var(--accent-gold); border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Steps */
+    .steps { display: flex; flex-direction: column; gap: 16px; }
+    .step { display: flex; gap: 20px; padding: 24px; }
+    .step-number { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: var(--gold-gradient); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; color: #000; }
+    .step-content h4 { font-size: 1.1rem; margin-bottom: 6px; }
+    .step-content p { font-size: 0.85rem; margin: 0; }
+
+    /* Section Spacing */
+    section { margin-bottom: 60px; padding: 48px; }
+    @media (max-width: 768px) { section { padding: 32px 24px; } .header { padding: 40px 24px; } }
+
+    /* Print Styles */
+    @media print {
+      body { background: white; color: black; padding: 0; }
+      .glass-panel { background: white; border: 1px solid #e0e0e0; box-shadow: none; }
+      .gold-text { color: #d4af37; -webkit-text-fill-color: #d4af37; }
+      .gold-accent { color: #d4af37; }
+      .btn-primary { display: none; }
+      section { break-inside: avoid; page-break-inside: avoid; margin-bottom: 40px; padding: 24px; }
+      .header { padding: 40px 0; }
+      .fix-number { color: #d4af37; opacity: 0.2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header glass-panel">
+      <div class="logo">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="22" stroke="var(--gold-primary)" stroke-width="2"/>
+          <text x="24" y="30" text-anchor="middle" font-family="var(--font-serif)" font-size="18" font-weight="600" fill="var(--gold-primary)">B</text>
+        </svg>
+        <div>
+          <div class="logo-title gold-text">BOMBAY RESTAURANT</div>
+          <div class="logo-subtitle">MOROCCO</div>
+        </div>
+      </div>
+      <h1 class="section-title">SEO & Growth Strategy</h1>
+      <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem;">Increase organic visibility for high-intent keywords in Morocco market</p>
+      <div style="margin-top: 24px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <span class="badge badge-p0">P0 Critical</span>
+        <span class="badge badge-p1">P1 High Impact</span>
+        <span class="badge badge-p2">P2 Growth</span>
+      </div>
+    </header>
+
+    <!-- Goal & Metrics -->
+    <section class="glass-panel">
+      <span class="section-label">Objective</span>
+      <h2 class="section-title">Target Keywords <span class="gold-text">Morocco Market</span></h2>
+      <div class="grid-4" style="margin-top: 24px;">
+        <div class="card" style="text-align: center; padding: 24px;">
+          <div class="kpi-value gold-text">1,300</div>
+          <div class="kpi-label">Monthly Searches</div>
+          <div class="kpi-target">"restaurant indien marrakech"</div>
+        </div>
+        <div class="card" style="text-align: center; padding: 24px;">
+          <div class="kpi-value gold-text">800</div>
+          <div class="kpi-label">Monthly Searches</div>
+          <div class="kpi-target">"indian restaurant marrakech"</div>
+        </div>
+        <div class="card" style="text-align: center; padding: 24px;">
+          <div class="kpi-value gold-text">600</div>
+          <div class="kpi-label">Monthly Searches</div>
+          <div class="kpi-target">"rooftop marrakech medina"</div>
+        </div>
+        <div class="card" style="text-align: center; padding: 24px;">
+          <div class="kpi-value gold-text">500</div>
+          <div class="kpi-label">Monthly Searches</div>
+          <div class="kpi-target">"indian restaurant casablanca"</div>
+        </div>
+      </div>
+      <div style="margin-top: 32px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font-size: 0.9rem; color: var(--text-secondary);">
+        <div style="text-align: center;">
+          <div class="gold-text" style="font-size: 1.5rem; font-weight: 700;">3</div>
+          <div>Locations</div>
+        </div>
+        <div style="text-align: center;">
+          <div class="gold-text" style="font-size: 1.5rem; font-weight: 700;">2</div>
+          <div>Languages (EN/FR)</div>
+        </div>
+        <div style="text-align: center;">
+          <div class="gold-text" style="font-size: 1.5rem; font-weight: 700;">20+</div>
+          <div>Years Legacy</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Critical Technical Fixes -->
+    <section class="glass-panel">
+      <span class="section-label">Week 1 — Critical Fixes</span>
+      <h2 class="section-title">Technical <span class="gold-text">Foundation</span></h2>
+      <p style="margin-bottom: 32px; max-width: 700px;">Seven blocking issues preventing indexation and rich results. All implemented via <code>feature/seo-foundation</code> branch with Vercel preview.</p>
+      <div class="grid-7">
+        <div class="fix-card glass-panel">
+          <span class="fix-number">01</span>
+          <span class="badge badge-p0">P0</span>
+          <h3>XML Sitemap Missing</h3>
+          <p class="issue">Google cannot efficiently discover all pages — no <code>/sitemap.xml</code> exists.</p>
+          <p class="fix">Add <code>next-sitemap</code> config; auto-generates on build.</p>
+        </div>
+        <div class="fix-card glass-panel">
+          <span class="fix-number">02</span>
+          <span class="badge badge-p0">P0</span>
+          <h3>No robots.txt</h3>
+          <p class="issue">Crawlers lack guidance on what to index and where sitemap lives.</p>
+          <p class="fix">Add <code>public/robots.txt</code> with sitemap reference.</p>
+        </div>
+        <div class="fix-card glass-panel">
+          <span class="fix-number">03</span>
+          <span class="badge badge-p0">P0</span>
+          <h3>Zero Schema Markup</h3>
+          <p class="issue">No JSON-LD for Restaurant, LocalBusiness, Menu — missing stars, hours, menu in SERP.</p>
+          <p class="fix">Implement structured data on all pages (Organization, 3×LocalBusiness, Menu, MenuItem).</p>
+        </div>
+        <div class="fix-card glass-panel">
+          <span class="fix-number">04</span>
+          <span class="badge badge-p0">P0</span>
+          <h3><code>/locations</code> Redirects to Home</h3>
+          <p class="issue">Kills internal link equity to 3 branch pages — they're orphaned.</p>
+          <p class="fix">Replace redirect with proper index page linking Gueliz, Medina, Casablanca.</p>
+        </div>
+        <div class="fix-card glass-panel">
+          <span class="fix-number">05</span>
+          <span class="badge badge-p0">P0</span>
+          <h3>No Unique Meta per Page</h3>
+          <p class="issue">All pages share generic title/description — low CTR from search results.</p>
+          <p class="fix">Add page-specific <code>metadata</code> export with optimized titles (≤60 chars) & descriptions (150-160 chars).</p>
+        </div>
+        <div class="fix-card glass-panel">
+          <span class="fix-number">06</span>
+          <span class="badge badge-p1">P1</span>
+          <h3>No hreflang / Language URLs</h3>
+          <p class="issue">French content invisible to French searchers — language switch is client-side only.</p>
+          <p class="fix">Implement <code>/en/</code> & <code>/fr/</code> subdirectories or hreflang annotations.</p>
+        </div>
+        <div class="fix-card glass-panel">
+          <span class="fix-number">07</span>
+          <span class="badge badge-p0">P0</span>
+          <h3>Google Business Profiles Unclaimed</h3>
+          <p class="issue">Zero map pack visibility for "indian restaurant near me" in Marrakech/Casablanca.</p>
+          <p class="fix">Claim & optimize 3 profiles: Gueliz, Medina Rooftop, Casablanca Maârif.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- On-Page Optimizations -->
+    <section class="glass-panel">
+      <span class="section-label">Week 1-2 — On-Page</span>
+      <h2 class="section-title">Meta Titles & <span class="gold-text">Descriptions</span></h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Page</th>
+              <th>Current Title</th>
+              <th>Optimized Title (≤60 chars)</th>
+              <th>Meta Description (150-160 chars)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Home</strong></td>
+              <td class="title-current">Bombay Restaurant | Authentic Indian Cuisine in Morocco</td>
+              <td class="title-new">Bombay Restaurant: Authentic North Indian & Punjabi Cuisine in Marrakech & Casablanca</td>
+              <td>Experience Chef Surender's 20-year legacy. Clay-pot biryani, tandoor grills & rooftop dining in Marrakech & Casablanca. Book now.</td>
+            </tr>
+            <tr>
+              <td><strong>Gueliz</strong></td>
+              <td class="title-current">(Hero only — no page title)</td>
+              <td class="title-new">Bombay Marrakech Gueliz: Flagship Indian Restaurant in Ville Nouvelle</td>
+              <td>Original Bombay location since 2004. Art Deco lounge, clay-pot biryani, tandoor grills. Open Tue-Sun 12-23h. Book a table.</td>
+            </tr>
+            <tr>
+              <td><strong>Medina</strong></td>
+              <td class="title-current">(Hero only — no page title)</td>
+              <td class="title-new">Medina Rooftop Marrakech: Rooftop Indian Dining Near Jemaa el-Fnaa</td>
+              <td>Dine under stars with Koutoubia views. Authentic North Indian & Mughlai cuisine. Open daily 12:30-23:30. Reserve now.</td>
+            </tr>
+            <tr>
+              <td><strong>Casablanca</strong></td>
+              <td class="title-current">(Hero only — no page title)</td>
+              <td class="title-new">Bombay Casablanca Maârif: Modern Indian Restaurant with Seafood & Cocktails</td>
+              <td>Atlantic coastal elegance meets Indian gastronomy. Seafood curries, tandoor grills, card payments accepted. Open daily 12-23:30.</td>
+            </tr>
+            <tr>
+              <td><strong>About</strong></td>
+              <td class="title-current">The Brand Story</td>
+              <td class="title-new">Chef Surender Kumar Thakur: 20+ Years of Authentic Indian Cuisine in Morocco</td>
+              <td>From Oberoi Udaivilas to Marrakech. Chef Surender's culinary journey, clay-pot traditions & catering for weddings across Morocco.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-3" style="margin-top: 24px;">
+        <div class="card">
+          <h3>Single H1 per Page</h3>
+          <p>Homepage currently has multiple H1s across sections. Restructure to one H1 + H2/H3 hierarchy.</p>
+        </div>
+        <div class="card">
+          <h3>Descriptive Alt Text</h3>
+          <p>Hero images use generic alts like "Bombay Marrakech dining". Add keyword-rich, descriptive alt attributes.</p>
+        </div>
+        <div class="card">
+          <h3>FAQ Schema</h3>
+          <p>Add FAQ schema to location pages: parking, halal certification, vegetarian options, dress code, reservations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Opportunities -->
+    <section class="glass-panel">
+      <span class="section-label">Month 1 — Content</span>
+      <h2 class="section-title">Content <span class="gold-text">Opportunities</span></h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3><span class="gold-accent">/menu</span> Hub Page</h3>
+          <p>Filterable by branch, category, dietary tags. Each dish gets <code>/menu/{slug}</code> with MenuItem schema. Targets: "indian menu marrakech", "biryani menu casablanca".</p>
+          <div class="meta">
+            <span class="tag">High Priority</span>
+            <span class="tag">Schema Ready</span>
+            <span class="tag">Internal Links</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Blog: Chef's Journey</h3>
+          <p>Long-form story: Oberoi Udaivilas → Bombay Dreams Hong Kong → Morocco 2004. Targets: "chef surender kumar thakur", "indian chef morocco". Links to About & Home.</p>
+          <div class="meta">
+            <span class="tag">Storytelling</span>
+            <span class="tag">E-E-A-T</span>
+            <span class="tag">Brand Authority</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Blog: Why Our Biryani is Different</h3>
+          <p>Process deep-dive: clay handi, sealed dough, saffron, dum cooking. "Try ours" CTA to booking. Targets: "clay pot biryani marrakech", "authentic biryani morocco".</p>
+          <div class="meta">
+            <span class="tag">Product-Led</span>
+            <span class="tag">Commercial Intent</span>
+            <span class="tag">Conversion</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Blog: North Indian Cuisine Guide</h3>
+          <p>Educational: Mughlai vs Punjabi, tandoor techniques, spice profiles. Cross-links to menu categories. Targets: "north indian food morocco", "punjabi restaurant marrakech".</p>
+          <div class="meta">
+            <span class="tag">Educational</span>
+            <span class="tag">Topical Authority</span>
+            <span class="tag">Long-Tail</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Blog: Indian Wedding Catering Guide</h3>
+          <p>Checklist + inquiry form for Moroccan weddings. Targets: "indian wedding catering marrakech", "traiteur indien maroc". Direct catering lead gen.</p>
+          <div class="meta">
+            <span class="tag">Lead Gen</span>
+            <span class="tag">Commercial</span>
+            <span class="tag">Local Intent</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3><span class="gold-accent">/reviews</span> Aggregation Page</h3>
+          <p>Embedded Google & TripAdvisor reviews with Review schema. Social proof for SEO & conversion. Targets: "bombay restaurant reviews marrakech".</p>
+          <div class="meta">
+            <span class="tag">Trust Signals</span>
+            <span class="tag">Rich Results</span>
+            <span class="tag">UGC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paid Advertising -->
+    <section class="glass-panel">
+      <span class="section-label">Parallel Track — Paid</span>
+      <h2 class="section-title">Paid Advertising <span class="gold-text">Strategy</span></h2>
+      <p style="margin-bottom: 32px; max-width: 700px;">Multi-channel approach targeting tourists, expats, and local foodies. Starting budget: <strong class="gold-text">€2,000–3,500/month</strong> targeting 4:1 ROAS.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3>Google Search Ads</h3>
+            <span class="badge badge-p1">Primary</span>
+          </div>
+          <div class="budget-bar"><div class="budget-fill" style="width: 45%;"></div></div>
+          <div class="budget-label"><span>€800–1,500/mo</span><span>45% of budget</span></div>
+          <p style="font-size: 0.85rem;">Keywords: "indian restaurant marrakech", "biryani delivery", "restaurant gueliz", "restaurant medina rooftop"</p>
+          <p style="font-size: 0.8rem; color: var(--accent-emerald-light); margin-top: 8px;">KPI: CPL €8–15 | ROAS 4:1</p>
+        </div>
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3>Google Local Service Ads</h3>
+            <span class="badge badge-p1">High Intent</span>
+          </div>
+          <div class="budget-bar"><div class="budget-fill" style="width: 15%;"></div></div>
+          <div class="budget-label"><span>€300–500/mo</span><span>15% of budget</span></div>
+          <p style="font-size: 0.85rem;">"Restaurant near me" in Marrakech & Casablanca. Verified badge, click-to-call, review stars in SERP.</p>
+          <p style="font-size: 0.8rem; color: var(--accent-emerald-light); margin-top: 8px;">KPI: Call volume, direction requests</p>
+        </div>
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3>Meta Awareness (FB/IG)</h3>
+            <span class="badge badge-p2">Brand</span>
+          </div>
+          <div class="budget-bar"><div class="budget-fill" style="width: 25%;"></div></div>
+          <div class="budget-label"><span>€500–800/mo</span><span>25% of budget</span></div>
+          <p style="font-size: 0.85rem;">Tourists in Marrakech (30km), Expats in Casablanca, Foodies 25–55. Hero video: rooftop sunset + biryani pour + chef portrait.</p>
+          <p style="font-size: 0.8rem; color: var(--accent-emerald-light); margin-top: 8px;">KPI: CPM, video views, reach</p>
+        </div>
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3>Meta Retargeting</h3>
+            <span class="badge badge-p2">Conversion</span>
+          </div>
+          <div class="budget-bar"><div class="budget-fill" style="width: 10%;"></div></div>
+          <div class="budget-label"><span>€200–300/mo</span><span>10% of budget</span></div>
+          <p style="font-size: 0.85rem;">Site visitors 30d, menu page viewers. "Still thinking about that Butter Chicken? Book your table."</p>
+          <p style="font-size: 0.8rem; color: var(--accent-emerald-light); margin-top: 8px;">KPI: Booking conversions, ROAS</p>
+        </div>
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3>TripAdvisor / TheFork</h3>
+            <span class="badge badge-p2">Travel</span>
+          </div>
+          <div class="budget-bar"><div class="budget-fill" style="width: 5%;"></div></div>
+          <div class="budget-label"><span>€200–400/mo</span><span>5% of budget</span></div>
+          <p style="font-size: 0.85rem;">Travelers searching "where to eat marrakech". Sponsored listing + enhanced profile with menu & photos.</p>
+          <p style="font-size: 0.8rem; color: var(--accent-emerald-light); margin-top: 8px;">KPI: Booking clicks, profile views</p>
+        </div>
+        <div class="card" style="grid-column: span 3; background: var(--gold-subtle); border-color: var(--accent-gold);">
+          <h3 style="color: var(--accent-gold);">Creative Assets Needed</h3>
+          <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px;">
+            <div class="tag" style="background: var(--bg-primary); border-color: var(--accent-gold); color: var(--accent-gold); font-size: 0.85rem; padding: 10px 18px;">Hero Video (15s & 30s)</div>
+            <div class="tag" style="background: var(--bg-primary); border-color: var(--accent-gold); color: var(--accent-gold); font-size: 0.85rem; padding: 10px 18px;">Carousel: Signature Dishes</div>
+            <div class="tag" style="background: var(--bg-primary); border-color: var(--accent-gold); color: var(--accent-gold); font-size: 0.85rem; padding: 10px 18px;">Chef Portrait Series</div>
+            <div class="tag" style="background: var(--bg-primary); border-color: var(--accent-gold); color: var(--accent-gold); font-size: 0.85rem; padding: 10px 18px;">Rooftop Sunset Timelapse</div>
+            <div class="tag" style="background: var(--bg-primary); border-color: var(--accent-gold); color: var(--accent-gold); font-size: 0.85rem; padding: 10px 18px;">Clay-Pot Biryani Reveal</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Implementation Plan -->
+    <section class="glass-panel">
+      <span class="section-label">Branch-Based Workflow</span>
+      <h2 class="section-title">Implementation <span class="gold-text">Plan</span></h2>
+      <div class="branch-flow">
+        <div class="branch-row">
+          <div class="branch-main">main (production)</div>
+        </div>
+        <div class="branch-row">
+          <div class="branch-connector"></div>
+        </div>
+        <div class="branch-row">
+          <div class="branch-main">feature/seo-foundation</div>
+          <div class="branch-features">
+            <span class="feature-pill">next-sitemap + robots.txt</span>
+            <span class="feature-pill">Schema markup (all pages)</span>
+            <span class="feature-pill">/locations index page</span>
+            <span class="feature-pill">Unique metadata per page</span>
+            <span class="feature-pill">hreflang structure</span>
+            <span class="feature-pill">Image alt text audit</span>
+          </div>
+        </div>
+        <div class="branch-row">
+          <div class="branch-connector"></div>
+        </div>
+        <div class="branch-row">
+          <div class="branch-main">feature/menu-hub</div>
+          <div class="branch-features">
+            <span class="feature-pill">/menu page with filters</span>
+            <span class="feature-pill">Item-level URLs (/menu/...)</span>
+            <span class="feature-pill">MenuItem schema per dish</span>
+            <span class="feature-pill">Link from all locations</span>
+          </div>
+        </div>
+        <div class="branch-row">
+          <div class="branch-connector"></div>
+        </div>
+        <div class="branch-row">
+          <div class="branch-main">feature/content-hub</div>
+          <div class="branch-features">
+            <span class="feature-pill">Blog structure (/blog/{slug})</span>
+            <span class="feature-pill">4 pillar articles</span>
+            <span class="feature-pill">FAQ schema on locations</span>
+            <span class="feature-pill">/reviews aggregation page</span>
+          </div>
+        </div>
+        <div class="branch-row">
+          <div class="branch-connector"></div>
+        </div>
+        <div class="branch-row">
+          <div class="branch-main">feature/paid-ads-setup</div>
+          <div class="branch-features">
+            <span class="feature-pill">Google Ads campaigns</span>
+            <span class="feature-pill">Meta Business Manager + pixel</span>
+            <span class="feature-pill">Conversion tracking</span>
+            <span class="feature-pill">UTM parameter strategy</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 32px; padding: 24px; background: var(--bg-tertiary); border-radius: 8px; border: 1px solid var(--border-color);">
+        <h3 style="margin-bottom: 16px; color: var(--accent-gold);">Workflow Per Branch</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Create branch from <code>main</code></h4>
+              <p>Implement changes in isolated feature branch</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Push → Vercel Preview Deploy</h4>
+              <p>Auto-generated preview URL for stakeholder review</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Client/QA Review</h4>
+              <p>Test on preview URL, approve design & functionality</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>PR → Merge to <code>main</code></h4>
+              <p>Auto-deploy to production via Vercel</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Metrics -->
+    <section class="glass-panel">
+      <span class="section-label">Measurement</span>
+      <h2 class="section-title">Success <span class="gold-text">Metrics</span></h2>
+      <div class="kpi-grid">
+        <div class="kpi-card glass-panel">
+          <div class="kpi-value">+50%</div>
+          <div class="kpi-label">Organic Clicks (GSC)</div>
+          <div class="kpi-target">3-Month Target</div>
+        </div>
+        <div class="kpi-card glass-panel">
+          <div class="kpi-value">+120%</div>
+          <div class="kpi-label">Organic Clicks (GSC)</div>
+          <div class="kpi-target">6-Month Target</div>
+        </div>
+        <div class="kpi-card glass-panel">
+          <div class="kpi-value">Top 5</div>
+          <div class="kpi-label">"Indian restaurant Marrakech"</div>
+          <div class="kpi-target">3-Month Target</div>
+        </div>
+        <div class="kpi-card glass-panel">
+          <div class="kpi-value">Top 3</div>
+          <div class="kpi-label">"Indian restaurant Marrakech"</div>
+          <div class="kpi-target">6-Month Target</div>
+        </div>
+        <div class="kpi-card glass-panel">
+          <div class="kpi-value">500+/mo</div>
+          <div class="kpi-label">Map Pack Impressions</div>
+          <div class="kpi-target">3-Month Target</div>
+        </div>
+        <div class="kpi-card glass-panel">
+          <div class="kpi-value">1,500+/mo</div>
+          <div class="kpi-label">Map Pack Impressions</div>
+          <div class="kpi-target">6-Month Target</div>
+        </div>
+        <div class="kpi-card glass-panel">
+          <div class="kpi-value">30+/mo</div>
+          <div class="kpi-label">Booking Conversions</div>
+          <div class="kpi-target">3-Month Target</div>
+        </div>
+        <div class="kpi-card glass-panel">
+          <div class="kpi-value">60+/mo</div>
+          <div class="kpi-label">Booking Conversions</div>
+          <div class="kpi-target">6-Month Target</div>
+        </div>
+        <div class="kpi-card glass-panel">
+          <div class="kpi-value">3:1</div>
+          <div class="kpi-label">Paid ROAS</div>
+          <div class="kpi-target">3-Month Target</div>
+        </div>
+        <div class="kpi-card glass-panel">
+          <div class="kpi-value">4:1</div>
+          <div class="kpi-label">Paid ROAS</div>
+          <div class="kpi-target">6-Month Target</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Decisions -->
+    <section class="glass-panel">
+      <span class="section-label">Action Required</span>
+      <h2 class="section-title">Client <span class="gold-text">Decisions Needed</span></h2>
+      <div class="grid-2">
+        <div class="decision-card glass-panel">
+          <span class="decision-tag">URL Structure</span>
+          <h4>Language URL Structure</h4>
+          <p>Subdirectories (<code>/en/</code>, <code>/fr/</code>) vs. hreflang on same URLs? Subdirectories preferred for SEO clarity.</p>
+        </div>
+        <div class="decision-card glass-panel">
+          <span class="decision-tag">Content Pace</span>
+          <h4>Blog Launch Priority</h4>
+          <p>Launch with 4 pillar articles now, or phase 1 article/month? Recommended: 2 now, 2 in month 2.</p>
+        </div>
+        <div class="decision-card glass-panel">
+          <span class="decision-tag">Budget</span>
+          <h4>Paid Ads Budget</h4>
+          <p>Confirm starting monthly spend: €2,000–3,500 range. Can start lean (€1,500) and scale with ROAS proof.</p>
+        </div>
+        <div class="decision-card glass-panel">
+          <span class="decision-tag">Access</span>
+          <h4>Google Business Profiles</h4>
+          <p>Client to grant Manager access to agency/team for 3 locations: Gueliz, Medina, Casablanca.</p>
+        </div>
+        <div class="decision-card glass-panel">
+          <span class="decision-tag">Automation</span>
+          <h4>Review Generation</h4>
+          <p>Post-booking WhatsApp "Leave a review" flow — approve copy & timing (e.g., 2 hours post-visit).</p>
+        </div>
+        <div class="decision-card glass-panel">
+          <span class="decision-tag">Tracking</span>
+          <h4>Analytics Setup</h4>
+          <p>Add GA4 + Microsoft Clarity (free heatmaps) alongside existing Vercel Analytics for search query data.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="glass-panel" style="background: linear-gradient(135deg, rgba(229,169,59,0.05) 0%, rgba(8,9,11,0) 100%); border-color: var(--accent-gold);">
+      <span class="section-label">Roadmap</span>
+      <h2 class="section-title">Next <span class="gold-text">Steps</span></h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Client Review & Approval</h4>
+            <p>Confirm priorities, budget, and decisions above. Sign off on <code>feature/seo-foundation</code> scope.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Create <code>feature/seo-foundation</code> Branch</h4>
+            <p>Implement 7 critical fixes. Push for Vercel preview deployment.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Preview Review & Merge</h4>
+            <p>Client approves preview → PR merged → auto-deploy to production.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Submit Sitemap to GSC</h4>
+            <p>Connect Google Search Console, submit sitemap, request indexing for key pages.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h4>Parallel: GBP + Ads Setup</h4>
+            <p>Claim 3 Google Business Profiles. Launch Google Ads Search + Meta pixel.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h4>Month 1: Menu Hub + Blog</h4>
+            <p>Launch <code>/menu</code> hub page + first 2 blog articles (Chef's Journey + Biryani Deep-Dive).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top: 60px; padding: 40px; text-align: center; border-top: 1px solid var(--border-color);">
+      <p style="color: var(--text-muted); font-size: 0.85rem;">Prepared for Bombay Restaurant Morocco · August 2026</p>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 8px;">All changes via feature branches → Vercel preview → production merge</p>
+      <div style="margin-top: 24px; display: flex; justify-content: center; gap: 16px;">
+        <a href="SEO_STRATEGY_SUMMARY.md" class="btn-secondary" target="_blank">View Markdown Source</a>
+        <button class="btn-primary" onclick="window.print()">Export as PDF</button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Animate budget bars on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fills = entry.target.querySelectorAll('.budget-fill');
+          fills.forEach(fill => {
+            const width = fill.style.width;
+            fill.style.width = '0%';
+            setTimeout(() => fill.style.width = width, 100);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+    // Smooth print
+    document.querySelector('button[onclick="window.print()"]').addEventListener('click', () => {
+      window.print();
+    });
+  </script>
+</body>
+</html>

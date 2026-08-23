@@ -1,0 +1,16 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+Disallow: /private/
+
+# Host
+Host: https://bombaydar.com
+
+# Sitemaps
+Sitemap: https://bombaydar.com/sitemap.xml
