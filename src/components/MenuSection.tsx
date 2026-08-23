@@ -1047,12 +1047,23 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
             <div className="menu-item-content flex flex-col gap-5">
               <div>
                 <div className="flex items-start justify-between gap-3 mb-2">
-                  <h3 className="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors">
+                  <h3 className="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors min-w-0">
                     {item.name[lang]}
                   </h3>
-                  <span className="font-serif font-bold text-lg text-gold whitespace-nowrap bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
-                    {getDisplayPrice(item)}
-                  </span>
+                  {selectedBranch === 'all' ? (
+                    <div className="flex flex-col gap-1 flex-shrink-0 items-end">
+                      <span className="font-serif font-bold text-sm text-gold whitespace-nowrap bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
+                        {item.price.marrakech} Dhs · Marrakech
+                      </span>
+                      <span className="font-serif font-bold text-sm text-gold whitespace-nowrap bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
+                        {item.price.casablanca} Dhs · Casa
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="font-serif font-bold text-lg text-gold whitespace-nowrap bg-gold/10 px-3 py-1 rounded-full border border-gold/30 flex-shrink-0">
+                      {getDisplayPrice(item)}
+                    </span>
+                  )}
                 </div>
                 <p className="text-sm text-muted mb-4 leading-relaxed font-sans">
                   {item.description[lang]}
