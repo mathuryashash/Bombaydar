@@ -1027,13 +1027,13 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
         {filteredItems.map((item) => (
           <article key={item.id} className="menu-item-card bg-black/60 p-6 rounded-2xl border border-white/10 transition-all duration-300 hover:border-gold/60 hover:bg-black/80 hover:shadow-2xl group">
             {item.imageUrl ? (
-              <div className="menu-item-image relative rounded-xl overflow-hidden border border-white/10 bg-black/40">
+              <div className="menu-item-image rounded-xl overflow-hidden border border-white/10 bg-black/40 relative">
                 <Image
                   src={item.imageUrl}
                   alt={item.name[lang]}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 640px) 100vw, 144px"
+                  className="object-cover"
                 />
               </div>
             ) : (

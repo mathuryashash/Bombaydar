@@ -693,6 +693,8 @@ p {
   aspect-ratio: 1;
   max-width: 144px;
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 @media (min-width: 640px) {
