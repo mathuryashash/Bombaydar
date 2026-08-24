@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Logo from '@/components/Logo';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,15 +106,17 @@ export default function Navbar() {
               <span>{lang === 'EN' ? 'Delivery' : 'Livraison'}</span>
             </a>
 
-            <button 
-              onClick={toggleLang} 
+            <button
+              onClick={toggleLang}
               className="lang-toggle-btn"
               title="Switch Language"
             >
               {lang === 'EN' ? 'FR' : 'EN'}
             </button>
-            
-            <Link 
+
+            <ThemeToggle />
+
+            <Link
               href="#reserve" 
               className="btn-primary nav-book-btn"
               onClick={handleLinkClick}

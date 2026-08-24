@@ -94,6 +94,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        {/* Blocking (not next/script) so the saved theme applies before first paint - avoids a flash of the wrong theme. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem('theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}`,
+          }}
+        />
       </head>
       <body>
         <div className="scroll-progress-bar" aria-hidden="true" />
