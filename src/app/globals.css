@@ -239,6 +239,12 @@ p {
   border-color: #ffd984;
 }
 
+/* Hero CTAs sit on a photo backdrop that doesn't change with the site
+   theme, so their text must stay light regardless of light/dark mode. */
+.hero-content .btn-secondary {
+  color: #f5f6f8;
+}
+
 /* Micro-animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(15px); }
@@ -1281,13 +1287,13 @@ p {
 .hero-title {
   font-size: 3.5rem;
   line-height: 1.15;
-  color: var(--text-primary);
+  color: #f5f6f8;
   margin-bottom: 25px;
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: var(--text-secondary);
+  color: #a39d90;
   font-weight: 300;
   max-width: 600px;
   margin: 0 auto 40px;
@@ -1570,13 +1576,13 @@ p {
 
 .location-title {
   font-size: 3.2rem;
-  color: var(--text-primary);
+  color: #f5f6f8;
   margin-bottom: 15px;
 }
 
 .location-subtitle {
   font-size: 1.15rem;
-  color: var(--text-secondary);
+  color: #a39d90;
   font-weight: 300;
   max-width: 600px;
 }
@@ -1779,13 +1785,13 @@ p {
 
 .about-title {
   font-size: 3.2rem;
-  color: var(--text-primary);
+  color: #f5f6f8;
   margin-bottom: 15px;
 }
 
 .about-subtitle {
   font-size: 1.15rem;
-  color: var(--text-secondary);
+  color: #a39d90;
   font-weight: 300;
   max-width: 600px;
 }
@@ -2316,6 +2322,12 @@ p {
 
 .catering-overlay {
   background: linear-gradient(90deg, rgba(8, 9, 11, 0.98) 0%, rgba(8, 9, 11, 0.88) 60%, rgba(8, 9, 11, 0.3) 100%);
+}
+
+/* Always-dark overlay above, independent of theme - its text-white heading
+   must stay light regardless of light/dark mode. */
+.catering-content h2 {
+  color: #f5f6f8;
 }
 
 .catering-content {
