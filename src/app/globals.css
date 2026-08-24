@@ -678,12 +678,14 @@ p {
 .menu-item-card {
   display: flex;
   flex-direction: column;
+  gap: 16px;
   min-height: 100%;
 }
 
 @media (min-width: 640px) {
   .menu-item-card {
     flex-direction: row;
+    gap: 20px;
   }
 }
 
