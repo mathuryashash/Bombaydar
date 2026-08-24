@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bombay Marrakech Gueliz: Flagship Indian Restaurant in Ville Nouvelle",
     description: "Original Bombay location since 2004. Art Deco lounge, clay-pot biryani, tandoor grills. Open Tue-Sun 12-23h.",
-    url: "https://bomdaymaroc.com/locations/gueliz",
+    url: "https://www.bombaydar.com/locations/gueliz",
     siteName: "Bombay Restaurant",
     locale: "en_US",
     type: "website",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     images: ["/images/web/hero_royal_lounge.jpg"],
   },
   alternates: {
-    canonical: "https://bomdaymaroc.com/locations/gueliz",
+    canonical: "https://www.bombaydar.com/locations/gueliz",
   },
 };
 

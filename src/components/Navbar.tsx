@@ -41,6 +41,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: { EN: 'Home', FR: 'Accueil' } },
+    { href: '/menu', label: { EN: 'Menu', FR: 'Carte' } },
     { href: '/about', label: { EN: 'Brand Story', FR: 'Notre Histoire' } },
     { href: '/locations/gueliz', label: { EN: 'Bombay Marrakech', FR: 'Bombay Marrakech' } },
     { href: '/locations/medina', label: { EN: 'Medina Rooftop', FR: 'Médina Rooftop' } },

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+/* Fonts loaded via <link> in layout head (preloaded + display=swap) */
 
 /* Tailwind utilities only — this file already has its own reset/base styles below,
    so we skip tailwindcss/preflight.css to avoid it fighting the hand-written base rules. */
@@ -1203,8 +1203,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center top;
+  overflow: hidden;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   z-index: 1;
@@ -2290,5 +2289,99 @@ p {
   
   .catering-content {
     padding: 40px 24px !important;
+  }
+}
+
+/* Floating WhatsApp Button (desktop + mobile) */
+.whatsapp-float {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(16px) scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.whatsapp-float-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+}
+
+@media (min-width: 769px) {
+  .whatsapp-float {
+    bottom: 24px;
+    right: 24px;
+  }
+}
+
+/* Breadcrumbs */
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.breadcrumbs li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumbs a {
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent-gold);
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.breadcrumb-sep {
+  color: var(--text-muted);
+}
+
+/* Gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
   }
 }

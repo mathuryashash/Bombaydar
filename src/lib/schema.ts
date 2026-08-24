@@ -3,8 +3,8 @@ export const organizationSchema = {
   '@type': 'Organization',
   name: 'Bombay Restaurant',
   description: 'Authentic North Indian & Punjabi cuisine by Chef Surender Kumar Thakur since 2004. Three locations across Marrakech and Casablanca, Morocco.',
-  url: 'https://bomdaymaroc.com',
-  image: 'https://bomdaymaroc.com/images/web/hero_royal_lounge.jpg',
+  url: 'https://www.bombaydar.com',
+  image: 'https://www.bombaydar.com/images/web/hero_royal_lounge.jpg',
   telephone: '+212613727362',
   email: 'Indian.maroc@gmail.com',
   address: {
@@ -59,8 +59,8 @@ export const guelizSchema = {
   name: 'Bombay Marrakech Gueliz',
   branchCode: 'gueliz',
   description: 'Original flagship restaurant in Marrakech Ville Nouvelle. Art Deco lounge atmosphere with clay-pot biryani and tandoor grills.',
-  url: 'https://bomdaymaroc.com/locations/gueliz',
-  image: 'https://bomdaymaroc.com/images/web/hero_royal_lounge.jpg',
+  url: 'https://www.bombaydar.com/locations/gueliz',
+  image: 'https://www.bombaydar.com/images/web/hero_royal_lounge.jpg',
   telephone: '+212613727362',
   address: {
     '@type': 'PostalAddress',
@@ -89,7 +89,7 @@ export const guelizSchema = {
       closes: '23:00',
     },
   ],
-  hasMenu: 'https://bomdaymaroc.com/locations/gueliz#menu',
+  hasMenu: 'https://www.bombaydar.com/locations/gueliz#menu',
   servesCuisine: ['North Indian', 'Punjabi', 'Indo-Chinese'],
   priceRange: '$$$',
   paymentAccepted: 'Cash',
@@ -102,8 +102,8 @@ export const medinaSchema = {
   name: 'Medina Rooftop',
   branchCode: 'medina',
   description: 'Rooftop dining under the Marrakech stars near Jemaa el-Fnaa. Panoramic views of Koutoubia Mosque and Atlas Mountains with authentic Mughlai cuisine.',
-  url: 'https://bomdaymaroc.com/locations/medina',
-  image: 'https://bomdaymaroc.com/images/web/hero_medina_rooftop.jpg',
+  url: 'https://www.bombaydar.com/locations/medina',
+  image: 'https://www.bombaydar.com/images/web/hero_medina_rooftop.jpg',
   telephone: '+212613727362',
   address: {
     '@type': 'PostalAddress',
@@ -125,7 +125,7 @@ export const medinaSchema = {
       closes: '23:30',
     },
   ],
-  hasMenu: 'https://bomdaymaroc.com/locations/medina#menu',
+  hasMenu: 'https://www.bombaydar.com/locations/medina#menu',
   servesCuisine: ['North Indian', 'Mughlai', 'Indo-Chinese'],
   priceRange: '$$$',
   paymentAccepted: 'Cash',
@@ -138,8 +138,8 @@ export const casablancaSchema = {
   name: 'Bombay Casablanca',
   branchCode: 'casablanca',
   description: 'Modern Indian dining in Casablanca Maârif. Atlantic coastal elegance with seafood curries, tandoor grills, and handcrafted mocktails. Card payments accepted.',
-  url: 'https://bomdaymaroc.com/locations/casablanca',
-  image: 'https://bomdaymaroc.com/images/web/hero_casablanca_interior.jpg',
+  url: 'https://www.bombaydar.com/locations/casablanca',
+  image: 'https://www.bombaydar.com/images/web/hero_casablanca_interior.jpg',
   telephone: '+212613727362',
   address: {
     '@type': 'PostalAddress',
@@ -161,7 +161,7 @@ export const casablancaSchema = {
       closes: '23:30',
     },
   ],
-  hasMenu: 'https://bomdaymaroc.com/locations/casablanca#menu',
+  hasMenu: 'https://www.bombaydar.com/locations/casablanca#menu',
   servesCuisine: ['North Indian', 'Punjabi', 'Seafood', 'Indo-Chinese'],
   priceRange: '$$$',
   paymentAccepted: 'Cash, Credit Card',
@@ -173,7 +173,7 @@ export const aboutSchema = {
   '@type': 'AboutPage',
   name: 'Chef Surender Kumar Thakur: 20+ Years of Authentic Indian Cuisine in Morocco',
   description: 'From Oberoi Udaivilas to Marrakech. Chef Surender Kumar Thakur\'s culinary journey, clay-pot traditions & catering for weddings across Morocco.',
-  url: 'https://bomdaymaroc.com/about',
+  url: 'https://www.bombaydar.com/about',
   mainEntity: {
     '@type': 'Person',
     name: 'Chef Surender Kumar Thakur',
@@ -250,13 +250,75 @@ export const faqSchema = {
   ],
 };
 
+export function breadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: `https://www.bombaydar.com${item.url}`,
+    })),
+  };
+}
+
+export interface FaqEntry {
+  question: string;
+  answer: string;
+}
+
+export function generateFaqSchema(entries: FaqEntry[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: entries.map((entry) => ({
+      '@type': 'Question',
+      name: entry.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: entry.answer,
+      },
+    })),
+  };
+}
+
+const sharedFaqs: FaqEntry[] = [
+  { question: 'Is Bombay Restaurant halal?', answer: 'Yes, all meat served at Bombay Restaurant is halal certified. We source our ingredients from trusted halal suppliers.' },
+  { question: 'Do you offer catering for weddings and events?', answer: 'Yes, we provide catering services for weddings, corporate events, and private functions across Morocco. Contact us via WhatsApp at +212 613-727362 for a custom quote.' },
+];
+
+export const guelizFaq = generateFaqSchema([
+  ...sharedFaqs,
+  { question: 'Where is Bombay Marrakech Gueliz located?', answer: 'We are at 7, Rue Ibn Zaidoun in Gueliz, Marrakech\'s modern Ville Nouvelle district, a short walk from Carré Eden shopping center.' },
+  { question: 'Is there parking near Bombay Marrakech Gueliz?', answer: 'Yes, street parking is available on Rue Ibn Zaidoun and surrounding streets, with paid parking at nearby Gueliz parking facilities.' },
+  { question: 'What are the opening hours of the Gueliz restaurant?', answer: 'Tuesday to Sunday from 12:00 to 23:00. On Mondays we open for dinner only, from 18:00 to 23:00.' },
+  { question: 'Can I pay by card at Bombay Marrakech Gueliz?', answer: 'The Gueliz branch accepts cash payments only (MAD, EUR, USD). For card payments, please visit our Casablanca branch.' },
+]);
+
+export const medinaFaq = generateFaqSchema([
+  ...sharedFaqs,
+  { question: 'Does Medina Rooftop have views of the Koutoubia Mosque?', answer: 'Yes! Our rooftop terrace offers panoramic sunset views of the Koutoubia Mosque and the Atlas Mountains, just minutes from Jemaa el-Fnaa square.' },
+  { question: 'How do I find Medina Rooftop in the Marrakech Medina?', answer: 'We are located on Derb Dabachi, near Jemaa el-Fnaa. The medina streets can be confusing - call us at +212 613-727362 and we will guide you in, or ask any local for "Bombay Restaurant, Derb Dabachi".' },
+  { question: 'Is the rooftop open in winter?', answer: 'Yes, the rooftop operates year-round. During cooler months we provide heaters and blankets so you can enjoy dinner under the stars comfortably.' },
+  { question: 'What time is sunset at Medina Rooftop?', answer: 'Sunset views are best from approximately one hour before dusk. We recommend arriving around 18:00-18:30 to secure a prime terrace table.' },
+]);
+
+export const casablancaFaq = generateFaqSchema([
+  ...sharedFaqs,
+  { question: 'Does Bombay Casablanca accept credit cards?', answer: 'Yes! Unlike our Marrakech branches, our Casablanca restaurant accepts both cash and credit/debit card payments (MAD, EUR, USD).' },
+  { question: 'Where is Bombay Casablanca located?', answer: 'We are on Boulevard Ghandi in the Maârif district of Casablanca, easily accessible from the city center with parking available in the area.' },
+  { question: 'What makes the Casablanca menu different?', answer: 'Our Casablanca kitchen features coastal specialties including fresh seafood curries, sizzlers, and handcrafted mocktails alongside our full North Indian tandoor menu.' },
+  { question: 'What are the opening hours of Bombay Casablanca?', answer: 'We are open daily from 12:00 to 23:30, for lunch and dinner.' },
+]);
+
 export function generateMenuSchema(branch: 'marrakech' | 'casablanca') {
   return {
     '@context': 'https://schema.org',
     '@type': 'Menu',
     name: `${branch === 'marrakech' ? 'Marrakech' : 'Casablanca'} Menu`,
     description: `Complete menu for Bombay Restaurant ${branch === 'marrakech' ? 'Marrakech (Gueliz & Medina)' : 'Casablanca'} location.`,
-    url: `https://bomdaymaroc.com/locations/${branch}`,
+    url: `https://www.bombaydar.com/locations/${branch}`,
     hasMenuSection: [
       {
         '@type': 'MenuSection',

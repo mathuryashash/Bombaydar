@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Medina Rooftop Marrakech: Rooftop Indian Dining Near Jemaa el-Fnaa",
     description: "Dine under stars with Koutoubia views. Authentic North Indian & Mughlai cuisine. Open daily 12:30-23:30.",
-    url: "https://bomdaymaroc.com/locations/medina",
+    url: "https://www.bombaydar.com/locations/medina",
     siteName: "Bombay Restaurant",
     locale: "en_US",
     type: "website",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     images: ["/images/web/hero_medina_rooftop.jpg"],
   },
   alternates: {
-    canonical: "https://bomdaymaroc.com/locations/medina",
+    canonical: "https://www.bombaydar.com/locations/medina",
   },
 };
 

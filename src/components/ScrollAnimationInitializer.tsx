@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 
 export default function ScrollAnimationInitializer() {
   useEffect(() => {
+    const cleanupFns: Array<() => void> = [];
+
     // Initialize reveal-on-scroll elements
     const revealElements = document.querySelectorAll('.reveal-on-scroll:not(.is-visible)');
     
@@ -55,38 +57,43 @@ export default function ScrollAnimationInitializer() {
 
     sectionElements.forEach((el) => sectionObserver.observe(el));
 
-    // Parallax elements
+    // Parallax elements — desktop only (skips scroll-jank on low-end phones)
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
     const parallaxElements = document.querySelectorAll('.parallax-element');
-    
-    const handleParallax = () => {
-      parallaxElements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        const scrolled = window.scrollY;
-        const elementTop = rect.top + scrolled;
-        const windowHeight = window.innerHeight;
-        const speed = parseFloat(el.getAttribute('data-parallax-speed') || '0.3');
-        
-        const distanceFromTop = scrolled - elementTop + windowHeight;
-        const parallaxOffset = distanceFromTop * speed;
-        
-        (el as HTMLElement).style.transform = `translateY(${parallaxOffset}px)`;
-      });
-    };
 
-    // Throttled parallax
-    let ticking = false;
-    const throttledParallax = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleParallax();
-          ticking = false;
+    if (isDesktop) {
+      const handleParallax = () => {
+        parallaxElements.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const scrolled = window.scrollY;
+          const elementTop = rect.top + scrolled;
+          const windowHeight = window.innerHeight;
+          const speed = parseFloat(el.getAttribute('data-parallax-speed') || '0.3');
+
+          const distanceFromTop = scrolled - elementTop + windowHeight;
+          const parallaxOffset = distanceFromTop * speed;
+
+          (el as HTMLElement).style.transform = `translateY(${parallaxOffset}px)`;
         });
-        ticking = true;
-      }
-    };
+      };
 
-    window.addEventListener('scroll', throttledParallax, { passive: true });
-    handleParallax(); // Initial
+      // Throttled parallax
+      let ticking = false;
+      const throttledParallax = () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            handleParallax();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      window.addEventListener('scroll', throttledParallax, { passive: true });
+      handleParallax(); // Initial
+
+      cleanupFns.push(() => window.removeEventListener('scroll', throttledParallax));
+    }
 
     // Scroll progress bar
     const progressBar = document.querySelector('.scroll-progress-bar');
@@ -102,13 +109,14 @@ export default function ScrollAnimationInitializer() {
     window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
 
+    cleanupFns.push(() => revealObserver.disconnect());
+    cleanupFns.push(() => staggerObserver.disconnect());
+    cleanupFns.push(() => sectionObserver.disconnect());
+    cleanupFns.push(() => window.removeEventListener('scroll', updateProgress));
+
     // Cleanup
     return () => {
-      revealObserver.disconnect();
-      staggerObserver.disconnect();
-      sectionObserver.disconnect();
-      window.removeEventListener('scroll', throttledParallax);
-      window.removeEventListener('scroll', updateProgress);
+      cleanupFns.forEach((fn) => fn());
     };
   }, []);
 

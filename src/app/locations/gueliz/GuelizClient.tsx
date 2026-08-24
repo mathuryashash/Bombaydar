@@ -5,7 +5,8 @@ import Image from 'next/image';
 import MenuSection from '@/components/MenuSection';
 import BookingWidget from '@/components/BookingWidget';
 import SchemaScript from '@/components/SchemaScript';
-import { guelizSchema, faqSchema, generateMenuSchema } from '@/lib/schema';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import { guelizSchema, guelizFaq, generateMenuSchema } from '@/lib/schema';
 
 export default function GuelizClient() {
   const [lang, setLang] = useState<'EN' | 'FR'>('EN');
@@ -49,9 +50,9 @@ export default function GuelizClient() {
   return (
     <div className="location-page-wrapper">
       <SchemaScript schema={guelizSchema} />
-      <SchemaScript schema={faqSchema} />
+      <SchemaScript schema={guelizFaq} />
       <SchemaScript schema={generateMenuSchema('marrakech')} />
-      
+
       {/* Header Banner Carousel */}
       <section className="relative h-[65vh] min-h-[480px] w-full overflow-hidden flex items-center justify-center" aria-label="Bombay Marrakech Gueliz photo carousel">
         {heroSlides.map((slide, idx) => (
@@ -87,7 +88,8 @@ export default function GuelizClient() {
 
       {/* Details section */}
       <section className="location-info-section container mx-auto px-4 py-16 section-reveal" aria-labelledby="details-title">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <Breadcrumbs items={[{ name: "Locations", url: "/locations" }, { name: "Marrakech Gueliz", url: "/locations/gueliz" }]} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 mt-6">
           <article className="bg-black/40 p-6 rounded-2xl border border-white/10 backdrop-blur-md reveal-on-scroll up">
             <h3 className="font-serif text-xl font-bold text-gold mb-3">{copy.hoursTitle[lang]}</h3>
             <ul className="text-sm text-sand space-y-2">
@@ -112,6 +114,16 @@ export default function GuelizClient() {
               <li className="pt-2">
                 <strong className="text-white block">Phone:</strong>
                 <a href="tel:+212613727362" className="text-gold font-bold hover:underline">+212 613-727362</a>
+              </li>
+              <li className="pt-2">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Bombay+Restaurant+7+Rue+Ibn+Zaidoun+Gueliz+Marrakech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary text-xs"
+                >
+                  Get Directions →
+                </a>
               </li>
             </ul>
           </article>

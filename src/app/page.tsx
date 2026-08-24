@@ -13,13 +13,13 @@ export default function Home() {
   const [heroIndex, setHeroIndex] = useState(0);
 
   const heroImages = [
-    '/images/web/hero_royal_lounge.jpg',
-    '/images/web/hero_medina_rooftop.jpg',
-    '/images/web/food_clay_pot_biryani.jpg',
-    '/images/web/chef_tandoor_cooking.jpg',
-    '/images/web/hero_casablanca_interior.jpg',
-    '/images/web/food_butter_chicken_thali.jpg',
-    '/images/web/ambiance_luxury_table.jpg'
+    { src: '/images/web/hero_royal_lounge.jpg', alt: 'Bombay Marrakech Gueliz - Elegant Art Deco lounge with warm ambient lighting' },
+    { src: '/images/web/hero_medina_rooftop.jpg', alt: 'Medina Rooftop Marrakech - Stunning rooftop terrace overlooking historic Koutoubia Mosque at golden hour' },
+    { src: '/images/web/food_clay_pot_biryani.jpg', alt: 'Signature Clay-Pot Chicken Biryani - Slow-cooked in traditional sealed clay handi with saffron rice' },
+    { src: '/images/web/chef_tandoor_cooking.jpg', alt: 'Chef Surender Kumar Thakur - Master chef at traditional tandoor clay oven preparing authentic naan' },
+    { src: '/images/web/hero_casablanca_interior.jpg', alt: 'Bombay Casablanca Maârif - Contemporary dining space with open tandoor grill and modern gold accents' },
+    { src: '/images/web/food_butter_chicken_thali.jpg', alt: 'Butter Chicken Thali - Complete meal with creamy tomato butter chicken, cheese naan, and basmati rice' },
+    { src: '/images/web/ambiance_luxury_table.jpg', alt: 'Luxury Table Setting - Fine dining ambiance with gold cutlery, candlelight, and premium tableware' },
   ];
 
   useEffect(() => {
@@ -139,26 +139,23 @@ export default function Home() {
     <div className="homepage-wrapper">
       {/* Hero Section */}
       <section className="hero-section" aria-label="Hero carousel showcasing Bombay Restaurant locations and signature dishes">
-        {heroImages.map((src, index) => {
-          const altTexts = [
-            "Bombay Marrakech Gueliz - Elegant Art Deco lounge with warm ambient lighting",
-            "Medina Rooftop Marrakech - Stunning rooftop terrace overlooking historic Koutoubia Mosque at golden hour",
-            "Signature Clay-Pot Chicken Biryani - Slow-cooked in traditional sealed clay handi with saffron rice",
-            "Chef Surender Kumar Thakur - Master chef at traditional tandoor clay oven preparing authentic naan",
-            "Bombay Casablanca Maârif - Contemporary dining space with open tandoor grill and modern gold accents",
-            "Butter Chicken Thali - Complete meal with creamy tomato butter chicken, cheese naan, and basmati rice",
-            "Luxury Table Setting - Fine dining ambiance with gold cutlery, candlelight, and premium tableware"
-          ];
-          return (
-            <div
-              key={src}
-              className={`hero-bg-slide ${index === heroIndex ? 'active' : ''}`}
-              style={{ backgroundImage: `url(${src})` }}
-              role="img"
-              aria-label={altTexts[index]}
+        {heroImages.map((slide, index) => (
+          <div
+            key={slide.src}
+            className={`hero-bg-slide ${index === heroIndex ? 'active' : ''}`}
+            role="img"
+            aria-label={slide.alt}
+          >
+            <Image
+              src={slide.src}
+              alt=""
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              className="object-cover"
             />
-          );
-        })}
+          </div>
+        ))}
         <div className="hero-overlay" />
 
         <div className="hero-content reveal-on-scroll">

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Chef Surender Kumar Thakur: 20+ Years of Authentic Indian Cuisine in Morocco",
     description: "From Oberoi Udaivilas to Marrakech. Chef Surender Kumar Thakur's culinary journey, clay-pot traditions & catering for weddings across Morocco.",
-    url: "https://bomdaymaroc.com/about",
+    url: "https://www.bombaydar.com/about",
     siteName: "Bombay Restaurant",
     locale: "en_US",
     type: "article",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     images: ["/images/web/chef_surender_solo_portrait.jpg"],
   },
   alternates: {
-    canonical: "https://bomdaymaroc.com/about",
+    canonical: "https://www.bombaydar.com/about",
   },
 };
 

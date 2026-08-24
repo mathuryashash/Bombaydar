@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bombay Casablanca Maârif: Modern Indian Restaurant with Seafood & Cocktails",
     description: "Atlantic coastal elegance meets Indian gastronomy. Seafood curries, tandoor grills, card payments accepted. Open daily 12-23:30.",
-    url: "https://bomdaymaroc.com/locations/casablanca",
+    url: "https://www.bombaydar.com/locations/casablanca",
     siteName: "Bombay Restaurant",
     locale: "en_US",
     type: "website",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     images: ["/images/web/hero_casablanca_interior.jpg"],
   },
   alternates: {
-    canonical: "https://bomdaymaroc.com/locations/casablanca",
+    canonical: "https://www.bombaydar.com/locations/casablanca",
   },
 };
 

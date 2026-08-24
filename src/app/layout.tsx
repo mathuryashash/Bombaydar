@@ -5,9 +5,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { organizationSchema } from "@/lib/schema";
 import ScrollAnimationInitializer from "@/components/ScrollAnimationInitializer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bomdaymaroc.com"),
+  metadataBase: new URL("https://www.bombaydar.com"),
   title: {
     default: "Bombay Restaurant: Authentic North Indian & Punjabi Cuisine in Marrakech & Casablanca",
     template: "%s | Bombay Restaurant Morocco",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bombay Restaurant: Authentic North Indian & Punjabi Cuisine in Morocco",
     description: "Experience Chef Surender Kumar Thakur's 20-year legacy. Clay-pot biryani, tandoor grills & rooftop dining in Marrakech & Casablanca.",
-    url: "https://bomdaymaroc.com",
+    url: "https://www.bombaydar.com",
     siteName: "Bombay Restaurant",
     locale: "en_US",
     type: "website",
@@ -65,7 +66,7 @@ export const metadata: Metadata = {
     creator: "@bombay_marrakech",
   },
   alternates: {
-    canonical: "https://bomdaymaroc.com",
+    canonical: "https://www.bombaydar.com",
   },
 };
 
@@ -80,6 +81,15 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -90,6 +100,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <WhatsAppFloat />
         <Analytics />
         <ScrollAnimationInitializer />
       </body>

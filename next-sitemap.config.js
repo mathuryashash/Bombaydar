@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://bomdaymaroc.com',
+  siteUrl: 'https://www.bombaydar.com',
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   exclude: ['/server-sitemap.xml'],
@@ -9,40 +9,37 @@ module.exports = {
       { userAgent: '*', allow: '/' },
       { userAgent: '*', disallow: ['/api/', '/_next/', '/static/', '/private/'] },
     ],
-    additionalSitemaps: ['https://bomdaymaroc.com/sitemap.xml'],
+    additionalSitemaps: ['https://www.bombaydar.com/sitemap-images.xml'],
   },
   transform: async (config, path) => {
     const priorityMap = {
       '/': 1.0,
+      '/menu': 0.9,
       '/about': 0.8,
+      '/catering': 0.8,
+      '/ramadan': 0.8,
+      '/locations': 0.8,
       '/locations/gueliz': 0.9,
       '/locations/medina': 0.9,
       '/locations/casablanca': 0.9,
+      '/chef': 0.7,
+      '/gallery': 0.6,
+      '/blog': 0.7,
     };
     const changefreqMap = {
       '/': 'weekly',
-      '/about': 'monthly',
+      '/menu': 'weekly',
+      '/ramadan': 'daily',
       '/locations/gueliz': 'weekly',
       '/locations/medina': 'weekly',
       '/locations/casablanca': 'weekly',
+      '/blog': 'weekly',
     };
     return {
       loc: path,
       changefreq: changefreqMap[path] || 'monthly',
-      priority: priorityMap[path] || 0.7,
+      priority: priorityMap[path] || 0.6,
       lastmod: new Date().toISOString(),
     };
   },
-  additionalPaths: async (config) => [
-    { loc: '/en', changefreq: 'weekly', priority: 1.0, lastmod: new Date().toISOString() },
-    { loc: '/fr', changefreq: 'weekly', priority: 1.0, lastmod: new Date().toISOString() },
-    { loc: '/en/about', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { loc: '/fr/about', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { loc: '/en/locations/gueliz', changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString() },
-    { loc: '/fr/locations/gueliz', changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString() },
-    { loc: '/en/locations/medina', changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString() },
-    { loc: '/fr/locations/medina', changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString() },
-    { loc: '/en/locations/casablanca', changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString() },
-    { loc: '/fr/locations/casablanca', changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString() },
-  ],
 };

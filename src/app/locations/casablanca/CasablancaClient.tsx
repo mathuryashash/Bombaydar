@@ -5,7 +5,8 @@ import Image from 'next/image';
 import MenuSection from '@/components/MenuSection';
 import BookingWidget from '@/components/BookingWidget';
 import SchemaScript from '@/components/SchemaScript';
-import { casablancaSchema, faqSchema, generateMenuSchema } from '@/lib/schema';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import { casablancaSchema, casablancaFaq, generateMenuSchema } from '@/lib/schema';
 
 export default function CasablancaClient() {
   const [lang, setLang] = useState<'EN' | 'FR'>('EN');
@@ -56,7 +57,7 @@ export default function CasablancaClient() {
   return (
     <div className="location-page-wrapper">
       <SchemaScript schema={casablancaSchema} />
-      <SchemaScript schema={faqSchema} />
+      <SchemaScript schema={casablancaFaq} />
       <SchemaScript schema={generateMenuSchema('casablanca')} />
       
       {/* Header Banner Carousel */}
@@ -94,7 +95,8 @@ export default function CasablancaClient() {
 
       {/* Details section */}
       <section className="location-info-section container mx-auto px-4 py-16 section-reveal" aria-labelledby="details-title">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <Breadcrumbs items={[{ name: "Locations", url: "/locations" }, { name: "Casablanca", url: "/locations/casablanca" }]} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 mt-6">
           <article className="bg-black/40 p-6 rounded-2xl border border-white/10 backdrop-blur-md reveal-on-scroll up">
             <h3 className="font-serif text-xl font-bold text-gold mb-3">{copy.hoursTitle[lang]}</h3>
             <ul className="text-sm text-sand space-y-2">
@@ -115,6 +117,16 @@ export default function CasablancaClient() {
               <li className="pt-2">
                 <strong className="text-white block">Phone:</strong>
                 <a href="tel:+212613727362" className="text-gold font-bold hover:underline">+212 613-727362</a>
+              </li>
+              <li className="pt-2">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Bombay+Restaurant+Boulevard+Ghandi+Maarif+Casablanca"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary text-xs"
+                >
+                  Get Directions →
+                </a>
               </li>
             </ul>
           </article>

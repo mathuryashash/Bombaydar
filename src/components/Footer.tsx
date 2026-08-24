@@ -67,10 +67,12 @@ export default function Footer() {
           <h4 className="footer-title">{content.quickLinks[lang]}</h4>
           <ul className="footer-links">
             <li><Link href="/">{lang === 'EN' ? 'Home' : 'Accueil'}</Link></li>
+            <li><Link href="/menu">{lang === 'EN' ? 'Menu' : 'Carte'}</Link></li>
             <li><Link href="/about">{lang === 'EN' ? 'Brand Story' : 'Notre Histoire'}</Link></li>
-            <li><Link href="/locations/gueliz">{lang === 'EN' ? 'Bombay Marrakech' : 'Bombay Marrakech'}</Link></li>
-            <li><Link href="/locations/medina">{lang === 'EN' ? 'Medina Rooftop' : 'Médina Rooftop'}</Link></li>
-            <li><Link href="/locations/casablanca">{lang === 'EN' ? 'Bombay Casablanca' : 'Bombay Casablanca'}</Link></li>
+            <li><Link href="/chef">{lang === 'EN' ? 'Our Chef' : 'Notre Chef'}</Link></li>
+            <li><Link href="/catering">{lang === 'EN' ? 'Catering & Events' : 'Traiteur & Réceptions'}</Link></li>
+            <li><Link href="/gallery">{lang === 'EN' ? 'Gallery' : 'Galerie'}</Link></li>
+            <li><Link href="/blog">{lang === 'EN' ? 'Journal' : 'Journal'}</Link></li>
           </ul>
         </div>
 
