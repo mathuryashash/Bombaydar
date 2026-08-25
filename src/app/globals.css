@@ -1944,6 +1944,10 @@ p {
 .philosophy-card h3 {
   font-size: 1.4rem;
   font-weight: 600;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .philosophy-card p {

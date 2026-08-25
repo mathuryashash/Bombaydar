@@ -218,23 +218,14 @@ export default function AboutClient() {
           </div>
           <div className="philosophy-grid stagger-reveal">
             <article className="philosophy-card glass-panel">
-              <div className="phil-icon phil-icon-photo" aria-hidden="true">
-                <Image src="/images/menu_pdf/chicken-tikka-tandoori.jpg" alt="" fill sizes="64px" className="object-cover" />
-              </div>
               <h3 className="font-serif">{copy.phil1Title[lang]}</h3>
               <p>{copy.phil1Desc[lang]}</p>
             </article>
             <article className="philosophy-card glass-panel">
-              <div className="phil-icon phil-icon-photo" aria-hidden="true">
-                <Image src="/images/menu_pdf/chicken-biryani.jpg" alt="" fill sizes="64px" className="object-cover" />
-              </div>
               <h3 className="font-serif">{copy.phil2Title[lang]}</h3>
               <p>{copy.phil2Desc[lang]}</p>
             </article>
             <article className="philosophy-card glass-panel">
-              <div className="phil-icon phil-icon-photo" aria-hidden="true">
-                <Image src="/images/menu_pdf/chilli-chicken.jpg" alt="" fill sizes="64px" className="object-cover" />
-              </div>
               <h3 className="font-serif">{copy.phil3Title[lang]}</h3>
               <p>{copy.phil3Desc[lang]}</p>
             </article>
