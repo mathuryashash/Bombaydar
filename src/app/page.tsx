@@ -370,21 +370,6 @@ export default function Home() {
       </section>
       <SchemaScript schema={organizationSchema} />
       <SchemaScript schema={faqSchema} />
-      <section className="py-16 section-reveal" aria-label="Location map">
-        <div className="container max-w-4xl mx-auto text-center reveal-on-scroll up">
-          <iframe
-            src="https://maps.google.com/maps?q=Bombay+Restaurant,+Marrakech,+Morocco&z=12&output=embed"
-            title="Bombay Restaurant location — Google Maps"
-            className="w-full h-[400px] md:h-[500px] border-0 margin-auto"
-            loading="lazy"
-            allowFullScreen
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-          <div className="mt-6 text-xs text-sand uppercase tracking-widest">
-            View larger map <a href="https://www.google.com/maps/search/?api=1&query=Bombay+Restaurant,+Marrakech,+Morocco" target="_blank" rel="noopener noreferrer">on Google Maps</a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
