@@ -259,37 +259,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Branch map — one lazy iframe, switched by tab */}
-        <div className="mt-10 max-w-4xl mx-auto reveal-on-scroll up">
-          <div className="flex justify-center gap-2 mb-4" role="tablist" aria-label={lang === 'EN' ? 'Choose a branch to view its map' : 'Choisissez une adresse pour voir sa carte'}>
-            {([
-              { id: 'gueliz', label: 'Gueliz' },
-              { id: 'medina', label: 'Medina Rooftop' },
-              { id: 'casablanca', label: 'Casablanca' },
-            ] as const).map((b) => (
-              <button
-                key={b.id}
-                role="tab"
-                aria-selected={mapBranch === b.id}
-                onClick={() => setMapBranch(b.id)}
-                className={`px-5 py-3 text-xs uppercase tracking-widest font-bold transition-all border-b-2 ${mapBranch === b.id ? 'border-gold text-gold bg-white/5' : 'border-transparent text-muted hover:text-white'}`}
-              >
-                {b.label}
-              </button>
-            ))}
-          </div>
-          <div className="rounded-2xl border border-white/10 overflow-hidden glass-panel">
-            <iframe
-              key={mapBranch}
-              src={`https://maps.google.com/maps?q=${encodeURIComponent(BRANCH_MAP_QUERIES[mapBranch])}&z=15&output=embed`}
-              title={`${BRANCH_MAP_QUERIES[mapBranch]} — Google Maps`}
-              className="w-full h-[320px] md:h-[400px] border-0 block"
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
+        {/* Map relocated to page end — see footer section */}
       </section>
 
       {/* Brand Heritage Section */}
@@ -400,6 +370,21 @@ export default function Home() {
       </section>
       <SchemaScript schema={organizationSchema} />
       <SchemaScript schema={faqSchema} />
+      <section className="py-16 section-reveal" aria-label="Location map">
+        <div className="container max-w-4xl mx-auto text-center reveal-on-scroll up">
+          <iframe
+            src="https://maps.google.com/maps?q=Bombay+Restaurant,+Marrakech,+Morocco&z=12&output=embed"
+            title="Bombay Restaurant location — Google Maps"
+            className="w-full h-[400px] md:h-[500px] border-0 margin-auto"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <div className="mt-6 text-xs text-sand uppercase tracking-widest">
+            View larger map <a href="https://www.google.com/maps/search/?api=1&query=Bombay+Restaurant,+Marrakech,+Morocco" target="_blank" rel="noopener noreferrer">on Google Maps</a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
