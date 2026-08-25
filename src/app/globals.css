@@ -463,7 +463,25 @@ p {
   padding: 0.55rem 1.25rem;
 }
 
-@media (max-width: 991px) {
+/* Compact desktop nav: 6 links + actions only fit down to ~1080px,
+   below that switch to the mobile drawer to avoid cramped/overflowing tags */
+@media (max-width: 1279px) and (min-width: 992px) {
+  .nav-container {
+    padding: 0 14px;
+  }
+  .nav-links-wrapper {
+    gap: 14px;
+  }
+  .nav-links {
+    gap: 10px;
+  }
+  .nav-link {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+@media (max-width: 1079px) {
   .mobile-menu-btn {
     display: flex;
   }
