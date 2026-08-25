@@ -58,7 +58,7 @@ const WA_CATERING_URL =
 
 const services = [
   {
-    icon: "💍",
+    icon: "/images/menu_pdf/chicken-tikka-tandoori.jpg",
     title: { EN: "Weddings", FR: "Mariages" },
     desc: {
       EN: "From intimate ceremonies to grand celebrations of 500+ guests. Live tandoor stations, clay-pot biryani service, and traditional presentation that becomes the talk of the wedding.",
@@ -66,7 +66,7 @@ const services = [
     },
   },
   {
-    icon: "🏢",
+    icon: "/images/menu_pdf/butter-chicken.jpg",
     title: { EN: "Corporate Events", FR: "Événements d'Entreprise" },
     desc: {
       EN: "Impress clients and teams with refined Indian catering for conferences, launches, and office parties. Buffet or plated service, tailored to your venue in Marrakech or Casablanca.",
@@ -74,7 +74,7 @@ const services = [
     },
   },
   {
-    icon: "🎉",
+    icon: "/images/menu_pdf/gulab-jamun.jpg",
     title: { EN: "Private Functions", FR: "Réceptions Privées" },
     desc: {
       EN: "Birthdays, anniversaries, family gatherings — large or small. We bring Chef Surender's signature flavors directly to your home, riad, or rented venue.",
@@ -122,7 +122,7 @@ export default function CateringPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-reveal">
           {services.map((s) => (
             <article key={s.title.EN} className="bg-black/40 p-8 rounded-2xl border border-white/10 backdrop-blur-md text-center hover:border-gold/40 transition-colors">
-              <span className="text-4xl block mb-4">{s.icon}</span>
+              <Image src={s.icon} alt="" width={64} height={64} className="object-cover mb-4" />
               <h3 className="font-serif text-xl font-bold text-gold mb-3">{s.title.EN}</h3>
               <p className="text-sm text-sand leading-relaxed">{s.desc.EN}</p>
             </article>
@@ -135,13 +135,13 @@ export default function CateringPage() {
           <h2 id="why-title" className="font-serif text-3xl font-bold text-white mb-8 text-center">The Bombay Catering Difference</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              ["🔥", "Live Tandoor Station", "Our chefs grill fresh naan and kebabs on-site — the aroma alone is an experience."],
-              ["🏺", "Clay-Pot Biryani Service", "Our famous sealed clay-pot biryani, opened at your table for maximum drama."],
-              ["👨‍🍳", "20+ Years of Mastery", "The same team behind our three restaurants, led by Chef Surender Kumar Thakur."],
-              ["🥗", "Full Dietary Coverage", "Extensive vegetarian, vegan, and halal-certified options for every guest."],
+              ["tandoori-roti.jpg", "Live Tandoor Station", "Our chefs grill fresh naan and kebabs on-site — the aroma alone is an experience."],
+              ["chicken-biryani.jpg", "Clay-Pot Biryani Service", "Our famous sealed clay-pot biryani, opened at your table for maximum drama."],
+              ["chef-tikka-masala.jpg", "20+ Years of Mastery", "The same team behind our three restaurants, led by Chef Surender Kumar Thakur."],
+              ["garden-fresh-salad.jpg", "Full Dietary Coverage", "Extensive vegetarian, vegan, and halal-certified options for every guest."],
             ].map(([icon, title, desc]) => (
               <div key={title} className="flex gap-4 bg-black/40 p-6 rounded-xl border border-white/10">
-                <span className="text-2xl flex-shrink-0">{icon}</span>
+                <Image src={"/images/menu_pdf/" + icon} alt="" width={32} height={32} className="object-cover mr-1" />
                 <div>
                   <h3 className="font-serif text-lg font-bold text-gold mb-1">{title}</h3>
                   <p className="text-sm text-sand leading-relaxed">{desc}</p>

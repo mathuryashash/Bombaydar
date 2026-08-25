@@ -76,7 +76,9 @@ export default function RamadanPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto stagger-reveal">
           <article className="bg-black/40 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
-            <h3 className="font-serif text-lg font-bold text-gold mb-3">🥟 To Start</h3>
+            <h3 className="font-serif text-lg font-bold text-gold mb-3">
+              <Image src="/images/menu_pdf/vegetable-samosa.jpg" alt="" width={24} height={24} className="mr-1" /> To Start
+            </h3>
             <ul className="text-sm text-sand space-y-2">
               <li>Vegetable Samosa (2 pcs)</li>
               <li>Chicken Samosa (2 pcs)</li>
@@ -85,7 +87,9 @@ export default function RamadanPage() {
             </ul>
           </article>
           <article className="bg-black/40 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
-            <h3 className="font-serif text-lg font-bold text-gold mb-3">🍛 To Share</h3>
+            <h3 className="font-serif text-lg font-bold text-gold mb-3">
+              <Image src="/images/menu_pdf/chicken-biryani.jpg" alt="" width={24} height={24} className="mr-1" /> To Share
+            </h3>
             <ul className="text-sm text-sand space-y-2">
               <li>Clay-Pot Chicken Biryani</li>
               <li>Famous Butter Chicken</li>
@@ -94,7 +98,9 @@ export default function RamadanPage() {
             </ul>
           </article>
           <article className="bg-black/40 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
-            <h3 className="font-serif text-lg font-bold text-gold mb-3">🥤 To Finish</h3>
+            <h3 className="font-serif text-lg font-bold text-gold mb-3">
+              <Image src="/images/menu_pdf/gulab-jamun.jpg" alt="" width={24} height={24} className="mr-1" /> To Finish
+            </h3>
             <ul className="text-sm text-sand space-y-2">
               <li>Sweet Rose Lassi</li>
               <li>Hot Gulab Jamun</li>

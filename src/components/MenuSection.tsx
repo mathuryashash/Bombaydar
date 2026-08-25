@@ -1011,7 +1011,7 @@ export default function MenuSection({ defaultBranch = 'gueliz' }: MenuSectionPro
           {categories.map((cat) => (
             <button
               key={cat.id}
-              className={`px-5 py-3 rounded-t-xl text-xs uppercase tracking-widest font-bold transition-all border-b-2 ${activeTab === cat.id ? 'border-gold text-gold bg-white/5' : 'border-transparent text-muted hover:text-white'}`}
+              className={`px-5 py-3 text-xs uppercase tracking-widest font-bold transition-all border-b-2 ${activeTab === cat.id ? 'border-gold text-gold bg-white/5' : 'border-transparent text-muted hover:text-white'}`}
               onClick={() => setActiveTab(cat.id)}
             >
               {cat.label[lang]}
