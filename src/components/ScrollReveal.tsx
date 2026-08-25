@@ -1,7 +1,7 @@
 'use client';
 
 import React, { ReactNode, forwardRef } from 'react';
-import { useReveal, useStaggeredScrollAnimation, useParallax, useScrollProgress } from '@/hooks/useScrollAnimation';
+import { useReveal, useStaggeredScrollAnimation, useParallax } from '@/hooks/useScrollAnimation';
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -116,24 +116,4 @@ export function Parallax({ children, speed = 0.3, className = '' }: ParallaxProp
   );
 }
 
-// Scroll progress bar component
-export function ScrollProgressBar({ className = '', color = 'var(--gold-gradient)', height = 3 }: { className?: string; color?: string; height?: number }) {
-  const progress = useScrollProgress();
-  
-  if (progress === 0) return null;
-  
-  return (
-    <div 
-      className={`fixed top-0 left-0 z-50 ${className}`}
-      style={{ 
-        width: `${progress * 100}%`, 
-        height: `${height}px`, 
-        background: color,
-        boxShadow: `0 0 10px ${color}`,
-        transition: 'width 0.1s linear',
-      }}
-      aria-hidden="true"
-    />
-  );
-}
 

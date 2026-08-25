@@ -21,12 +21,12 @@ export interface MenuItem {
 }
 
 interface MenuSectionProps {
-  defaultBranch?: 'all' | 'marrakech' | 'casablanca';
+  defaultBranch?: 'gueliz' | 'medina' | 'casablanca';
 }
 
-export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps) {
+export default function MenuSection({ defaultBranch = 'gueliz' }: MenuSectionProps) {
   const [lang, setLang] = useState<'EN' | 'FR'>('EN');
-  const [selectedBranch, setSelectedBranch] = useState<'all' | 'marrakech' | 'casablanca'>(defaultBranch);
+  const [selectedBranch, setSelectedBranch] = useState<'gueliz' | 'medina' | 'casablanca'>(defaultBranch);
   const [activeTab, setActiveTab] = useState("starters");
   const [searchQuery, setSearchQuery] = useState("");
   const [filterVeg, setFilterVeg] = useState(false);
@@ -901,7 +901,7 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
 
   const filteredItems = menuItems.filter(item => {
     if (activeTab !== item.category) return false;
-    if (selectedBranch === 'marrakech' && item.locationExclusive === 'casablanca') return false;
+    if (selectedBranch !== 'casablanca' && item.locationExclusive === 'casablanca') return false;
     if (selectedBranch === 'casablanca' && item.locationExclusive === 'marrakech') return false;
 
     if (searchQuery.trim() !== '') {
@@ -920,11 +920,9 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
   const getDisplayPrice = (item: MenuItem) => {
     if (selectedBranch === 'casablanca') {
       return `${item.price.casablanca} Dhs`;
-    } else if (selectedBranch === 'marrakech') {
-      return `${item.price.marrakech} Dhs`;
-    } else {
-      return `${item.price.marrakech} Dhs (Marrakech) / ${item.price.casablanca} Dhs (Casa)`;
     }
+    // Gueliz and Medina share Marrakech pricing
+    return `${item.price.marrakech} Dhs`;
   };
 
   return (
@@ -937,22 +935,22 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
             {lang === 'EN' ? 'BRANCH PRICING:' : 'TARIFS PAR SUCCURSALE:'}
           </span>
           <button
-            className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all ${selectedBranch === 'all' ? 'bg-gold-gradient text-black shadow-lg shadow-gold/20' : 'bg-white/5 text-muted hover:text-white border border-white/10'}`}
-            onClick={() => setSelectedBranch('all')}
+            className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all ${selectedBranch === 'gueliz' ? 'bg-gold-gradient text-black shadow-lg shadow-gold/20' : 'bg-white/5 text-muted hover:text-white border border-white/10'}`}
+            onClick={() => setSelectedBranch('gueliz')}
           >
-            {lang === 'EN' ? 'All Locations' : 'Toutes les Succursales'}
+            {lang === 'EN' ? 'Gueliz, Marrakech' : 'Guéliz, Marrakech'}
           </button>
           <button
-            className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all ${selectedBranch === 'marrakech' ? 'bg-gold-gradient text-black shadow-lg shadow-gold/20' : 'bg-white/5 text-muted hover:text-white border border-white/10'}`}
-            onClick={() => setSelectedBranch('marrakech')}
+            className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all ${selectedBranch === 'medina' ? 'bg-gold-gradient text-black shadow-lg shadow-gold/20' : 'bg-white/5 text-muted hover:text-white border border-white/10'}`}
+            onClick={() => setSelectedBranch('medina')}
           >
-            Marrakech (Gueliz & Medina)
+            {lang === 'EN' ? 'Medina Rooftop, Marrakech' : 'Médina Rooftop, Marrakech'}
           </button>
           <button
             className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all ${selectedBranch === 'casablanca' ? 'bg-gold-gradient text-black shadow-lg shadow-gold/20' : 'bg-white/5 text-muted hover:text-white border border-white/10'}`}
             onClick={() => setSelectedBranch('casablanca')}
           >
-            Casablanca (Ghandi)
+            {lang === 'EN' ? 'Casablanca (Ghandi)' : 'Casablanca (Ghandi)'}
           </button>
         </div>
 
@@ -1050,20 +1048,9 @@ export default function MenuSection({ defaultBranch = 'all' }: MenuSectionProps)
                   <h3 className="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors min-w-0">
                     {item.name[lang]}
                   </h3>
-                  {selectedBranch === 'all' ? (
-                    <div className="flex flex-col gap-1 flex-shrink-0 items-end">
-                      <span className="font-serif font-bold text-sm text-gold whitespace-nowrap bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
-                        {item.price.marrakech} Dhs · Marrakech
-                      </span>
-                      <span className="font-serif font-bold text-sm text-gold whitespace-nowrap bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
-                        {item.price.casablanca} Dhs · Casa
-                      </span>
-                    </div>
-                  ) : (
-                    <span className="font-serif font-bold text-lg text-gold whitespace-nowrap bg-gold/10 px-3 py-1 rounded-full border border-gold/30 flex-shrink-0">
-                      {getDisplayPrice(item)}
-                    </span>
-                  )}
+                  <span className="font-serif font-bold text-lg text-gold whitespace-nowrap bg-gold/10 px-3 py-1 rounded-full border border-gold/30 flex-shrink-0">
+                    {getDisplayPrice(item)}
+                  </span>
                 </div>
                 <p className="text-sm text-muted mb-4 leading-relaxed font-sans">
                   {item.description[lang]}

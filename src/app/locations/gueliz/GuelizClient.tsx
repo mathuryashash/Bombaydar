@@ -154,7 +154,7 @@ export default function GuelizClient() {
             <h2 id="menu-title" className="font-serif text-3xl md:text-4xl font-bold text-white">The Marrakech Menu</h2>
             <div className="w-16 h-0.5 bg-gold mx-auto mt-4" />
           </div>
-          <MenuSection defaultBranch="marrakech" />
+          <MenuSection defaultBranch="gueliz" />
         </div>
       </section>
 

@@ -61,7 +61,7 @@ export default function MenuPage() {
 
       <section className="py-12" id="menu" aria-label="Full menu">
         <div className="container mx-auto px-4">
-          <MenuSection defaultBranch="all" />
+          <MenuSection defaultBranch="gueliz" />
         </div>
       </section>
     </div>
