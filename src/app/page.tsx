@@ -8,9 +8,16 @@ import Logo from '@/components/Logo';
 import SchemaScript from '@/components/SchemaScript';
 import { organizationSchema, faqSchema } from '@/lib/schema';
 
+const BRANCH_MAP_QUERIES: Record<'gueliz' | 'medina' | 'casablanca', string> = {
+  gueliz: 'Bombay Restaurant, 7 Rue Ibn Zaidoun, Gueliz, Marrakech',
+  medina: 'Bombay Restaurant, Derb Dabachi, Medina, Marrakech',
+  casablanca: 'Bombay Restaurant, Boulevard Ghandi, Maarif, Casablanca',
+};
+
 export default function Home() {
   const [lang, setLang] = useState<'EN' | 'FR'>('EN');
   const [heroIndex, setHeroIndex] = useState(0);
+  const [mapBranch, setMapBranch] = useState<'gueliz' | 'medina' | 'casablanca'>('gueliz');
 
   const heroImages = [
     { src: '/images/web/hero_royal_lounge.jpg', alt: 'Bombay Marrakech Gueliz - Elegant Art Deco lounge with warm ambient lighting' },
@@ -249,6 +256,38 @@ export default function Home() {
                 </div>
               </div>
             </article>
+          </div>
+        </div>
+
+        {/* Branch map — one lazy iframe, switched by tab */}
+        <div className="mt-10 max-w-4xl mx-auto reveal-on-scroll up">
+          <div className="flex justify-center gap-2 mb-4" role="tablist" aria-label={lang === 'EN' ? 'Choose a branch to view its map' : 'Choisissez une adresse pour voir sa carte'}>
+            {([
+              { id: 'gueliz', label: 'Gueliz' },
+              { id: 'medina', label: 'Medina Rooftop' },
+              { id: 'casablanca', label: 'Casablanca' },
+            ] as const).map((b) => (
+              <button
+                key={b.id}
+                role="tab"
+                aria-selected={mapBranch === b.id}
+                onClick={() => setMapBranch(b.id)}
+                className={`px-5 py-3 text-xs uppercase tracking-widest font-bold transition-all border-b-2 ${mapBranch === b.id ? 'border-gold text-gold bg-white/5' : 'border-transparent text-muted hover:text-white'}`}
+              >
+                {b.label}
+              </button>
+            ))}
+          </div>
+          <div className="rounded-2xl border border-white/10 overflow-hidden glass-panel">
+            <iframe
+              key={mapBranch}
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(BRANCH_MAP_QUERIES[mapBranch])}&z=15&output=embed`}
+              title={`${BRANCH_MAP_QUERIES[mapBranch]} — Google Maps`}
+              className="w-full h-[320px] md:h-[400px] border-0 block"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </section>

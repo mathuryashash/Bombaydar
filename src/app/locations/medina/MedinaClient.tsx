@@ -124,17 +124,6 @@ export default function MedinaClient() {
             </ul>
           </article>
 
-          <article className="bg-black/40 rounded-2xl border border-white/10 backdrop-blur-md overflow-hidden reveal-on-scroll up delay-1 md:col-span-3">
-            <iframe
-              src="https://www.google.com/maps?q=Bombay+Restaurant+Derb+Dabachi+Medina+Marrakech&output=embed"
-              title="Bombay Restaurant Medina Rooftop location on Google Maps"
-              className="w-full h-[320px] md:h-[380px] border-0"
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </article>
-
           <article className="bg-black/40 p-6 rounded-2xl border border-white/10 backdrop-blur-md reveal-on-scroll up delay-2">
             <h3 className="font-serif text-xl font-bold text-gold mb-3">Payment Info</h3>
             <p className="text-sm text-sand leading-relaxed">
