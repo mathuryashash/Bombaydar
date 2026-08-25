@@ -312,6 +312,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 32px;
 }
 
 .nav-logo {
@@ -374,20 +375,20 @@ p {
 .nav-links-wrapper {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 14px;
 }
 
 .nav-links {
   display: flex;
-  gap: 16px;
+  gap: 10px;
 }
 
 .nav-link {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   white-space: nowrap;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   color: var(--text-secondary);
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
   position: relative;
@@ -417,7 +418,7 @@ p {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 }
 
 .lang-toggle-btn {
@@ -442,8 +443,8 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   cursor: pointer;
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
@@ -2056,9 +2057,9 @@ p {
   background: transparent;
   border: 1px solid var(--gold-primary);
   color: var(--gold-primary);
-  padding: 7px 12px;
+  padding: 6px 10px;
   border-radius: 20px;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   white-space: nowrap;
   font-weight: 600;
   display: inline-flex;
