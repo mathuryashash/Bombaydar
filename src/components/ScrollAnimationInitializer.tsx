@@ -15,6 +15,18 @@ export default function ScrollAnimationInitializer() {
     }, 4000);
     cleanupFns.push(() => window.clearTimeout(failSafe));
 
+    // Back/forward cache restore: page can freeze mid-reveal-animation, leaving
+    // elements stuck at partial opacity. Force-reveal everything on restore.
+    const handlePageshow = (e: PageTransitionEvent) => {
+      if (e.persisted) {
+        document.querySelectorAll('.reveal-on-scroll, .stagger-reveal, .section-reveal').forEach((el) => {
+          el.classList.add('is-visible', 'in-view');
+        });
+      }
+    };
+    window.addEventListener('pageshow', handlePageshow);
+    cleanupFns.push(() => window.removeEventListener('pageshow', handlePageshow));
+
     // No IntersectionObserver support -> reveal everything immediately
     if (typeof IntersectionObserver === 'undefined') {
       document.querySelectorAll('.reveal-on-scroll, .stagger-reveal, .section-reveal').forEach((el) => {

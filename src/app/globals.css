@@ -1542,6 +1542,35 @@ p {
 .branch-name {
   font-size: 1.5rem;
   font-weight: 600;
+  color: var(--text-primary);
+}
+
+.branch-subtitle {
+  font-size: 0.95rem;
+  color: var(--accent-gold);
+  margin-top: -6px;
+}
+
+.branch-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
+.meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.meta-icon {
+  flex-shrink: 0;
 }
 
 .branch-desc {
@@ -1551,7 +1580,8 @@ p {
 }
 
 .branch-actions {
-  margin-top: 10px;
+  margin-top: auto;
+  padding-top: 20px;
 }
 
 .branch-btn {
