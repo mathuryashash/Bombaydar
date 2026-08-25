@@ -2142,8 +2142,10 @@ p {
 .bg-gold-gradient { background: var(--gold-gradient) !important; }
 .border-gold-subtle { border-color: var(--gold-subtle) !important; }
 
-/* Scroll Animation Classes */
-.reveal-on-scroll {
+/* Scroll Animation Classes
+   Hidden states are scoped under html.js (set by an inline script in layout).
+   If JS/hydration ever fails, content stays fully visible - no blank page. */
+html.js .reveal-on-scroll {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2155,21 +2157,21 @@ p {
   transform: translateY(0);
 }
 
-.reveal-on-scroll.left {
+html.js .reveal-on-scroll.left {
   transform: translateX(40px);
 }
 .reveal-on-scroll.left.is-visible {
   transform: translateX(0);
 }
 
-.reveal-on-scroll.right {
+html.js .reveal-on-scroll.right {
   transform: translateX(-40px);
 }
 .reveal-on-scroll.right.is-visible {
   transform: translateX(0);
 }
 
-.reveal-on-scroll.down {
+html.js .reveal-on-scroll.down {
   transform: translateY(-40px);
 }
 .reveal-on-scroll.down.is-visible {
@@ -2177,7 +2179,7 @@ p {
 }
 
 /* Staggered reveal for grid items */
-.stagger-reveal > * {
+html.js .stagger-reveal > * {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2188,6 +2190,12 @@ p {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Real stagger between grid children when their container reveals */
+.stagger-reveal.is-visible > *:nth-child(2) { transition-delay: 90ms; }
+.stagger-reveal.is-visible > *:nth-child(3) { transition-delay: 180ms; }
+.stagger-reveal.is-visible > *:nth-child(4) { transition-delay: 270ms; }
+.stagger-reveal.is-visible > *:nth-child(n+5) { transition-delay: 360ms; }
 
 /* Parallax helper */
 .parallax-element {
@@ -2210,7 +2218,7 @@ p {
 }
 
 /* Smooth reveal for sections */
-.section-reveal {
+html.js .section-reveal {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2267,15 +2275,16 @@ p {
   opacity: 0;
 }
 
-/* Stagger delays */
-.delay-1 { animation-delay: 100ms; }
-.delay-2 { animation-delay: 200ms; }
-.delay-3 { animation-delay: 300ms; }
-.delay-4 { animation-delay: 400ms; }
-.delay-5 { animation-delay: 500ms; }
-.delay-6 { animation-delay: 600ms; }
-.delay-7 { animation-delay: 700ms; }
-.delay-8 { animation-delay: 800ms; }
+/* Stagger delays — transition-delay drives reveal-on-scroll cascades;
+   animation-delay kept for keyframe-based users of these classes */
+.delay-1 { animation-delay: 100ms; transition-delay: 100ms; }
+.delay-2 { animation-delay: 200ms; transition-delay: 200ms; }
+.delay-3 { animation-delay: 300ms; transition-delay: 300ms; }
+.delay-4 { animation-delay: 400ms; transition-delay: 400ms; }
+.delay-5 { animation-delay: 500ms; transition-delay: 500ms; }
+.delay-6 { animation-delay: 600ms; transition-delay: 600ms; }
+.delay-7 { animation-delay: 700ms; transition-delay: 700ms; }
+.delay-8 { animation-delay: 800ms; transition-delay: 800ms; }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {

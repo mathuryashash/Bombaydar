@@ -100,6 +100,13 @@ export default function RootLayout({
             __html: `try{if(localStorage.getItem('theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}`,
           }}
         />
+        {/* Marks JS availability ASAP: scroll-reveal CSS only hides content when html.js
+            is present, so a failed hydration can never leave blank sections. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js');`,
+          }}
+        />
       </head>
       <body>
         <div className="scroll-progress-bar" aria-hidden="true" />

@@ -6,6 +6,23 @@ export default function ScrollAnimationInitializer() {
   useEffect(() => {
     const cleanupFns: Array<() => void> = [];
 
+    // Safety net: any element still hidden 4s after load gets revealed.
+    // Covers edge cases where observers never fire (old browsers, odd embeds).
+    const failSafe = window.setTimeout(() => {
+      document
+        .querySelectorAll('.reveal-on-scroll:not(.is-visible), .stagger-reveal:not(.is-visible), .section-reveal:not(.in-view)')
+        .forEach((el) => el.classList.add('is-visible', 'in-view'));
+    }, 4000);
+    cleanupFns.push(() => window.clearTimeout(failSafe));
+
+    // No IntersectionObserver support -> reveal everything immediately
+    if (typeof IntersectionObserver === 'undefined') {
+      document.querySelectorAll('.reveal-on-scroll, .stagger-reveal, .section-reveal').forEach((el) => {
+        el.classList.add('is-visible', 'in-view');
+      });
+      return () => cleanupFns.forEach((fn) => fn());
+    }
+
     // Initialize reveal-on-scroll elements
     const revealElements = document.querySelectorAll('.reveal-on-scroll:not(.is-visible)');
     
