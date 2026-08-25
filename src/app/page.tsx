@@ -209,8 +209,8 @@ export default function Home() {
                 />
               </div>
               <div className="branch-card-content">
-                <h3 className="branch-name font-serif">Bombay Marrakech Gueliz</h3>
-                <p className="branch-desc">{copy.guelizDesc[lang]}</p>
+                <h3 className="branch-name font-serif text-white">Bombay Marrakech Gueliz</h3>
+                <p className="branch-desc text-sand">{copy.guelizDesc[lang]}</p>
                 <div className="branch-actions">
                   <Link href="/locations/gueliz" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
                 </div>
@@ -229,8 +229,8 @@ export default function Home() {
                 />
               </div>
               <div className="branch-card-content">
-                <h3 className="branch-name font-serif">Medina Rooftop</h3>
-                <p className="branch-desc">{copy.medinaDesc[lang]}</p>
+                <h3 className="branch-name font-serif text-white">Medina Rooftop</h3>
+                <p className="branch-desc text-sand">{copy.medinaDesc[lang]}</p>
                 <div className="branch-actions">
                   <Link href="/locations/medina" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
                 </div>
@@ -249,8 +249,8 @@ export default function Home() {
                 />
               </div>
               <div className="branch-card-content">
-                <h3 className="branch-name font-serif">Bombay Casablanca</h3>
-                <p className="branch-desc">{copy.casaDesc[lang]}</p>
+                <h3 className="branch-name font-serif text-white">Bombay Casablanca</h3>
+                <p className="branch-desc text-sand">{copy.casaDesc[lang]}</p>
                 <div className="branch-actions">
                   <Link href="/locations/casablanca" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
                 </div>
