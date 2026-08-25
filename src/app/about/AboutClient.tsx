@@ -1,10 +1,43 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import BookingWidget from '@/components/BookingWidget';
 import SchemaScript from '@/components/SchemaScript';
 import { aboutSchema, faqSchema } from '@/lib/schema';
+
+function CountUpStat({ value, suffix = '', en, fr, lang }: { value: number; suffix?: string; en: string; fr: string; lang: 'EN' | 'FR' }) {
+  const [display, setDisplay] = useState(value);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      io.disconnect();
+      const duration = 1600;
+      const start = performance.now();
+      setDisplay(0);
+      const tick = (now: number) => {
+        const p = Math.min((now - start) / duration, 1);
+        setDisplay(Math.round(value * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.5 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [value]);
+
+  return (
+    <div ref={ref} className="reveal-on-scroll up">
+      <div className="font-serif text-4xl md:text-5xl font-bold gold-text">{display}{suffix}</div>
+      <div className="text-xs md:text-sm uppercase tracking-widest text-sand mt-2">{lang === 'EN' ? en : fr}</div>
+    </div>
+  );
+}
 
 export default function AboutClient() {
   const [lang, setLang] = useState<'EN' | 'FR'>('EN');
@@ -206,6 +239,15 @@ export default function AboutClient() {
               <p>{copy.phil3Desc[lang]}</p>
             </article>
           </div>
+        </div>
+      </section>
+
+      {/* Stats band — SSR renders final values (SEO-safe, no CLS); counts up on first view for motion-allowed users */}
+      <section className="py-14 border-y border-white/5 section-reveal" aria-label="Restaurant statistics">
+        <div className="container max-w-4xl grid grid-cols-3 gap-6 text-center stagger-reveal">
+          <CountUpStat value={20} suffix="+" en="Years of Mastery" fr="Ans de Maîtrise" lang={lang} />
+          <CountUpStat value={3} en="Locations in Morocco" fr="Adresses au Maroc" lang={lang} />
+          <CountUpStat value={85} suffix="+" en="Signature Dishes" fr="Plats Signatures" lang={lang} />
         </div>
       </section>
 
