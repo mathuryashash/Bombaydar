@@ -44,3 +44,5 @@ next-env.d.ts
 /scratch/
 /images/
 /Menu Restaurant Bombay 2023.pdf
+image copy*.png
+*.png.bak
