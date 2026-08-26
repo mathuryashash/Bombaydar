@@ -1296,15 +1296,26 @@ p {
   opacity: 1;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(8, 9, 11, 0.4) 0%, rgba(8, 9, 11, 0.85) 100%);
-  z-index: 2;
+.locations-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 56px;
 }
+
+.hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(8, 9, 11, 0.4) 0%, rgba(8, 9, 11, 0.85) 100%);
+      z-index: 2;
+    }
 
 .hero-content {
   position: relative;
@@ -1494,10 +1505,20 @@ p {
 }
 
 .branches-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    /* Card wrapper anchor must fill the stretched grid cell,
+       otherwise margin-top:auto on .branch-actions can't reach the card bottom */
+    .branch-link {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+    }
 
 .branch-card {
   border-radius: 8px;
@@ -1642,11 +1663,12 @@ p {
 }
 
 .location-subtitle {
-  font-size: 1.15rem;
-  color: #a39d90;
-  font-weight: 300;
-  max-width: 600px;
-}
+      font-size: 1.15rem;
+      color: #e8e4da;
+      font-weight: 300;
+      max-width: 600px;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+    }
 
 .location-info-section {
   padding: 80px 0 40px;
