@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Setup Guide — Bombay Restaurant (Visual Walkthrough)</title>
+<style>
+  :root {
+    --bg: #0b0c0f;
+    --card: #14161c;
+    --card2: #1a1d25;
+    --gold: #e5a93b;
+    --gold-soft: rgba(229,169,59,.14);
+    --line: rgba(255,255,255,.09);
+    --text: #f2f3f5;
+    --muted: #b9bdc7;
+    --green: #34a853;
+    --blue: #4285f4;
+    --red: #ea4335;
+    --yellow: #fbbc05;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    line-height: 1.6; padding-bottom: 80px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- header ---------- */
+  header {
+    text-align: center; padding: 56px 20px 40px;
+    background: linear-gradient(180deg, rgba(229,169,59,.08), transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .logo-badge {
+    display:inline-flex; align-items:center; gap:10px;
+    border:1px solid var(--gold); color: var(--gold);
+    padding: 6px 18px; border-radius: 999px;
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700;
+    margin-bottom: 22px;
+  }
+  h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(30px, 5vw, 44px); font-weight: 600; }
+  .sub { color: var(--muted); max-width: 620px; margin: 14px auto 0; font-size: 16px; }
+  .meta-pills { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: 22px; }
+  .pill { background: var(--card2); border:1px solid var(--line); border-radius:999px; padding:7px 16px; font-size:13px; color:var(--muted); }
+  .pill b { color: var(--gold); }
+
+  /* ---------- part banners ---------- */
+  .part {
+    margin: 64px 0 8px; padding: 26px 28px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(229,169,59,.16), rgba(229,169,59,.05));
+    border: 1px solid rgba(229,169,59,.35);
+    display:flex; align-items:center; gap:18px;
+  }
+  .part-num {
+    width: 54px; height:54px; flex:0 0 54px; border-radius: 50%;
+    background: var(--gold); color:#141414; font-weight: 800; font-size: 24px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .part h2 { font-family: Georgia, serif; font-size: 26px; }
+  .part p { color: var(--muted); font-size: 14px; }
+
+  /* ---------- steps ---------- */
+  .step {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px; margin-top: 26px; position: relative;
+  }
+  .step-head { display:flex; gap:16px; align-items:flex-start; margin-bottom: 14px; }
+  .step-num {
+    width: 40px; height:40px; flex:0 0 40px; border-radius: 12px;
+    background: var(--gold-soft); border:1px solid var(--gold); color: var(--gold);
+    font-weight: 800; font-size: 18px; display:flex; align-items:center; justify-content:center;
+  }
+  .step h3 { font-size: 20px; font-family: Georgia, serif; font-weight: 600; padding-top: 6px; }
+  .step p { color: var(--muted); }
+  .step ol { margin: 10px 0 0 20px; color: var(--text); }
+  .step ol li { margin: 7px 0; }
+  .typebox {
+    background:#0e1013; border:1px dashed var(--gold); border-radius: 10px;
+    padding: 10px 16px; margin: 8px 0; color: var(--gold); font-family: Consolas, monospace; font-size: 15px;
+  }
+  .callout { border-radius: 12px; padding: 14px 18px; margin-top: 16px; font-size: 14.5px; display:flex; gap:12px; }
+  .callout.warn { background: rgba(234,67,53,.1); border:1px solid rgba(234,67,53,.4); }
+  .callout.tip  { background: rgba(66,133,244,.1); border:1px solid rgba(66,133,244,.4); }
+  .callout.good { background: rgba(52,168,83,.1); border:1px solid rgba(52,168,83,.4); }
+  .callout .ico { font-size: 20px; }
+
+  /* ---------- mock browser ---------- */
+  .browser {
+    background:#20232b; border-radius: 14px; overflow:hidden;
+    border:1px solid #333743; margin: 22px 0 6px; box-shadow: 0 18px 50px rgba(0,0,0,.5);
+  }
+  .browser-bar { display:flex; align-items:center; gap:10px; padding: 11px 14px; background:#2a2e38; }
+  .dot { width:11px; height:11px; border-radius:50%; }
+  .dot.r{background:var(--red)} .dot.y{background:var(--yellow)} .dot.g{background:var(--green)}
+  .url {
+    flex:1; background:#171a21; border-radius: 999px; color:#9aa0ad;
+    font-size: 13px; padding: 6px 16px; font-family: Consolas, monospace;
+  }
+  .screen { background:#f8f9fa; color:#202124; padding: 26px 24px 30px; position: relative; }
+  .g-logo { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .g-logo span:nth-child(1){color:var(--blue)} .g-logo span:nth-child(2){color:var(--red)}
+  .g-logo span:nth-child(3){color:var(--yellow)} .g-logo span:nth-child(4){color:var(--blue)}
+  .g-logo span:nth-child(5){color:var(--green)} .g-logo span:nth-child(6){color:var(--red)}
+  .g-btn {
+    display:inline-block; background: var(--blue); color:#fff; border-radius: 6px;
+    padding: 9px 22px; font-size: 14px; font-weight: 600;
+  }
+  .g-input { background:#fff; border:1px solid #dadce0; border-radius:6px; padding:10px 14px; margin-top:10px; font-size:14px; color:#202124; }
+  .g-input .lab { font-size: 11px; color:#5f6368; display:block; }
+  .g-input .val { color:#202124; }
+  .g-link { color: var(--blue); font-weight: 600; font-size: 14px; }
+  .screen-note { font-size: 12.5px; color:#5f6368; margin-top: 12px; }
+
+  /* ---------- arrows ---------- */
+  .arrow-row { display:flex; align-items:center; gap:8px; margin: 14px 0 2px; color: var(--gold); font-size: 13.5px; font-weight: 700; }
+  .arrow-row svg { flex:0 0 auto; }
+  .point-right { stroke: var(--gold); stroke-width: 2.5; fill: none; }
+
+  /* ---------- tables ---------- */
+  table.data { width:100%; border-collapse: collapse; margin-top: 14px; font-size: 14.5px; }
+  table.data th { text-align:left; color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; padding: 9px 12px; border-bottom: 1px solid var(--gold); }
+  table.data td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--text); }
+  table.data td:first-child { color: var(--muted); white-space: nowrap; }
+  .loc-card { background: var(--card2); border:1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin-top: 16px; }
+  .loc-card h4 { color: var(--gold); font-size: 16px; margin-bottom: 4px; font-family: Georgia, serif; }
+
+  /* ---------- checklist ---------- */
+  .checks { list-style:none; margin-top: 12px; }
+  .checks li { display:flex; gap: 12px; align-items:flex-start; padding: 9px 0; border-bottom: 1px dashed var(--line); color: var(--text); }
+  .box { width: 20px; height:20px; flex:0 0 20px; border: 2px solid var(--gold); border-radius: 5px; margin-top: 2px; }
+
+  .photo-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; margin-top: 14px; }
+  .ph { aspect-ratio: 1; border-radius: 10px; display:flex; align-items:center; justify-content:center; font-size: 26px; border: 1px solid var(--line); }
+  .ph1{background:linear-gradient(135deg,#3a2410,#6b4413)} .ph2{background:linear-gradient(135deg,#401c1c,#7a2e2e)}
+  .ph3{background:linear-gradient(135deg,#1c2b40,#2e557a)} .ph4{background:linear-gradient(135deg,#233320,#4a6b3a)}
+
+  .review-badge {
+    display:inline-flex; align-items: baseline; gap: 8px; background: var(--gold-soft);
+    border: 1px solid var(--gold); border-radius: 12px; padding: 12px 20px; margin-top: 14px;
+  }
+  .review-badge b { font-size: 26px; color: var(--gold); font-family: Georgia, serif; }
+
+  /* ---------- final summary ---------- */
+  .summary { margin-top: 30px; }
+  footer { text-align:center; color: var(--muted); font-size: 13px; margin-top: 60px; }
+
+  @media (max-width: 640px) {
+    .step { padding: 20px 16px; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .screen { padding: 18px 14px 22px; }
+  }
+  @media print {
+    body { background: #fff; color: #111; }
+    .step, .loc-card, .browser { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-badge">Bombay Restaurant · Morocco</div>
+  <h1>Get Your Restaurants on Google</h1>
+  <p class="sub">A visual walkthrough for setting up <b>Google Business Profile</b> (Maps &amp; Search listings) and <b>Google Search Console</b> (website analytics). Follow the gold arrows — they point at exactly what to click.</p>
+  <div class="meta-pills">
+    <span class="pill">⏱ <b>30–60 min</b></span>
+    <span class="pill">🔑 <b>1 Google account</b> for everything</span>
+    <span class="pill">📱 Phone ready for verification</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="callout good" style="margin-top:34px">
+    <span class="ico">👑</span>
+    <div><b>The owner creates these accounts — not the web team.</b> This keeps you in control of your business data and reviews. Afterwards, you give us access and we handle all optimization, posts, and reports.</div>
+  </div>
+
+  <!-- ============ PART 1 ============ -->
+  <div class="part">
+    <div class="part-num">1</div>
+    <div>
+      <h2>Google Business Profile</h2>
+      <p>What customers see when they search "Indian restaurant Marrakech" on Google or Maps — photos, hours, reviews, directions. The #1 way new customers find restaurants. You will create <b style="color:var(--text)">3 profiles</b>, one per branch.</p>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">1</div><h3>Sign in to Google Business</h3></div>
+    <div class="browser">
+      <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">🔒 business.google.com</span></div>
+      <div class="screen">
+        <div class="g-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span> <b style="font-weight:500">Business Profile</b></div>
+        <p style="font-size:14px;color:#5f6368;margin:6px 0 16px">Stand out on Google with a free Business Profile</p>
+        <span class="g-btn">Manage now</span>
+        <svg width="120" height="46" viewBox="0 0 120 46" style="position:absolute; right:34px; top:52px">
+          <path d="M8 6 C 40 40, 80 44, 108 30" class="point-right" marker-edge="none"/>
+          <path d="M100 22 L 112 29 L 101 38" class="point-right"/>
+        </svg>
+      </div>
+    </div>
+    <div class="arrow-row">
+      <svg width="22" height="22" viewBox="0 0 22 22"><path d="M4 11 h12 M11 5 l7 6 -7 6" class="point-right"/></svg>
+      Click the blue <b>&nbsp;“Manage now”&nbsp;</b> button — then sign in with your Google (Gmail) account.
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">2</div><h3>Add your first location — Marrakech Gueliz</h3></div>
+    <p>Type each value <b>exactly</b> as shown below:</p>
+    <div class="browser">
+      <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">🔒 business.google.com — create profile</span></div>
+      <div class="screen">
+        <div class="g-input"><span class="lab">Business name</span><span class="val"><b>Bombay Restaurant Marrakech</b></span></div>
+        <div class="g-input"><span class="lab">Business category</span><span class="val">Indian restaurant</span></div>
+        <svg width="150" height="40" viewBox="0 0 150 40" style="position:absolute; right:20px; top:96px">
+          <path d="M10 8 C 60 36, 100 34, 138 22" class="point-right"/>
+          <path d="M128 14 L 142 21 L 130 31" class="point-right"/>
+        </svg>
+        <div class="g-input"><span class="lab">Street address</span><span class="val">7, Rue Ibn Zaidoun, Gueliz, Marrakech 40000</span></div>
+        <div style="background:linear-gradient(135deg,#e8eaed,#d5d9e0); border-radius:8px; height:110px; margin-top:12px; position:relative;">
+          <svg width="30" height="40" viewBox="0 0 30 40" style="position:absolute; left:48%; top:18px">
+            <path d="M15 0 C 6 0 0 7 0 15 C 0 26 15 40 15 40 C 15 40 30 26 30 15 C 30 7 24 0 15 0" fill="#ea4335"/>
+            <circle cx="15" cy="14" r="5.5" fill="#fff"/>
+          </svg>
+          <span style="position:absolute; bottom:6px; left:10px; font-size:11px; color:#5f6368">Drag the pin so it sits exactly on your entrance 📍</span>
+        </div>
+        <div class="g-input"><span class="lab">Phone number</span><span class="val">+212 613-727362</span></div>
+        <div class="g-input"><span class="lab">Website</span><span class="val">https://bombaydar.com/locations/gueliz</span></div>
+      </div>
+    </div>
+    <div class="arrow-row">
+      <svg width="22" height="22" viewBox="0 0 22 22"><path d="M4 11 h12 M11 5 l7 6 -7 6" class="point-right"/></svg>
+      When asked <b>&nbsp;“Do you want to add a location customers can visit?”&nbsp;</b> → choose <b>Yes</b>.
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">3</div><h3>Set opening hours — Gueliz</h3></div>
+    <table class="data">
+      <tr><th>Day</th><th>Hours</th></tr>
+      <tr><td>Tuesday – Sunday</td><td><b>12:00 – 23:00</b></td></tr>
+      <tr><td>Monday</td><td><b>18:00 – 23:00</b></td></tr>
+    </table>
+    <div class="callout warn"><span class="ico">⚠️</span><div>Copy these exactly. Wrong hours = frustrated customers = bad reviews.</div></div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">4</div><h3>Verify you own the restaurant</h3></div>
+    <p>Google asks for a short <b>video verification</b>: film yourself inside the restaurant showing the <b>signboard</b>, the <b>kitchen</b>, and <b>proof of address</b>. Approval usually takes a few days.</p>
+    <div class="browser">
+      <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">🔒 business.google.com — verification</span></div>
+      <div class="screen">
+        <div style="display:flex; gap:16px; align-items:center;">
+          <div style="width:86px;height:60px;background:#202124;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px">🎥</div>
+          <div>
+            <div style="font-weight:600; font-size:15px">Video verification</div>
+            <div style="font-size:13px;color:#5f6368">Show: entrance signboard → kitchen → address proof</div>
+          </div>
+        </div>
+        <svg width="130" height="40" viewBox="0 0 130 40" style="position:absolute; right:24px; bottom:14px">
+          <path d="M8 8 C 50 34, 90 32, 118 20" class="point-right"/>
+          <path d="M108 12 L 122 19 L 110 29" class="point-right"/>
+        </svg>
+      </div>
+    </div>
+    <div class="callout warn"><span class="ico">🚫</span><div><b>Do NOT skip verification.</b> Unverified businesses don't appear properly on Google. If it gets rejected — message us, we'll help you retry.</div></div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">5</div><h3>Repeat for the other 2 locations</h3></div>
+    <p>Back on <b>business.google.com</b> → click your business name (top left) → <b>“Add a business”</b> → repeat Steps 2–4 with these details:</p>
+
+    <div class="loc-card">
+      <h4>📍 Location 2 — Medina Rooftop</h4>
+      <table class="data">
+        <tr><td>Name</td><td><b>Bombay Restaurant - Medina Rooftop</b></td></tr>
+        <tr><td>Category</td><td>Indian restaurant</td></tr>
+        <tr><td>Address</td><td>Derb Dabachi, Marrakech Medina (Near Jemaa el-Fnaa)</td></tr>
+        <tr><td>Phone</td><td>+212 613-727362</td></tr>
+        <tr><td>Website</td><td>https://bombaydar.com/locations/medina</td></tr>
+        <tr><td>Hours</td><td>Daily 12:30 – 23:30</td></tr>
+      </table>
+    </div>
+
+    <div class="loc-card">
+      <h4>📍 Location 3 — Casablanca</h4>
+      <table class="data">
+        <tr><td>Name</td><td><b>Bombay Restaurant Casablanca</b></td></tr>
+        <tr><td>Category</td><td>Indian restaurant</td></tr>
+        <tr><td>Address</td><td>Boulevard Ghandi, Maârif, Casablanca</td></tr>
+        <tr><td>Phone</td><td>+212 613-727362</td></tr>
+        <tr><td>Website</td><td>https://bombaydar.com/locations/casablanca</td></tr>
+        <tr><td>Hours</td><td>Daily 12:00 – 23:30</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">6</div><h3>Make each profile look great</h3></div>
+    <div class="photo-grid">
+      <div class="ph ph1">🍛</div><div class="ph ph2">🥘</div><div class="ph ph3">🌃</div><div class="ph ph4">🫓</div>
+    </div>
+    <div class="arrow-row">
+      <svg width="22" height="22" viewBox="0 0 22 22"><path d="M4 11 h12 M11 5 l7 6 -7 6" class="point-right"/></svg>
+      Add <b>&nbsp;10–15 photos&nbsp;</b> per location: entrance, dining room, rooftop view, signature dishes (biryani, butter chicken, naan), the chef.
+    </div>
+    <ul class="checks">
+      <li><span class="box"></span><span><b>Business description</b> — short paragraph mentioning “authentic North Indian cuisine”, “tandoor”, “since 2004”</span></li>
+      <li><span class="box"></span><span><b>Menu</b> — upload menu photos or link to <span style="color:var(--gold)">https://bombaydar.com/#menu</span></span></li>
+      <li><span class="box"></span><span><b>Attributes</b> — Cash payments (all branches) · Card payments (Casablanca only) · Rooftop seating (Medina) · Family friendly</span></li>
+    </ul>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">7</div><h3>Give us access (after all 3 are verified)</h3></div>
+    <div class="browser">
+      <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">🔒 business.google.com — Settings → People</span></div>
+      <div class="screen">
+        <div style="font-weight:600; font-size:15px; margin-bottom:10px">Managers</div>
+        <div class="g-input"><span class="lab">Add managers by name or email</span><span class="val">[ADD DEVELOPER EMAIL HERE]</span></div>
+        <div style="display:flex; gap:10px; margin-top:12px; align-items:center">
+          <span class="g-btn" style="background:#1a73e8">Invite</span>
+          <span style="font-size:13px;color:#5f6368">Role: <b style="color:#202124">Manager</b> ← choose this</span>
+        </div>
+        <svg width="140" height="44" viewBox="0 0 140 44" style="position:absolute; right:20px; bottom:12px">
+          <path d="M10 8 C 55 38, 95 36, 128 24" class="point-right"/>
+          <path d="M118 16 L 132 23 L 120 33" class="point-right"/>
+        </svg>
+      </div>
+    </div>
+    <ol>
+      <li>Select a location → <b>Settings</b> → <b>“People” / “Managers”</b></li>
+      <li>Click <b>Add</b> → choose role <b>Manager</b></li>
+      <li>Enter our email → repeat for all 3 locations</li>
+    </ol>
+    <div class="callout good"><span class="ico">✅</span><div>You stay the <b>Owner</b>. We optimize listings, post updates, and track performance.</div></div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">8</div><h3>Collect reviews — the biggest ranking factor</h3></div>
+    <p>Ask happy guests politely before they leave: <i>“If you enjoyed dinner, a Google review would mean a lot to us.”</i> Reply to every review — thank the good ones, apologize &amp; invite back for the bad ones.</p>
+    <div class="review-badge"><b>10+</b><span style="color:var(--muted)">reviews per location in the first month</span></div>
+    <div class="callout tip"><span class="ico">🔗</span><div>Once verified, we'll give you a <b>direct review link</b> for each branch — perfect for WhatsApp bills and receipts.</div></div>
+  </div>
+
+  <!-- ============ PART 2 ============ -->
+  <div class="part">
+    <div class="part-num">2</div>
+    <div>
+      <h2>Google Search Console</h2>
+      <p>A free dashboard showing which searches bring people to <b style="color:var(--text)">bombaydar.com</b>, how many clicks you get, and any website problems. We use it heavily for SEO.</p>
+    </div>
+  </div>
+
+  <!-- GSC STEP 1 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">1</div><h3>Open Search Console</h3></div>
+    <div class="browser">
+      <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">🔒 search.google.com/search-console</span></div>
+      <div class="screen">
+        <div class="g-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span> <b style="font-weight:500">Search Console</b></div>
+        <p style="font-size:14px;color:#5f6368;margin:6px 0 16px">Improve your performance on Google Search</p>
+        <span class="g-btn">Start now</span>
+      </div>
+    </div>
+    <div class="arrow-row">
+      <svg width="22" height="22" viewBox="0 0 22 22"><path d="M4 11 h12 M11 5 l7 6 -7 6" class="point-right"/></svg>
+      Sign in with the <b>&nbsp;same Google account&nbsp;</b> you used for Business Profile.
+    </div>
+  </div>
+
+  <!-- GSC STEP 2 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">2</div><h3>Add your website as a “Domain” property</h3></div>
+    <div class="browser">
+      <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">🔒 search.google.com/search-console — add property</span></div>
+      <div class="screen">
+        <div style="display:flex; gap:14px;">
+          <div style="flex:1; border:2px solid #dadce0; border-radius:10px; padding:14px; color:#5f6368; font-size:13px">
+            <b style="color:#202124">URL prefix</b><br>Enter a URL
+          </div>
+          <div style="flex:1; border:3px solid var(--blue); border-radius:10px; padding:14px; font-size:13px; background:#e8f0fe; position:relative">
+            <b style="color:#202124">Domain</b> ✅<br>Enter your domain
+            <svg width="90" height="34" viewBox="0 0 90 34" style="position:absolute; right:-8px; top:-26px">
+              <path d="M6 28 C 30 10, 55 8, 78 12" class="point-right"/>
+              <path d="M70 4 L 84 12 L 72 20" class="point-right"/>
+            </svg>
+          </div>
+        </div>
+        <div class="g-input" style="margin-top:16px"><span class="val">bombaydar.com</span></div>
+      </div>
+    </div>
+    <div class="arrow-row">
+      <svg width="22" height="22" viewBox="0 0 22 22"><path d="M4 11 h12 M11 5 l7 6 -7 6" class="point-right"/></svg>
+      Choose the <b>&nbsp;LEFT option “Domain”&nbsp;</b> — it covers the whole website, all pages. Then enter <b>&nbsp;bombaydar.com&nbsp;</b> → Continue.
+    </div>
+  </div>
+
+  <!-- GSC STEP 3 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">3</div><h3>Verify ownership — one copy-paste</h3></div>
+    <p>Google shows one line of text called a <b>TXT record</b>. You just paste it into your domain settings:</p>
+    <div class="typebox">google-site-verification=XyZ123abc...   ← copy this line Google shows you</div>
+    <div class="browser">
+      <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">🔒 your domain provider — DNS records</span></div>
+      <div class="screen">
+        <div style="font-weight:600; font-size:14px; margin-bottom:10px">DNS Records → Add record</div>
+        <table style="width:100%; border-collapse:collapse; font-size:13.5px">
+          <tr style="color:#5f6368; text-align:left"><th style="padding:6px 8px">Type</th><th style="padding:6px 8px">Name</th><th style="padding:6px 8px">Value</th></tr>
+          <tr style="background:#e8f0fe">
+            <td style="padding:8px"><b>TXT</b> ✅</td>
+            <td style="padding:8px">@</td>
+            <td style="padding:8px">google-site-verification=XyZ123abc...</td>
+          </tr>
+        </table>
+        <svg width="120" height="38" viewBox="0 0 120 38" style="position:absolute; right:18px; top:52px">
+          <path d="M8 30 C 45 8, 80 6, 108 14" class="point-right"/>
+          <path d="M100 6 L 114 13 L 102 23" class="point-right"/>
+        </svg>
+      </div>
+    </div>
+    <ol>
+      <li>Open the company where <b>bombaydar.com</b> was bought (Vercel, GoDaddy, Namecheap…)</li>
+      <li>Find <b>“DNS settings”</b> or <b>“DNS records”</b></li>
+      <li>Add a <b>TXT record</b> → paste Google's line → Save</li>
+      <li>Back in Google, click <b>Verify</b> ✅ <span style="color:var(--muted)">(can take up to 48h)</span></li>
+    </ol>
+    <div class="callout tip"><span class="ico">💡</span><div>If DNS feels confusing: just tell us <b>where you bought the domain</b> and we'll walk you through it on a call.</div></div>
+  </div>
+
+  <!-- GSC STEP 4 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">4</div><h3>Give us access</h3></div>
+    <div class="browser">
+      <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">🔒 Search Console — Settings → Users and permissions</span></div>
+      <div class="screen">
+        <div style="font-weight:600; font-size:15px; margin-bottom:10px">Users and permissions</div>
+        <div class="g-input"><span class="lab">Add user — email</span><span class="val">[ADD DEVELOPER EMAIL HERE]</span></div>
+        <div style="display:flex; gap:10px; margin-top:12px; align-items:center">
+          <span class="g-btn" style="background:#1a73e8">Add</span>
+          <span style="font-size:13px;color:#5f6368">Permission: <b style="color:#202124">Full</b> ← choose this</span>
+        </div>
+      </div>
+    </div>
+    <ol>
+      <li>Search Console → <b>Settings</b> (bottom left) → <b>“Users and permissions”</b></li>
+      <li><b>Add user</b> → our email → permission <b>Full</b> → Add</li>
+    </ol>
+    <div class="callout good"><span class="ico">🎉</span><div>That's everything! We take it from here: sitemap submission, monitoring, and monthly reports.</div></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="step summary">
+    <div class="step-head"><div class="step-num">✓</div><h3>Final checklist</h3></div>
+    <table class="data">
+      <tr><th>Task</th><th>Who</th><th style="width:60px">Done</th></tr>
+      <tr><td>Create Google account</td><td>You</td><td>☐</td></tr>
+      <tr><td>GBP: 3 locations created</td><td>You</td><td>☐</td></tr>
+      <tr><td>GBP: all verified by Google</td><td>You</td><td>☐</td></tr>
+      <tr><td>GBP: photos + hours + descriptions</td><td>You</td><td>☐</td></tr>
+      <tr><td>GBP: manager access given to us</td><td>You</td><td>☐</td></tr>
+      <tr><td>GSC: property created + verified</td><td>You (+ our help for DNS)</td><td>☐</td></tr>
+      <tr><td>GSC: full access given to us</td><td>You</td><td>☐</td></tr>
+      <tr><td>Sitemap submitted, monitoring setup</td><td><b style="color:var(--gold)">Us</b></td><td>☐</td></tr>
+      <tr><td>Ongoing optimization &amp; reports</td><td><b style="color:var(--gold)">Us</b></td><td>☐</td></tr>
+    </table>
+    <div class="callout tip" style="margin-top:20px"><span class="ico">📞</span><div>Questions anytime — happy to hop on a call and do it together.</div></div>
+  </div>
+
+</div>
+
+<footer>Bombay Restaurant Morocco · bombaydar.com · Visual Setup Guide v1</footer>
+
+</body>
+</html>

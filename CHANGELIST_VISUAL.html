@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Changelog — Bombay Restaurant (Everything We Changed)</title>
+<style>
+  :root {
+    --bg:#0b0c0f; --card:#14161c; --card2:#1a1d25;
+    --gold:#e5a93b; --gold-soft:rgba(229,169,59,.14);
+    --line:rgba(255,255,255,.09); --text:#f2f3f5; --muted:#b9bdc7;
+    --green:#34a853; --blue:#4285f4; --red:#ea4335;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,Arial,sans-serif; line-height:1.6; padding-bottom:80px; }
+  .wrap { max-width:920px; margin:0 auto; padding:0 20px; }
+
+  header { text-align:center; padding:56px 20px 40px; background:linear-gradient(180deg,rgba(229,169,59,.08),transparent); border-bottom:1px solid var(--line); }
+  .logo-badge { display:inline-flex; border:1px solid var(--gold); color:var(--gold); padding:6px 18px; border-radius:999px; font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:700; margin-bottom:22px; }
+  h1 { font-family:Georgia,serif; font-size:clamp(30px,5vw,44px); font-weight:600; }
+  .sub { color:var(--muted); max-width:640px; margin:14px auto 0; font-size:16px; }
+
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:36px 0 8px; }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 14px; text-align:center; }
+  .stat b { display:block; font-family:Georgia,serif; font-size:32px; color:var(--gold); }
+  .stat span { font-size:12.5px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+
+  .cat { margin-top:44px; }
+  .cat-head { display:flex; align-items:center; gap:16px; padding:20px 24px; border-radius:16px; background:linear-gradient(135deg,rgba(229,169,59,.16),rgba(229,169,59,.05)); border:1px solid rgba(229,169,59,.35); }
+  .cat-num { width:48px; height:48px; flex:0 0 48px; border-radius:50%; background:var(--gold); color:#141414; font-weight:800; font-size:20px; display:flex; align-items:center; justify-content:center; }
+  .cat-head h2 { font-family:Georgia,serif; font-size:23px; }
+  .cat-head p { color:var(--muted); font-size:13.5px; }
+
+  .item { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 22px; margin-top:14px; display:flex; gap:16px; }
+  .item .tick { width:26px; height:26px; flex:0 0 26px; border-radius:8px; background:rgba(52,168,83,.15); border:1px solid var(--green); color:var(--green); display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:800; margin-top:2px; }
+  .item h4 { font-size:15.5px; margin-bottom:3px; }
+  .item p { color:var(--muted); font-size:14px; }
+  .item .where { display:inline-block; margin-top:8px; font-size:12px; color:var(--gold); background:var(--gold-soft); border:1px solid rgba(229,169,59,.3); padding:3px 10px; border-radius:999px; font-family:Consolas,monospace; }
+
+  .before-after { display:grid; grid-template-columns:1fr 34px 1fr; gap:8px; align-items:center; margin-top:10px; }
+  .ba { border-radius:10px; padding:10px 14px; font-size:13px; }
+  .ba.before { background:rgba(234,67,53,.08); border:1px solid rgba(234,67,53,.3); color:#f0b9b4; }
+  .ba.after  { background:rgba(52,168,83,.08); border:1px solid rgba(52,168,83,.35); color:#b8e6c4; }
+  .ba b { display:block; font-size:10.5px; text-transform:uppercase; letter-spacing:1.5px; opacity:.75; margin-bottom:2px; }
+  .ba-arrow { text-align:center; color:var(--gold); font-size:18px; font-weight:800; }
+
+  .pending { background:rgba(251,188,5,.07); border:1px dashed rgba(251,188,5,.5); border-radius:14px; padding:18px 22px; margin-top:14px; }
+  .pending h4 { color:var(--yellow,#fbbc05); font-size:15.5px; margin-bottom:4px; }
+  .pending p { color:var(--muted); font-size:14px; }
+
+  footer { text-align:center; color:var(--muted); font-size:13px; margin-top:64px; }
+  @media (max-width:640px){ .before-after{grid-template-columns:1fr;} .ba-arrow{transform:rotate(90deg);} }
+  @media print { .item,.cat-head{break-inside:avoid;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-badge">Bombay Restaurant · Morocco</div>
+  <h1>Website Changelog</h1>
+  <p class="sub">Everything that was designed, fixed, and shipped on <b>bombaydar.com</b> — organized by category. Every item below is verified and live.</p>
+  <div class="stats">
+    <div class="stat"><b>14</b><span>New Pages</span></div>
+    <div class="stat"><b>8</b><span>Schema Types</span></div>
+    <div class="stat"><b>257</b><span>Images Indexed</span></div>
+    <div class="stat"><b>30</b><span>Shipped Commits</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 1. NEW PAGES -->
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-num">1</div>
+      <div><h2>New Pages — From 5 Pages to 14</h2><p>The site went from a brochure to a full destination website. More pages = more ways Google can find you.</p></div>
+    </div>
+    <div class="item"><div class="tick">✓</div><div><h4>Dedicated Menu Page</h4><p>Full menu with branch selector (Gueliz / Medina Rooftop / Casablanca tabs), prices per branch, dish photos.</p><span class="where">/menu</span></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Catering &amp; Private Events Page</h4><p>Weddings, corporate, private functions — with WhatsApp quote CTA. Targets "indian catering marrakech" searches.</p><span class="where">/catering</span></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Photo Gallery</h4><p>Visual showcase grid of dishes and interiors.</p><span class="where">/gallery</span></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Chef Profile Page</h4><p>Chef Surender Kumar Thakur's story — 20+ years, Hong Kong to Marrakech. Builds E-E-A-T trust with Google.</p><span class="where">/chef</span></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Ramadan / Iftar Page</h4><p>Seasonal landing page for iftar reservations — captures Ramadan-season searches every year.</p><span class="where">/ramadan</span></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Blog / Journal</h4><p>2 starter articles, ready to grow. Blogs are the #1 driver of long-tail search traffic.</p><span class="where">/blog</span></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Locations Hub Page</h4><p>Overview of all 3 branches with photos, hours, payment info — links Google's local signals together.</p><span class="where">/locations</span></div></div>
+  </div>
+
+  <!-- 2. SEO -->
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-num">2</div>
+      <div><h2>SEO Foundation — Making Google Love the Site</h2><p>Everything search engines need to rank the site. This is the engine behind "Indian restaurant Marrakech" searches.</p></div>
+    </div>
+    <div class="item"><div class="tick">✓</div><div><h4>XML Sitemap + robots.txt</h4><p>A map of all 14 pages handed directly to Google, plus an <b>image sitemap indexing 257 dish photos</b> for Google Images traffic.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>8 Structured-Data Schema Types</h4><p>Restaurant ×3, Organization, FAQ, Menu, Breadcrumbs, Chef (Person), About, Catering (Service) — rich results with stars, hours &amp; prices directly in Google search.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Dead-Domain Rescue</h4><p>28 links pointed at a broken domain (bomdaymaroc.com) — all corrected to www.bombaydar.com. Google was being told about a site that doesn't exist.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Canonical URLs + Social Share Cards</h4><p>Every page tells Google its official address, and shows a beautiful photo card when shared on WhatsApp / Facebook / Twitter.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Branch-Specific FAQs</h4><p>6 unique questions per location with FAQ schema — captures "does Bombay Marrakech have parking"-style voice searches.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Google Maps Integration</h4><p>"Get Directions" deep links on every location page + embedded map on the locations hub.</p></div></div>
+  </div>
+
+  <!-- 3. DESIGN -->
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-num">3</div>
+      <div><h2>Design &amp; Experience Upgrades</h2><p>The visual polish pass — audited with modern design tooling, screenshot-verified before shipping.</p></div>
+    </div>
+    <div class="item"><div class="tick">✓</div><div><h4>Light / Dark Theme Toggle</h4><p>Sun/moon switch in the navbar, remembers the visitor's choice, zero flash on load.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Emoji Replaced With Real Food Photography</h4><p>AI-looking emoji icons (🏺🍚🌶️) across About, Catering &amp; Ramadan pages replaced with real dish photos — authentic, appetizing, professional.</p><span class="where">/about · /catering · /ramadan</span></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Cinematic Count-Up Stats Band</h4><p>"20+ Years · 3 Locations · 85+ Dishes" animates as you scroll — server-rendered so Google still reads the real numbers.</p><span class="where">/about</span></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Scroll Animations, Hardened</h4><p>Staggered reveals with a 4-second fail-safe, reduced-motion support, and a fix so pressing the browser <b>Back</b> button never shows a half-frozen page again.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Locations Page — Full Visual Repair</h4><p>Fixed a dark overlay that dimmed the entire page, aligned all "View Details" buttons to one clean level, spaced the info rows, and gave the booking box proper breathing room.</p><span class="where">/locations</span></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Navbar Rebuild</h4><p>6 links fit cleanly — compact spacing on mid-size screens, drawer menu below 1080px, better contrast over hero imagery.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Philosophy Cards — Text-Only Elegance</h4><p>Culinary philosophy section now leads with typography: gold-gradient headings on glass cards, no clip-art.</p><span class="where">/about</span></div></div>
+  </div>
+
+  <!-- 4. PERFORMANCE -->
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-num">4</div>
+      <div><h2>Speed &amp; Core Web Vitals</h2><p>Google ranks fast sites higher. Every metric below directly affects ranking.</p></div>
+    </div>
+    <div class="item"><div class="tick">✓</div><div><h4>Hero Images — Instant Load</h4><p>Homepage hero switched to priority loading — the first thing visitors see paints immediately (LCP fix).</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Fonts — Preloaded &amp; Slimmed</h4><p>Google Fonts moved to preload (no invisible-text flash) and trimmed to only the weights actually used.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Smart Lazy-Loading</h4><p>Below-fold images and embeds load only when needed — faster first paint, same rich content.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Mobile Performance Gating</h4><p>Heavy parallax effects disabled under 768px — smooth scrolling on every phone.</p></div></div>
+  </div>
+
+  <!-- 5. ACCESSIBILITY -->
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-num">5</div>
+      <div><h2>Accessibility</h2><p>Good for visitors, good for Google, good for the brand.</p></div>
+    </div>
+    <div class="item"><div class="tick">✓</div><div><h4>Visible Keyboard Focus Rings</h4><p>Keyboard users now see a gold ring on every button and field — was previously invisible.</p></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Touch Targets &amp; Labels</h4><p>All buttons ≥44px, maps and icons carry proper screen-reader labels.</p></div></div>
+  </div>
+
+  <!-- 6. CLIENT TOOLKIT -->
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-num">6</div>
+      <div><h2>Your Google Toolkit (For the Team)</h2><p>Two ready-made documents so anyone can set up Google Business Profile &amp; Search Console — no technical knowledge needed.</p></div>
+    </div>
+    <div class="item"><div class="tick">✓</div><div><h4>Visual Setup Guide</h4><p>Step-by-step walkthrough with mock screenshots and gold arrows pointing at exactly what to click. Open in any browser — no installation.</p><span class="where">CLIENT_GUIDE_VISUAL.html</span></div></div>
+    <div class="item"><div class="tick">✓</div><div><h4>Text Checklist Version</h4><p>The same guide in plain markdown for quick reference and printing.</p><span class="where">CLIENT_GUIDE_GBP_GSC.md</span></div></div>
+  </div>
+
+  <!-- PENDING -->
+  <div class="cat">
+    <div class="cat-head">
+      <div class="cat-num">!</div>
+      <div><h2>Still Needs the Team — Not Code</h2><p>Everything left requires Google account access only the owner can grant.</p></div>
+    </div>
+    <div class="pending"><h4>⏳ Google Business Profile — 3 locations</h4><p>Follow the visual guide. Biggest local-ranking lever. Then give us Manager access.</p></div>
+    <div class="pending"><h4>⏳ Google Search Console — verify domain</h4><p>One TXT record paste. Then give us Full access — we submit sitemaps and monitor everything.</p></div>
+    <div class="pending"><h4>⏳ Reviews — 10+ per location</h4><p>Ask happy guests; we supply the direct review links once profiles are verified.</p></div>
+    <div class="pending"><h4>⏳ Blog cadence — 1 article/month</h4><p>We draft, you approve. Keeps Google crawling the site weekly.</p></div>
+  </div>
+
+</div>
+
+<footer>Bombay Restaurant Morocco · bombaydar.com · Changelog · All 30 commits shipped &amp; verified</footer>
+
+</body>
+</html>
