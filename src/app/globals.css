@@ -1655,6 +1655,13 @@ p {
 .cta-card {
   max-width: 1100px;
   margin: 0 auto;
+  padding: 56px 48px 64px;
+}
+
+@media (max-width: 640px) {
+  .cta-card {
+    padding: 40px 24px 48px;
+  }
 }
 
 .location-badge {
