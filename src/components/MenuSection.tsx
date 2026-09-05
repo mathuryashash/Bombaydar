@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { generateMenuItemSchema } from '@/lib/schema';
 
 export interface MenuItem {
   id: string;
@@ -1021,9 +1022,18 @@ export default function MenuSection({ defaultBranch = 'gueliz' }: MenuSectionPro
       </div>
 
       {/* Dish Items Grid */}
-      <div className="menu-items-grid">
-        {filteredItems.map((item) => (
-          <article key={item.id} className="menu-item-card bg-black/60 p-6 rounded-2xl border border-white/10 transition-all duration-300 hover:border-gold/60 hover:bg-black/80 hover:shadow-2xl group">
+            <div className="menu-items-grid">
+              {filteredItems.map((item) => (
+                <>
+                  <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                      __html: JSON.stringify(
+                        generateMenuItemSchema(item, selectedBranch === 'casablanca' ? 'casablanca' : 'marrakech', lang)
+                      ),
+                    }}
+                  />
+                  <article key={item.id} className="menu-item-card bg-black/60 p-6 rounded-2xl border border-white/10 transition-all duration-300 hover:border-gold/60 hover:bg-black/80 hover:shadow-2xl group">
             {item.imageUrl ? (
               <div className="menu-item-image rounded-xl overflow-hidden border border-white/10 bg-black/40 relative">
                 <Image
@@ -1069,9 +1079,10 @@ export default function MenuSection({ defaultBranch = 'gueliz' }: MenuSectionPro
                 )}
               </div>
             </div>
-          </article>
-        ))}
-      </div>
+                      </article>
+                    </>
+                  ))}
+                  </div>
 
       {/* Official Scanned Menu Modal */}
       {showMenuScanModal && (

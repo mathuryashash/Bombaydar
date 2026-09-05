@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { casablancaSchema, faqSchema, generateMenuSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Bombay Casablanca Maârif: Modern Indian Restaurant with Seafood & Cocktails",

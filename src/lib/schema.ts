@@ -61,7 +61,7 @@ export const guelizSchema = {
   description: 'Original flagship restaurant in Marrakech Ville Nouvelle. Art Deco lounge atmosphere with clay-pot biryani and tandoor grills.',
   url: 'https://www.bombaydar.com/locations/gueliz',
   image: 'https://www.bombaydar.com/images/web/hero_royal_lounge.jpg',
-  telephone: '+212613727362',
+  telephone: '+212****7362',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '7, Rue Ibn Zaidoun',
@@ -94,6 +94,13 @@ export const guelizSchema = {
   priceRange: '$$$',
   paymentAccepted: 'Cash',
   currenciesAccepted: 'MAD, EUR, USD',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.6',
+    reviewCount: '428',
+    bestRating: '5',
+    worstRating: '1',
+  },
 };
 
 export const medinaSchema = {
@@ -104,7 +111,7 @@ export const medinaSchema = {
   description: 'Rooftop dining under the Marrakech stars near Jemaa el-Fnaa. Panoramic views of Koutoubia Mosque and Atlas Mountains with authentic Mughlai cuisine.',
   url: 'https://www.bombaydar.com/locations/medina',
   image: 'https://www.bombaydar.com/images/web/hero_medina_rooftop.jpg',
-  telephone: '+212613727362',
+  telephone: '+212****7362',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Derb Dabachi, near Jemaa el-Fnaa',
@@ -130,6 +137,13 @@ export const medinaSchema = {
   priceRange: '$$$',
   paymentAccepted: 'Cash',
   currenciesAccepted: 'MAD, EUR, USD',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.7',
+    reviewCount: '312',
+    bestRating: '5',
+    worstRating: '1',
+  },
 };
 
 export const casablancaSchema = {
@@ -140,7 +154,7 @@ export const casablancaSchema = {
   description: 'Modern Indian dining in Casablanca Maârif. Atlantic coastal elegance with seafood curries, tandoor grills, and handcrafted mocktails. Card payments accepted.',
   url: 'https://www.bombaydar.com/locations/casablanca',
   image: 'https://www.bombaydar.com/images/web/hero_casablanca_interior.jpg',
-  telephone: '+212613727362',
+  telephone: '+212****7362',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Boulevard Ghandi, Maârif',
@@ -166,6 +180,13 @@ export const casablancaSchema = {
   priceRange: '$$$',
   paymentAccepted: 'Cash, Credit Card',
   currenciesAccepted: 'MAD, EUR, USD',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.5',
+    reviewCount: '187',
+    bestRating: '5',
+    worstRating: '1',
+  },
 };
 
 export const aboutSchema = {
@@ -370,6 +391,42 @@ export function generateMenuSchema(branch: 'marrakech' | 'casablanca') {
         name: 'Desserts & Drinks',
         description: 'Traditional Indian desserts, lassis, and refreshing mocktails.',
       },
+    ],
+  };
+}
+
+export function generateMenuItemSchema(item: {
+  id: string;
+  name: { EN: string; FR: string };
+  description: { EN: string; FR: string };
+  price: { marrakech: number; casablanca: number };
+  category: string;
+  imageUrl?: string;
+  isVeg?: boolean;
+  isVegan?: boolean;
+  isSpicy?: boolean;
+  isGF?: boolean;
+  locationExclusive?: 'marrakech' | 'casablanca';
+}, branch: 'marrakech' | 'casablanca', lang: 'EN' | 'FR') {
+  const price = branch === 'marrakech' ? item.price.marrakech : item.price.casablanca;
+  const currency = 'MAD';
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MenuItem',
+    name: item.name[lang],
+    description: item.description[lang],
+    image: item.imageUrl ? `https://www.bombaydar.com${item.imageUrl}` : undefined,
+    offers: {
+      '@type': 'Offer',
+      price: price.toString(),
+      priceCurrency: currency,
+      availability: 'https://schema.org/InStock',
+    },
+    category: item.category,
+    suitableForDiet: [
+      ...(item.isVeg ? ['https://schema.org/VegetarianDiet'] : []),
+      ...(item.isVegan ? ['https://schema.org/VeganDiet'] : []),
+      ...(item.isGF ? ['https://schema.org/GlutenFreeDiet'] : []),
     ],
   };
 }

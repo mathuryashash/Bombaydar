@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { organizationSchema } from "@/lib/schema";
 import ScrollAnimationInitializer from "@/components/ScrollAnimationInitializer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import StickyBookingBar from "@/components/StickyBookingBar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bombaydar.com"),
@@ -66,8 +67,13 @@ export const metadata: Metadata = {
     creator: "@bombay_marrakech",
   },
   alternates: {
-    canonical: "https://www.bombaydar.com",
-  },
+      canonical: "https://www.bombaydar.com",
+      languages: {
+        en: "https://www.bombaydar.com",
+        fr: "https://www.bombaydar.com",
+        "x-default": "https://www.bombaydar.com",
+      },
+    },
 };
 
 export default function RootLayout({
@@ -109,14 +115,15 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div className="scroll-progress-bar" aria-hidden="true" />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
-        <Analytics />
-        <ScrollAnimationInitializer />
-      </body>
+              <div className="scroll-progress-bar" aria-hidden="true" />
+              <Navbar />
+              <main>{children}</main>
+              <Footer />
+              <WhatsAppFloat />
+              <StickyBookingBar />
+              <Analytics />
+              <ScrollAnimationInitializer />
+            </body>
     </html>
   );
 }

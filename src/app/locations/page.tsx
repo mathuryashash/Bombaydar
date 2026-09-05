@@ -131,9 +131,9 @@ export default function LocationsPage() {
           <span className="location-badge reveal-on-scroll left delay-1">Three Locations, One Soul</span>
           <h1 className="font-serif location-title reveal-on-scroll right delay-2">Our Restaurants</h1>
           <p className="location-subtitle reveal-on-scroll up delay-3">
-            Experience authentic North Indian & Punjabi cuisine across three distinctive settings in Marrakech and Casablanca.
-            Each location offers Chef Surender's signature clay-pot biryani, tandoor grills, and warm hospitality.
-          </p>
+                      Experience authentic North Indian & Punjabi cuisine across three distinctive settings in Marrakech and Casablanca.
+                      Each location offers Chef Surender&apos;s signature clay-pot biryani, tandoor grills, and warm hospitality.
+                    </p>
         </div>
       </section>
 
@@ -199,20 +199,20 @@ export default function LocationsPage() {
               Ready to Experience Authentic Indian Cuisine?
             </h2>
             <p className="text-sand text-center max-w-2xl mx-auto mb-8 reveal-on-scroll up delay-1">
-              Book your table at any of our three locations. Whether it's a romantic dinner at our Medina Rooftop,
-              a family gathering at our Gueliz flagship, or a business lunch in Casablanca — we're ready to welcome you.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center reveal-on-scroll up delay-2">
-              <Link href="/locations/gueliz#booking-anchor" className="btn-primary pulse-glow" style={{ textAlign: "center" }}>
-                Book at Marrakech Gueliz
-              </Link>
-              <Link href="/locations/medina#booking-anchor" className="btn-primary" style={{ textAlign: "center" }}>
-                Book at Medina Rooftop
-              </Link>
-              <Link href="/locations/casablanca#booking-anchor" className="btn-primary" style={{ textAlign: "center" }}>
-                Book at Casablanca
-              </Link>
-            </div>
+                          Book your table at any of our three locations. Whether it&apos;s a romantic dinner at our Medina Rooftop,
+                          a family gathering at our Gueliz flagship, or a business lunch in Casablanca &mdash; we&apos;re ready to welcome you.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center reveal-on-scroll up delay-2">
+                          <Link href="/locations/gueliz#booking-anchor" className="btn-primary pulse-glow" style={{ textAlign: "center" }}>
+                            Book at Marrakech Gueliz
+                          </Link>
+                          <Link href="/locations/medina#booking-anchor" className="btn-primary" style={{ textAlign: "center" }}>
+                            Book at Medina Rooftop
+                          </Link>
+                          <Link href="/locations/casablanca#booking-anchor" className="btn-primary" style={{ textAlign: "center" }}>
+                            Book at Casablanca
+                          </Link>
+                        </div>
           </div>
         </div>
       </section>

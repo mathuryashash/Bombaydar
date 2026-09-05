@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { medinaSchema, faqSchema, generateMenuSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Medina Rooftop Marrakech: Rooftop Indian Dining Near Jemaa el-Fnaa",

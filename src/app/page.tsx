@@ -8,16 +8,9 @@ import Logo from '@/components/Logo';
 import SchemaScript from '@/components/SchemaScript';
 import { organizationSchema, faqSchema } from '@/lib/schema';
 
-const BRANCH_MAP_QUERIES: Record<'gueliz' | 'medina' | 'casablanca', string> = {
-  gueliz: 'Bombay Restaurant, 7 Rue Ibn Zaidoun, Gueliz, Marrakech',
-  medina: 'Bombay Restaurant, Derb Dabachi, Medina, Marrakech',
-  casablanca: 'Bombay Restaurant, Boulevard Ghandi, Maarif, Casablanca',
-};
-
 export default function Home() {
   const [lang, setLang] = useState<'EN' | 'FR'>('EN');
   const [heroIndex, setHeroIndex] = useState(0);
-  const [mapBranch, setMapBranch] = useState<'gueliz' | 'medina' | 'casablanca'>('gueliz');
 
   const heroImages = [
     { src: '/images/web/hero_royal_lounge.jpg', alt: 'Bombay Marrakech Gueliz - Elegant Art Deco lounge with warm ambient lighting' },
@@ -48,11 +41,11 @@ export default function Home() {
   }, [heroImages.length]);
 
   const copy = {
-    heroTitle: { EN: "A Culinary Journey from Bombay to Morocco", FR: "Un Voyage Culinaire de Bombay au Maroc" },
-    heroSubtitle: { 
-      EN: "Authentic, home-style North Indian & Punjabi cuisine by Chef Surender Kumar Thakur.", 
-      FR: "Cuisine authentique et familiale du nord de l'Inde et du Pendjab par le chef Surender Kumar Thakur." 
-    },
+      heroTitle: { EN: "Authentic North Indian & Punjabi Cuisine in Marrakech & Casablanca", FR: "Cuisine Authentique du Nord de l'Inde & du Pendjab à Marrakech & Casablanca" },
+      heroSubtitle: {
+        EN: "Chef Surender Kumar Thakur's 20-year legacy. Clay-pot biryani, tandoor grills & rooftop dining.",
+        FR: "L'héritage de 20 ans du Chef Surender Kumar Thakur. Biryani en pot d'argile, grillades tandoor & terrasses sur le toit."
+      },
     discoverMenu: { EN: "Discover Our Story", FR: "Découvrir Notre Histoire" },
     bookTable: { EN: "Book a Table", FR: "Réserver une Table" },
     

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { aboutSchema, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Chef Surender Kumar Thakur: 20+ Years of Authentic Indian Cuisine in Morocco",

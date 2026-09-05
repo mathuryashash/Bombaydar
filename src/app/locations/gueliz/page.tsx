@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { guelizSchema, faqSchema, generateMenuSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Bombay Marrakech Gueliz: Flagship Indian Restaurant in Ville Nouvelle",
