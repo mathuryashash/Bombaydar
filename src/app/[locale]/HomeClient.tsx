@@ -8,8 +8,12 @@ import Logo from '@/components/Logo';
 import SchemaScript from '@/components/SchemaScript';
 import { organizationSchema, faqSchema } from '@/lib/schema';
 
-export default function Home() {
-  const [lang, setLang] = useState<'EN' | 'FR'>('EN');
+interface HomeClientProps {
+  locale: 'en' | 'fr';
+}
+
+export default function HomeClient({ locale }: HomeClientProps) {
+  const [lang, setLang] = useState<'EN' | 'FR'>(locale === 'fr' ? 'FR' : 'EN');
   const [heroIndex, setHeroIndex] = useState(0);
 
   const heroImages = [
@@ -41,14 +45,14 @@ export default function Home() {
   }, [heroImages.length]);
 
   const copy = {
-      heroTitle: { EN: "Authentic North Indian & Punjabi Cuisine in Marrakech & Casablanca", FR: "Cuisine Authentique du Nord de l'Inde & du Pendjab à Marrakech & Casablanca" },
-      heroSubtitle: {
-        EN: "Chef Surender Kumar Thakur's 20-year legacy. Clay-pot biryani, tandoor grills & rooftop dining.",
-        FR: "L'héritage de 20 ans du Chef Surender Kumar Thakur. Biryani en pot d'argile, grillades tandoor & terrasses sur le toit."
-      },
+    heroTitle: { EN: "Authentic North Indian & Punjabi Cuisine at Bombay Marrakech Gueliz, Medina Rooftop & Bombay Casablanca", FR: "Cuisine Authentique du Nord de l'Inde & du Pendjab au Bombay Marrakech Guéliz, Médina Rooftop & Bombay Casablanca" },
+    heroSubtitle: {
+      EN: "Chef Surender Kumar Thakur's 20-year legacy. Clay-pot biryani, tandoor grills & rooftop dining.",
+      FR: "L'héritage de 20 ans du Chef Surender Kumar Thakur. Biryani en pot d'argile, grillades tandoor & terrasses sur le toit."
+    },
     discoverMenu: { EN: "Discover Our Story", FR: "Découvrir Notre Histoire" },
     bookTable: { EN: "Book a Table", FR: "Réserver une Table" },
-    
+
     // Brand Story
     storyLabel: { EN: "Our Heritage", FR: "Notre Héritage" },
     storyTitle: { EN: "Deepen, Don't Dilute", FR: "Approfondir, Ne Pas Diluer" },
@@ -135,6 +139,8 @@ export default function Home() {
     }
   ];
 
+  const localePrefix = locale === 'fr' ? '/fr' : '/en';
+
   return (
     <div className="homepage-wrapper">
       {/* Hero Section */}
@@ -163,8 +169,8 @@ export default function Home() {
           <h1 className="hero-title font-serif reveal-on-scroll left delay-1">{copy.heroTitle[lang]}</h1>
           <p className="hero-subtitle reveal-on-scroll right delay-2">{copy.heroSubtitle[lang]}</p>
           <div className="hero-buttons reveal-on-scroll up delay-3">
-            <Link href="#booking-anchor" className="btn-primary pulse-glow">{copy.bookTable[lang]}</Link>
-            <Link href="/about" className="btn-secondary">{copy.discoverMenu[lang]}</Link>
+            <Link href={`${localePrefix}#booking-anchor`} className="btn-primary pulse-glow">{copy.bookTable[lang]}</Link>
+            <Link href={`${localePrefix}/about`} className="btn-secondary">{copy.discoverMenu[lang]}</Link>
           </div>
         </div>
 
@@ -193,19 +199,19 @@ export default function Home() {
             {/* Gueliz */}
             <article className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image 
-                  src="/images/web/hero_royal_lounge.jpg" 
-                  alt="Bombay Marrakech Gueliz - Art Deco lounge interior with dark teakwood paneling, brass lanterns, and plush velvet seating" 
-                  width={400} 
-                  height={250} 
-                  className="branch-img" 
+                <Image
+                  src="/images/web/hero_royal_lounge.jpg"
+                  alt="Bombay Marrakech Gueliz - Art Deco lounge interior with dark teakwood paneling, brass lanterns, and plush velvet seating"
+                  width={400}
+                  height={250}
+                  className="branch-img"
                 />
               </div>
               <div className="branch-card-content">
                 <h3 className="branch-name font-serif text-white">Bombay Marrakech Gueliz</h3>
                 <p className="branch-desc text-sand">{copy.guelizDesc[lang]}</p>
                 <div className="branch-actions">
-                  <Link href="/locations/gueliz" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
+                  <Link href={`${localePrefix}/locations/gueliz`} className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
                 </div>
               </div>
             </article>
@@ -213,19 +219,19 @@ export default function Home() {
             {/* Medina */}
             <article className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image 
-                  src="/images/web/hero_medina_rooftop.jpg" 
-                  alt="Medina Rooftop Marrakech - Rooftop terrace with panoramic views of Koutoubia Mosque and Atlas Mountains at sunset" 
-                  width={400} 
-                  height={250} 
-                  className="branch-img" 
+                <Image
+                  src="/images/web/hero_medina_rooftop.jpg"
+                  alt="Medina Rooftop Marrakech - Rooftop terrace with panoramic views of Koutoubia Mosque and Atlas Mountains at sunset"
+                  width={400}
+                  height={250}
+                  className="branch-img"
                 />
               </div>
               <div className="branch-card-content">
                 <h3 className="branch-name font-serif text-white">Medina Rooftop</h3>
                 <p className="branch-desc text-sand">{copy.medinaDesc[lang]}</p>
                 <div className="branch-actions">
-                  <Link href="/locations/medina" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
+                  <Link href={`${localePrefix}/locations/medina`} className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
                 </div>
               </div>
             </article>
@@ -233,19 +239,19 @@ export default function Home() {
             {/* Casablanca */}
             <article className="branch-card glass-panel">
               <div className="branch-img-container">
-                <Image 
-                  src="/images/web/hero_casablanca_interior.jpg" 
-                  alt="Bombay Casablanca Maârif - Modern dining room with open tandoor grill and gold accents" 
-                  width={400} 
-                  height={250} 
-                  className="branch-img" 
+                <Image
+                  src="/images/web/hero_casablanca_interior.jpg"
+                  alt="Bombay Casablanca Maârif - Modern dining room with open tandoor grill and gold accents"
+                  width={400}
+                  height={250}
+                  className="branch-img"
                 />
               </div>
               <div className="branch-card-content">
                 <h3 className="branch-name font-serif text-white">Bombay Casablanca</h3>
                 <p className="branch-desc text-sand">{copy.casaDesc[lang]}</p>
                 <div className="branch-actions">
-                  <Link href="/locations/casablanca" className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
+                  <Link href={`${localePrefix}/locations/casablanca`} className="btn-secondary branch-btn">{copy.viewBranch[lang]}</Link>
                 </div>
               </div>
             </article>
@@ -286,14 +292,14 @@ export default function Home() {
       {/* Catering & Private Events Section */}
       <section className="catering-section container section-reveal" aria-labelledby="catering-title">
         <div className="catering-grid glass-panel rounded-2xl overflow-hidden border border-gold/20 relative parallax-element" data-parallax-speed="0.2">
-          <div 
-            className="catering-bg absolute inset-0 bg-cover bg-center opacity-20" 
-            style={{ backgroundImage: `url('/images/web/ambiance_luxury_table.jpg')` }} 
+          <div
+            className="catering-bg absolute inset-0 bg-cover bg-center opacity-20"
+            style={{ backgroundImage: `url('/images/web/ambiance_luxury_table.jpg')` }}
             role="img"
             aria-label="Elegant catering setup with luxury table setting, gold cutlery, and premium Indian cuisine presentation"
           />
           <div className="catering-overlay absolute inset-0 z-0" />
-          
+
           <div className="catering-content relative z-10 p-8 md:p-16 max-w-2xl flex flex-col gap-5 reveal-on-scroll up">
             <span className="section-label gold-text text-gold font-bold uppercase tracking-widest text-xs">
               {copy.cateringLabel[lang]}
@@ -306,7 +312,7 @@ export default function Home() {
               {copy.cateringText[lang]}
             </p>
             <div className="mt-4 reveal-on-scroll up delay-1">
-              <a 
+              <a
                 href="https://wa.me/212613727362?text=Hello%20Bombay%20Restaurant!%20I%20would%20like%20to%20inquire%20about%20catering%20services%20for%20my%20event."
                 target="_blank"
                 rel="noopener noreferrer"

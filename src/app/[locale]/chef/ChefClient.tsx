@@ -1,36 +1,9 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import Breadcrumbs from "@/components/Breadcrumbs";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Chef Surender Kumar Thakur — 20+ Years of Authentic Indian Cuisine in Morocco",
-  description: "From Oberoi Udaivilas to Bombay Dreams Hong Kong to Marrakech. Meet the master chef behind Morocco's most authentic North Indian cuisine — tandoor, clay-pot biryani & Mughlai traditions since 2004.",
-  openGraph: {
-    title: "Chef Surender Kumar Thakur — Master of North Indian Cuisine in Morocco",
-    description: "Oberoi-trained, Hong Kong-tested, Moroccan pioneer since 2004. Meet the chef.",
-    url: "https://www.bombaydar.com/chef",
-    siteName: "Bombay Restaurant",
-    locale: "en_US",
-    type: "profile",
-    images: [
-      {
-        url: "/images/web/chef_surender_solo_portrait.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Chef Surender Kumar Thakur, owner and head chef of Bombay Restaurant Morocco",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Chef Surender Kumar Thakur — Bombay Restaurant Morocco",
-    description: "20+ years of authentic North Indian cuisine in Morocco.",
-    images: ["/images/web/chef_surender_solo_portrait.jpg"],
-  },
-  alternates: {
-    canonical: "https://www.bombaydar.com/chef",
-  },
-};
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const chefSchema = {
   '@context': 'https://schema.org',
@@ -60,7 +33,15 @@ const timeline = [
   ["Today", "The Living Tradition", "Still at the tandoor every service. The sealed clay-pot biryani is still slow-cooked exactly as it was in Punjab generations ago."],
 ];
 
-export default function ChefPage() {
+interface ChefClientProps {
+  locale: 'en' | 'fr';
+}
+
+export default function ChefClient({ locale }: ChefClientProps) {
+  const pathname = usePathname();
+  const currentLocale = pathname.split('/')[1] || locale;
+  const locationsHref = `/${currentLocale}/locations`;
+
   return (
     <div className="location-page-wrapper">
       <script
@@ -70,11 +51,11 @@ export default function ChefPage() {
 
       <section className="relative pt-32 pb-10 bg-black/40">
         <div className="container mx-auto px-4">
-          <Breadcrumbs items={[{ name: "Our Chef", url: "/chef" }]} />
+          <Breadcrumbs items={[{ name: "Our Chef", url: `/${currentLocale}/chef` }]} />
           <span className="text-xs uppercase tracking-widest text-gold font-bold block mt-6 mb-2">The Man Behind The Fire</span>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-3">Chef Surender Kumar Thakur</h1>
           <p className="text-lg text-sand max-w-2xl font-sans font-light">
-            Owner &amp; Head Chef · Oberoi-trained · Bringing authentic North Indian cuisine to Morocco since 2004.
+            Owner & Head Chef · Oberoi-trained · Bringing authentic North Indian cuisine to Morocco since 2004.
           </p>
         </div>
       </section>
@@ -90,7 +71,7 @@ export default function ChefPage() {
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover object-top"
             />
-            <figcaption className="sr-only">Chef Surender Kumar Thakur, Owner &amp; Head Chef</figcaption>
+            <figcaption className="sr-only">Chef Surender Kumar Thakur, Owner & Head Chef</figcaption>
           </figure>
 
           <div className="story-content reveal-on-scroll right">
@@ -107,7 +88,7 @@ export default function ChefPage() {
             </p>
             <div className="story-chef-sign">
               <span className="chef-name gold-text">Chef Surender Kumar Thakur</span>
-              <span className="chef-title">Owner &amp; Head Chef, Bombay Restaurant Morocco</span>
+              <span className="chef-title">Owner & Head Chef, Bombay Restaurant Morocco</span>
             </div>
           </div>
         </div>
@@ -135,7 +116,7 @@ export default function ChefPage() {
           <p className="text-base text-sand mb-8">
             Dine at any of our three locations and experience two decades of mastery in every dish.
           </p>
-          <a href="/locations" className="btn-primary">Find Your Table</a>
+          <Link href={locationsHref} className="btn-primary">Find Your Table</Link>
         </div>
       </section>
     </div>
